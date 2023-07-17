@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 개발 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 17 Jul 2023 14:43:10 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 개발 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 17 Jul 2023 14:45:28 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
 맨 처음 마음 먹었을 때는 네이버 블로그를 사용했다. 당시 대학교…]]></description><link>https://klloo.github.io/make-blog/</link><guid isPermaLink="false">https://klloo.github.io/make-blog/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
@@ -223,7 +223,7 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;이게 내 네이버 블로그인데 뭔가 이런 느낌으로 만들고 싶었다. 음... 뭐 아무것도 없어보이긴 하지만 그래도 있을 기능 다 있고도 엄청 깔끔한 점이 맘에 든다.&lt;/p&gt;
+&lt;p&gt;이게 내 네이버 블로그인데 뭔가 이런 느낌으로 만들고 싶었다. 뭐... 아무것도 없어보이긴 하지만 그래도 있을 기능 다 있고도 엄청 깔끔한 점이 맘에 든다.&lt;/p&gt;
 &lt;p&gt;그리고 아래 두 개 블로그도 많이 참고해서 만들었다.&lt;/p&gt;
 &lt;p&gt;-&lt;a href=&quot;https://devfoxstar.github.io/&quot;&gt;https://devfoxstar.github.io/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;-&lt;a href=&quot;https://zoomkoding.com/college-timetable-development/&quot;&gt;https://zoomkoding.com/college-timetable-development/&lt;/a&gt;
