@@ -1,13 +1,7 @@
 ---
-title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+title: Gatsby와 Github pages로 깃허브 블로그 만들기
+date: "2023-07-17"
+category: "블로그"
 ---
 
-Wow! I love blogging so much already.
-
-Did you know that "despite its name, salted duck eggs can also be made from
-chicken eggs, though the taste and texture will be somewhat different, and the
-egg yolk will be less rich."?
-([Wikipedia Link](https://en.wikipedia.org/wiki/Salted_duck_egg))
-
-Yeah, I didn't either.
+내나이26드디어깃허브블로그를만들었다
