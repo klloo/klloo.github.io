@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 개발 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 17 Jul 2023 14:45:28 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 개발 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 17 Jul 2023 14:59:05 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
 맨 처음 마음 먹었을 때는 네이버 블로그를 사용했다. 당시 대학교…]]></description><link>https://klloo.github.io/make-blog/</link><guid isPermaLink="false">https://klloo.github.io/make-blog/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
@@ -31,7 +31,7 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;내 나이 26 ... 드디어 깃허브 블로그를 만들다...&lt;/p&gt;
-&lt;h3&gt;계기&lt;/h3&gt;
+&lt;h4&gt;계기&lt;/h4&gt;
 &lt;p&gt;이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
 맨 처음 마음 먹었을 때는 네이버 블로그를 사용했다. 당시 대학교 4학년이었지만 아무것도 모르던 나는... 그냥 접근성이 제일 좋아서 네이버 블로그로 선택을 했었다.&lt;/p&gt;
 &lt;p&gt;스프링으로 막 백엔드 공부를 시작하면서 혼자 진행했던 프로젝트 내용, 알고리즘 문제 풀이, 정보처리기사 공부했던 내용, 면접 대비용으로 자바와 CS공부했던 내용 등을 정리해놨었다. 이제보니 나름 뭘 많이 끄적여놨는지...게시글이 116개가 있다.&lt;/p&gt;
@@ -72,10 +72,10 @@
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;나 스스로도 왜 이제 와서... 라는 생각이 들었지만 몰라... 고민 말고 다시 시작해보기로 했다.
 왜 깃허브 블로그로 다시 시작을 했냐면 그냥 멋져서 그렇다.&lt;/p&gt;
-&lt;h3&gt;플랫폼 선정&lt;/h3&gt;
+&lt;h4&gt;플랫폼 선정&lt;/h4&gt;
 &lt;p&gt;보통 깃허브로 블로그를 만들 때 제일 유명한게 Jekyll과 Gatsby였는데 Gatsby가 리액트 기반이라고 해서 관심이 갔다. 안그래도 막막한 블로그 만들기... 조금이라도 익숙한 환경에서 진행을 해보고 싶었다.&lt;/p&gt;
 &lt;p&gt;그래서 관련된 내용을 찾아보니 Gatsby가 유용한 플러그인들도 많이 제공을 하고, 성능도 더 좋다고 하길래 더 고민없이 Gatsby로 선택했다! Jekyll은 사용해보지 않아서 비교는 못해보겠지만 확실히 리액트 기반이라 큰 어려움 없이 진행할 수 있었던 것 같다. 아직 SSG에 대한 내용이나 Gatsby프레임워크, GraphQL을 몰라서 한 3분의 1정도만 알고 쓴 느낌이라 이 부분들에 대해서도 더 찾아봐야할 것 같다.&lt;/p&gt;
-&lt;h3&gt;깃허브 페이지로 블로그 올리기&lt;/h3&gt;
+&lt;h4&gt;깃허브 페이지로 블로그 올리기&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;1. Gatsby 프로젝트 생성&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2. Github Repository를 생성하고 Gatsby 프로젝트와 연결&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3. Github Pages 설치 및 배포 설정&lt;/strong&gt;&lt;/p&gt;
@@ -114,10 +114,10 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;처음엔 이런 모습이었다.(모바일화면) 저 kyle mathews라는 분이 Gatsby 만든 사람이라고 한다... 안녕하세요 대단하십니다.&lt;/p&gt;
-&lt;h3&gt;블로그 디자인 및 기능 추가&lt;/h3&gt;
+&lt;h4&gt;블로그 디자인 및 기능 추가&lt;/h4&gt;
 &lt;p&gt;깃허브 블로그의 가장 큰 장점은 모든걸 커스터마이징할 수 있다는 것이다. 깃허브 블로그를 선택한 이유가 멋있어서... 라고 했는데 이 점이 제일 멋있는 것 같다.&lt;/p&gt;
 &lt;p&gt;먼저 원했던 기능들을 추가한 다음, 디자인을 추가했다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. 카테고리 기능&lt;/strong&gt;&lt;/p&gt;
+&lt;h5&gt;1. 카테고리 기능&lt;/h5&gt;
 &lt;p&gt;카테고리 추가는 그냥 마크다운 문서 가장 위쪽에 있는 메타데이터를  &lt;code class=&quot;language-text&quot;&gt;frontmatter&lt;/code&gt; 라고 하는데 그냥 여기에 category 항목만 추가하면 됐다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -168,7 +168,7 @@
       &lt;span class=&quot;token function&quot;&gt;setPosts&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;allPosts&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt;post&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;category &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; curCategory&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;curCategory&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;이렇게 카테고리가 바뀔 때 마다 다른 포스트들을 보여주도록 했다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. 검색 기능&lt;/strong&gt;&lt;/p&gt;
+&lt;h5&gt;2. 검색 기능&lt;/h5&gt;
 &lt;p&gt;검색도 카테고리와 마찬가지로 전체 포스트 목록에서 키워드로 걸러주는 방식으로 만들었다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; searchProc &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -231,27 +231,27 @@
 &lt;p&gt;거의 아래 블로그 그대로 만든 느낌인데 개인적으로 카드 형태의 목록을 좋아해서 포스트 목록은 카드 형식으로 만들었다!&lt;/p&gt;
 &lt;p&gt;제일 많이 신경 쓴 부분은 폰트인데 폰트는 paybook 폰트를 사용했다. (&lt;a href=&quot;https://noonnu.cc/font_page/452&quot;&gt;https://noonnu.cc/font_page/452&lt;/a&gt;)
 고딕체가 가장 가독성이 좋다고 생각해서 처음에는 고딕체를 적용했었는데 생각보다 딱딱한 느낌이 많이 나서 &quot;둥근 고딕체&quot; 라고 검색했더니 이 페이북 폰트가 바로 나왔다! 적당히 둥글고도 단정한 느낌에 가독성도 좋아서 이걸로 선택을 했다.&lt;/p&gt;
-&lt;h3&gt;댓글 추가하기&lt;/h3&gt;
+&lt;h4&gt;댓글 추가하기&lt;/h4&gt;
 &lt;p&gt;무릇 블로그라면 댓글 기능이 있어야한다.&lt;/p&gt;
 &lt;p&gt;보통 Utterances를 많이 사용하는 것 같은데 나는 giscus라는 것을 사용했다. 테마도 다양했고 깔끔한 느낌이 마음에 들었고 반응 기능, 정렬 기능, 답글 기능 등 Utterances보다 많은 기능을 제공하고 있었기 때문이다!&lt;/p&gt;
 &lt;p&gt;giscus는 일단 댓글 전용 리포지토리를 만들고, Discussions를 활성화 시킨 다음, &lt;a href=&quot;https://giscus.app/ko&quot;&gt;https://giscus.app/ko&lt;/a&gt; 이 문서에 나온대로 진행하면 된다. 댓글 기능은 포스트 별로 discussion을 생성하고, 해당 discuusion에 달린 댓글을 포스트에 보여주는 방식인 것 같았다.&lt;/p&gt;
 &lt;p&gt;이 문서의 마지막에 페이지에 넣으라고 스크립트를 제공해주는데 이걸 어떻게 적용시키지...? 싶었다. 그래서 찾아보니 &lt;code class=&quot;language-text&quot;&gt;@giscus/react&lt;/code&gt; 라는 패키지가 있었다. 이 패키지를 설치하고 &lt;a href=&quot;https://github.com/giscus/giscus-component&quot;&gt;https://github.com/giscus/giscus-component&lt;/a&gt; 여기서 하라는대로 컴포넌트를 추가해줬다!&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Giscus
-        id&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;comments&quot;&lt;/span&gt;
-        repo&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;klloo/blog-comments&quot;&lt;/span&gt;
-        repoId&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;
-        category&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;
-        categoryId&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;
-        mapping&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;pathname&quot;&lt;/span&gt;
-        strict&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;0&quot;&lt;/span&gt;
-        reactionsEnabled&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;1&quot;&lt;/span&gt;
-        emitMetadata&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;0&quot;&lt;/span&gt;
-        inputPosition&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;bottom&quot;&lt;/span&gt;
-        theme&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;preferred_color_scheme&quot;&lt;/span&gt;
-        lang&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;ko&quot;&lt;/span&gt;
-        crossorigin&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;anonymous&quot;&lt;/span&gt;
-        async
-      &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;Giscus&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;comments&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;klloo/blog-comments&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;repoId&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;categoryId&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;mapping&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;pathname&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;strict&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;reactionsEnabled&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;1&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;emitMetadata&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;inputPosition&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;bottom&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;theme&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;preferred_color_scheme&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;ko&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;crossorigin&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;anonymous&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token attr-name&quot;&gt;async&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;giscus에서 제공해주는 스크립트의 속성명(케밥케이스)과 컴포넌트에 넣어야하는 prop이름(카멜케이스)이 다르기 때문에 주의해야 한다. 이 사항은 &lt;code class=&quot;language-text&quot;&gt;@giscus/react&lt;/code&gt; 패키지 설명에도 나와있긴하다.&lt;/p&gt;
 &lt;p&gt;그러면 댓글 기능 완성이다. 그런데 이렇게만 하면 내가 포스트들을 일일이 확인해야 댓글이 달렸는지 알 수 있다. 그래서 댓글이 달리면 슬랙으로 알림이 오도록 설정해줬다.&lt;/p&gt;
 &lt;p&gt;먼저 슬랙에 워크스페이스를 만들고 슬랙 봇을 생성해준다. 그리고 댓글 전용 repository에 Actions를 추가해준다. 그럼 끝이다&lt;/p&gt;
@@ -290,18 +290,18 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;자세한 과정은 &lt;a href=&quot;https://jjam89.tistory.com/287&quot;&gt;https://jjam89.tistory.com/287&lt;/a&gt; 이 블로그를 참고했고, 이렇게 해주면 슬랙으로 알림이 잘 오는걸 확인할 수 있다!&lt;/p&gt;
-&lt;h3&gt;Google Search Console 등록하기&lt;/h3&gt;
+&lt;h4&gt;Google Search Console 등록하기&lt;/h4&gt;
 &lt;p&gt;이렇게 블로그도 만들고 댓글 기능도 만들었는데 아무도 안찾아오면 외롭고 슬프니까 Google Search Console에 등록해준다.&lt;/p&gt;
 &lt;p&gt;이 과정은 gatsby 플러그인을 사용해서 robots.txt과 sitemap을 생성하고, Google Search Console에 sitemap을 등록해주기만 하면 된다.&lt;/p&gt;
 &lt;p&gt;등록하는 과정은 &lt;a href=&quot;https://janeljs.github.io/blog/google-search-console/&quot;&gt;https://janeljs.github.io/blog/google-search-console/&lt;/a&gt; 이 블로그 내용을 참고하였다. 일단 따라서 등록은 했는데... 잘 된건지 모르겠다. 보통 노출되는데 며칠 걸린다고 하니까 좀 기다려봐야겠다&lt;/p&gt;
-&lt;h3&gt;향후 계획&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;1. about 페이지 추가&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;향후 계획&lt;/h4&gt;
+&lt;h5&gt;1. about 페이지 추가&lt;/h5&gt;
 &lt;p&gt;우측 상단에 버튼만 덩그러니 만들어 놨는데... 당장은 안할 것 같지만 언젠가 나에 대한 내용으로 차차 채워 볼 예정이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. 페이징 기능 추가&lt;/strong&gt;&lt;/p&gt;
+&lt;h5&gt;2. 페이징 기능 추가&lt;/h5&gt;
 &lt;p&gt;게시글이 많아진다면 페이징 기능도 추가해봐야할 것 같다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. 블로그 홈 배너 위치에 있는 내용 수정&lt;/strong&gt;&lt;/p&gt;
+&lt;h5&gt;3. 블로그 홈 배너 위치에 있는 내용 수정&lt;/h5&gt;
 &lt;p&gt;뭐 넣어야할 지 몰라서 일단 갤러리 뒤져서 아무 사진이나 넣어뒀는데 나쁘지 않길래 그냥 뒀다. 좋은 아이디어가 떠오르면 바로 수정할 예정이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4. SEO 최적화&lt;/strong&gt;&lt;/p&gt;
+&lt;h5&gt;4. SEO 최적화&lt;/h5&gt;
 &lt;p&gt;아직 검색엔진과 검색엔진 최적화에 대한 개념이 많이 부족하기도 하고 작성한 글도 없으니...일단은 미뤄두지만 조만간 공부해보고 적용해볼 예정이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;5. 게시물 목차(TOC) 구현&lt;/strong&gt;&lt;/p&gt;
+&lt;h5&gt;5. 게시물 목차(TOC) 구현&lt;/h5&gt;
 &lt;p&gt;그 보통 개발 블로그 보면 게시물 옆에 졸졸 따라다니는 목차가 있는데 나도 필요할 것 같다. 이건 이번주 안에 추가할 예정이다.&lt;/p&gt;</content:encoded></item></channel></rss>
