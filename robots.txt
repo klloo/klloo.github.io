@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://klloo.github.io/sitemap-0.xml
+Host: https://klloo.github.io
