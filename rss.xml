@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 개발 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 18 Jul 2023 06:47:49 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 개발 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 18 Jul 2023 07:24:35 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
 맨 처음 마음 먹었을 때는 네이버 블로그를 사용했다. 당시 대학교…]]></description><link>https://klloo.github.io/make-blog/</link><guid isPermaLink="false">https://klloo.github.io/make-blog/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
@@ -269,10 +269,10 @@
 &lt;p&gt;그리고 &lt;a href=&quot;https://zoomkoding.com/college-timetable-development/&quot;&gt;이 블로그&lt;/a&gt;도 많이 참고했다.
 사실 거의 그대로 만든 느낌인데 개인적으로 카드 형태의 목록을 좋아해서 포스트 목록은 카드 형식으로 만들었다!&lt;/p&gt;
 &lt;p&gt;제일 많이 신경 쓴 부분은 폰트인데 폰트는 &lt;a href=&quot;https://noonnu.cc/font_page/448&quot;&gt;ibm 폰트&lt;/a&gt;를 사용했다.
-처음에는 &lt;a href=&quot;https://noonnu.cc/font_page/452&quot;&gt;paybook 폰트&lt;/a&gt;를 사용했었는데 적당히 둥글고도 단정한 느낌이 좋았지만 ibm폰트가 더 깔끔하고 가독성이 좋은 느낌이라 이걸로 결정했다! 하지만 언제 또 바뀔지 모른다.. 결정장애에게 이렇게 자유도 높은 플랫폼은 힘들어요...&lt;/p&gt;
+처음에는 &lt;a href=&quot;https://noonnu.cc/font_page/452&quot;&gt;paybook 폰트&lt;/a&gt;를 사용했었는데 적당히 둥글고도 단정한 느낌이 좋았지만 ibm폰트가 더 깔끔하고 가독성이 좋은 느낌이라 이걸로 결정했다! 하지만 언제 또 바뀔지 모른다.. 결정느림보에게 이렇게 자유도 높은 플랫폼은 힘들어요...&lt;/p&gt;
 &lt;h4&gt;댓글 추가하기&lt;/h4&gt;
 &lt;p&gt;무릇 블로그라면 댓글 기능이 있어야한다.&lt;/p&gt;
-&lt;p&gt;보통 Utterances를 많이 사용하는 것 같은데 나는 giscus라는 것을 사용했다. 테마도 다양했고 깔끔한 느낌이 마음에 들었고 반응 기능, 정렬 기능, 답글 기능 등 Utterances보다 많은 기능을 제공하고 있었기 때문이다!&lt;/p&gt;
+&lt;p&gt;보통 Utterances를 많이 사용하는 것 같은데 나는 giscus라는 것을 사용했다. 테마도 다양했고 반응 기능, 정렬 기능, 답글 기능 등 Utterances보다 많은 기능을 제공하고 있었기 때문이다!&lt;/p&gt;
 &lt;p&gt;giscus는 일단 댓글 전용 리포지토리를 만들고, Discussions를 활성화 시킨 다음, &lt;a href=&quot;https://giscus.app/ko&quot;&gt;이 문서&lt;/a&gt;에 나온대로 진행하면 된다. 댓글 기능은 포스트 별로 discussion을 생성하고, 해당 discuusion에 달린 댓글을 포스트에 보여주는 방식인 것 같았다.&lt;/p&gt;
 &lt;p&gt;이 문서의 마지막에 페이지에 넣으라고 스크립트를 제공해주는데 이걸 어떻게 적용시키지...? 싶었다. 그래서 찾아보니 &lt;code class=&quot;language-text&quot;&gt;@giscus/react&lt;/code&gt; 라는 패키지가 있었다. 이 패키지를 설치하고 &lt;a href=&quot;https://github.com/giscus/giscus-component&quot;&gt;여기서&lt;/a&gt; 하라는대로 컴포넌트를 추가해줬다!&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;html&quot;  &gt;
