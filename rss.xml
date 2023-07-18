@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 18 Jul 2023 12:39:24 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 18 Jul 2023 16:32:51 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
 맨 처음 마음 먹었을 때는 네이버 블로그를 사용했다. 당시 대학교…]]></description><link>https://klloo.github.io/make-blog/</link><guid isPermaLink="false">https://klloo.github.io/make-blog/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
@@ -151,7 +151,7 @@
 &lt;h4&gt;블로그 디자인 및 기능 추가&lt;/h4&gt;
 &lt;p&gt;깃허브 블로그의 가장 큰 장점은 모든걸 커스터마이징할 수 있다는 것이다. 깃허브 블로그를 선택한 이유가 멋있어서... 라고 했는데 이 점이 제일 멋있는 것 같다.&lt;/p&gt;
 &lt;p&gt;먼저 원했던 기능들을 추가한 다음, 디자인을 추가했다.&lt;/p&gt;
-&lt;h5&gt;1. 카테고리 기능&lt;/h5&gt;
+&lt;h5&gt;카테고리 기능&lt;/h5&gt;
 &lt;p&gt;카테고리 추가는 그냥 마크다운 문서 가장 위쪽에 있는 메타데이터를  &lt;code class=&quot;language-text&quot;&gt;frontmatter&lt;/code&gt; 라고 하는데 그냥 여기에 category 항목만 추가하면 됐다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -209,7 +209,7 @@
 }, [curCategory]);&lt;/code&gt;
         &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이렇게 카테고리가 바뀔 때 마다 다른 포스트들을 보여주도록 했다.&lt;/p&gt;
-&lt;h5&gt;2. 검색 기능&lt;/h5&gt;
+&lt;h5&gt;검색 기능&lt;/h5&gt;
 &lt;p&gt;검색도 카테고리와 마찬가지로 전체 포스트 목록에서 키워드로 걸러주는 방식으로 만들었다.&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
           &lt;code slot=&quot;code&quot;&gt;  const searchProc = useCallback((e) =&amp;gt; {
