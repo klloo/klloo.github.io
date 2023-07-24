@@ -2,3 +2,7 @@
 package.json
 package-lock.json
 public
+gatsby-brower.js
+gatsby-config.js
+gatsby-node.js
+gatsby-ssr.js
