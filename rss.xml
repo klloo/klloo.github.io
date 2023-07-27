@@ -1,4 +1,363 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 22 Jul 2023 07:49:25 GMT</lastBuildDate><item><title><![CDATA[Gatsby와 Github pages로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 27 Jul 2023 15:37:54 GMT</lastBuildDate><item><title><![CDATA[Gatsby 블로그에 다크모드 적용하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/darkmode/</link><guid isPermaLink="false">https://klloo.github.io/darkmode/</guid><pubDate>Thu, 27 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;다크모드&lt;/h2&gt;
+&lt;p&gt;다크모드를 적용해봤습니다. 원래 향후 계획에도 없던 ... 기능인데 너무 하얘가지고 가만히 보고 있자니 가끔 눈이 아파서 이참에 구현을 해봤습니다.
+다크모드를 한 번도 구현해본적은 없지만 막연하게 그냥 전역으로 변수 두고 스타일 변수만 바꿔주면 되겠지 ... 했는데 생각보다 고려사항이 많았습니다. 게다가 서버 사이드 랜더링은 처음이라 더 어려웠던 것 같습니다. 여러 포스팅들을 읽고 읽으면서 제일 이해가 쉬운 방법으로 따라해봤습니다.&lt;/p&gt;
+&lt;h2&gt;1. 버튼 만들기&lt;/h2&gt;
+&lt;p&gt;먼저 버튼을 만들어 줬습니다. 버튼은 그냥 간단하게 해와 달 아이콘으로 표현을 해봤습니다.
+처음에는 폰트어썸을 사용했는데 돈을 내지 않고서는&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/74d479f7782f4c2126f447a04823a968/a65ce/uglyicon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.31884057971014%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACOUlEQVR42kVTyW7aUBT1J2ebfkk3XXXXVdqoSqssKlWdU6RCFDCCBAiTwUwe3vzs03ufgTzJ4vo83+Gcc4ke+iO0On38bccYjuYQUmG52kJpjVJIPI5mGD8vccgKHHKFQ+EoLpv3M+bPWDSZJhiO5xg8TTFdrFGUAptdBiEU8lxgRtgiSeljgf1mgu38D/a79bEAYekTtos7HPZb7AmLjLGo65oeoKoqSKlpOgNrHZxzhNVQSkFbQG++YNO5gCuHxMSDUiGXV1i3L1CpOUrCIu+rUOD12w80fhmKeu+JrsL7z99hHSe6gJckx127F2JjGoxzV+kOfDiOHCXwJK1ODG0MnOd3LmIRD8eU1MTchH9ZFuIDZsbDWGeR5cVLQe7Oh5iFw1TtEXO+ATmZmzT39oxxE5bKuuqloFQWVixRLD7ClFPwu1SO4gny2TWsXBJVwoguN9KUxMUEbYDSNHXWg0w+weoDyaQRKQP4MsauewmX/YMyZAJjeQtZ/xW8oARNhtAanaZnqlJKMBG1ukF6f4naJMGoyJJ+dI+brz3SsNGzriskaY6r2w6tgggYn3mywfXtj6Alm8JnOEnx5t23EHPTYAoL2+0PiIIKurAxJe1j+yEOWDOVJ/FLtLsDkoSmNc1KFUWBePAY7tnU6GSA0u4ocEOL14W1PDnOumlaRmahOT6a0qxdk8v6RkKQyGoHn/2EkSnpYMLj5BpV9guW7lhsQWY5ldB3hOki7Ckb6MQzYb9hdEn/MoX/WdGWGs/zeaUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;uglyicon&quot;
+        title=&quot;&quot;
+        src=&quot;/static/74d479f7782f4c2126f447a04823a968/dd45a/uglyicon.png&quot;
+        srcset=&quot;/static/74d479f7782f4c2126f447a04823a968/948cf/uglyicon.png 138w,
+/static/74d479f7782f4c2126f447a04823a968/6b2ea/uglyicon.png 275w,
+/static/74d479f7782f4c2126f447a04823a968/dd45a/uglyicon.png 550w,
+/static/74d479f7782f4c2126f447a04823a968/a65ce/uglyicon.png 559w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;앞에 두 개 아이콘 밖에 사용할 수가 없었는데 뭔 톱니바퀴 같기도하고 하여간 너무 맘에 안들어서 그냥 이모지로 표현을 해버렸습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 277px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/079fd956fc0dd2082d64ef4f453c705e/2a985/emojiicon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 105.07246376811594%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB80lEQVR42rWV30vbUBTH+yYMBHFTZ3/YaBObaKzWthZ/oFj8UbV2Nuqc1h8g+iKCL74JKoqisD0Lgk8y2F+0B1EUH0TnsD5oBZfka27aKm65aR164HNzOeee7z03OZdY8MpmIYOqqoYoivKIUdxQMJNotvhZDE+bGYla/hbIzM8vfuHw6BjHJ6e4vPydihHufkK9P0vNVSW7YMZubm+RuL7GVSKBZDKZ3uxeEzwAlDuQFGqFLzsysh9ZlmXI2oJ/kNM886fW/tFycnqHuRot720EaX2WC4aN/T9GbWwyLC2vIxyRMDgygdhwHFHpCyIDn3Wi0qjuGxiKo1+aQm90GPMLi+ZXjyTkF9pgLxdQYmdRU9+I9q4Igs0h1Pqa8MHKgRc4LM2xKLE60NTWTa1SFxybnIHV6QZfEwAreOFvbEdbRx9aQz3wBVtRwXsh1nohhUUwbBU6e2LmgqPj0/jo4MBV1cPF14HhPHCyog5T6QGr+SrcdXBwflgZHp3hT+aC8clZ2BhBq7ABldV+uEVCIP306z6C4AmgzCWiu096WYU0SNymVdiRrcLxqRntg/B6BW7RR4XEnWy13hGmgpHYCPLyi1Bsd+F9aTmVIpsL7wpKEWwJmQvuf/+BlbVNbG5/w8bWVyokvrq+hZ3dPfM+fM1/ygNRoXzsbiRwtwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;emojiicon&quot;
+        title=&quot;&quot;
+        src=&quot;/static/079fd956fc0dd2082d64ef4f453c705e/2a985/emojiicon.png&quot;
+        srcset=&quot;/static/079fd956fc0dd2082d64ef4f453c705e/948cf/emojiicon.png 138w,
+/static/079fd956fc0dd2082d64ef4f453c705e/6b2ea/emojiicon.png 275w,
+/static/079fd956fc0dd2082d64ef4f453c705e/2a985/emojiicon.png 277w&quot;
+        sizes=&quot;(max-width: 277px) 100vw, 277px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;사실 이것도 100% 마음에 들지 않아 언젠가 다시 바뀔지도 모를 것 같습니다.&lt;/p&gt;
+&lt;h2&gt;2. 다크모드 설정하기&lt;/h2&gt;
+&lt;p&gt;이제 사용자 설정 혹은 시스템의 설정에 따라 다크모드를 설정해줍니다. 다크모드 설정 방식은 다음과 같은 방식으로 진행을 했습니다.&lt;/p&gt;
+&lt;p&gt;먼저 다크모드로 설정하고 싶다면 body에 &apos;dark&apos;라는 클래스를 추가해줍니다. 그리고 글로벌 스타일에서 기본 스타일과 다크모드 스타일을 각각 정의 해준 뒤, body 클래스에 따라 다른 스타일 선택해줍니다.
+이 때 기본 스타일과 다크모드 스타일에서는 css변수를 다르게 사용해줬는데 키값은 동일하게 지정하되 해당 키값에 대한 색상 값을 다르게 주는 방식으로 하여 하위 스타일에서 같은 변수명을 사용하더라도 모드에 따라 다른 색이 적용되도록 했습니다.&lt;/p&gt;
+&lt;p&gt;예를 들어 &lt;code class=&quot;language-text&quot;&gt;--background-color&lt;/code&gt; 값을 기본 스타일에서는 white, 다크모드 스타일에서는 black으로 설정하고 해당 변수 값을 body의 배경 색상으로 지정해주면, 모드에 따라 다른 색상이 적용되는 방식입니다.&lt;/p&gt;
+&lt;p&gt;이를 위해서 먼저 다크모드일 경우 body에 &apos;dark&apos; 클래스를 추가해주는 작업을 먼저 진행했습니다.&lt;/p&gt;
+&lt;h3&gt;시스템 설정에 따라 다크모드 설정&lt;/h3&gt;
+&lt;p&gt;요즘 많은 시스템들이 다크모드를 지원해주고 있습니다. 그에 따라 웹에서도 prefers-color-scheme 라는 미디어 속성으로 시스템의 다크 테마 여부를 탐지할 수 있게 되었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;prefers-color-scheme&lt;/code&gt;라는 미디어 속성을 사용하면 다크 테마 여부를 감지할 수 있는데 다음과 같이 사용할 수 있습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;css&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+    color: white;
+  }
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이런 식으로 사용해주면 시스템의 다크모드 설정에 따라 다른 스타일을 제공해줄 수 있습니다.&lt;/p&gt;
+&lt;p&gt;물론 시스템의 설정도 중요하지만 사용자가 설정을 변경한다면 사용자의 설정을 따라가야 합니다. 이렇게 사용자의 설정과 시스템의 설정을 모두 고려하기 위해서는 스크립트로 사용을 해야하는데, 미디어쿼리를 스크립트로 처리하기 위해서는 matchMedia 를 사용할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;window.matchMedia&lt;/code&gt;는 주어진 미디어 쿼리 문자열의 분석 결과를 나타냅니다. 이 함수는 &lt;code class=&quot;language-text&quot;&gt;MediaQueryList&lt;/code&gt; 를 반환하는데 이 객체는 media와 matches라는 두 프로퍼티가 존재합니다. media는 사용한 미디어쿼리 문자열을 반환하고, matches는 현재 화면이 미디어 쿼리의 범위에 들어가면 true, 아니면 false를 반환합니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const darkQuery = window.matchMedia(&amp;#39;(prefers-color-scheme: dark)&amp;#39;);
+console.log(darkQuery.matches ? &amp;#39;dark&amp;#39; : &amp;#39;light&amp;#39;);&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이렇게 사용할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;또 하나 고려해야할 부분은 시스템이나 사용자의 설정을 기억해야 한다는 점입니다.
+다시 방문 했을때에도 이전의 설정을 기억하여 그대로 제공하도록 해주는 기능이 필요합니다. 다시 방문했을때는 다시 설정하면 되지 라는 생각을 잠시 했지만 문제는 새로고침입니다. 이렇게만 한다면 새로고침 시 설정이 초기화되어... 굉장히 무능한 블로그 같고 .. 하여튼 불편합니다. 이를 위해서는 localStorage를 사용하여 브라우저에 마지막으로 설정한 모드를 저장해줬습니다.&lt;/p&gt;
+&lt;p&gt;이를 종합하여 시스템 설정에 따라서 body 클래스에 &apos;dark&apos;를 추가하거나 제거해주기 위해서는 다음과 같이 할 수 있습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const DARK = &amp;#39;dark&amp;#39;;
+const LIGHT = &amp;#39;light&amp;#39;;
+// 시스템 설정이 다크모드인지 확인
+const darkQuery = window.matchMedia(&amp;#39;(prefers-color-scheme: dark)&amp;#39;);
+
+// localStorage에 저장된 테마 불러오기
+const savedTheme = localStorage.getItem(&amp;#39;theme&amp;#39;);
+// 다크모드라면 theme를 dark로, 아니라면 light로 설정하고 theme에 따라 클래스 변경
+const newTheme = savedTheme || (darkQuery.matches ? DARK : LIGHT);
+
+const setTheme = (DARK) =&amp;gt; {
+  if (newTheme === &amp;#39;dark&amp;#39;) {
+    document.body.classList.add(&amp;#39;dark&amp;#39;);
+  } else {
+    document.body.classList.remove(&amp;#39;dark&amp;#39;);
+  }
+  // 새로 설정된 테마를 localStorage에 저장 
+  localStorage.setItem(&amp;#39;theme&amp;#39;, newTheme);
+};
+// 동적으로 시스템 테마 변경에 따라 바뀌도록 하려면 미디어 쿼리 state 변경에 따라 변경될 수 있도록 이벤트 리스너를 넣어줄 수 있다.
+darkQuery.addListener((e) =&amp;gt; {
+  setTheme(e.matches ? &amp;#39;dark&amp;#39; : &amp;#39;light&amp;#39;);
+});&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이제 이 스크립트를 어디서 실행하는지가 문제입니다.&lt;/p&gt;
+&lt;p&gt;이게 적용하기 까다로운 이유가 해당 속성이 css 속성이기 때문에 server 에서 받아올 수 없어서 그냥 react의 lifecycle 내에서 현재 테마를 가져오고, 그에 따라 스타일을 조정하면 시스템이 다크 테마여도 잠시 라이트 테마가 보여지는 현상을 겪을 수 있다고 합니다.&lt;/p&gt;
+&lt;p&gt;이 문제를 해결하기 위해서는 위 스크립트가 화면이 painting 되기 전에 실행되어야 합니다. 제가 참고한 포스팅에서는 스크립트를 body 바로 다음에 위치시켜서 body 내부 엘리먼트들이 페인팅 되기 전에 실행하도록 하였습니다. 이렇게 두면 스크립트는 DOM 파싱을 막으므로, 위 스크립트가 실행된 후에 페인팅이 되는 것이 보장되기 때문입니다.&lt;/p&gt;
+&lt;p&gt;Gatsby에서는 gatsby-ssr의 onRenderBody API를 이용할 수 있습니다. 해당 API는 setPreBodyComponents 함수를 제공하는데, 이 함수를 통해 body 바로 하위에 스크립트를 넣어줄 수 있습니다.
+(아니면 html.js를 수정할 수 있는데, Gatsby Theme 내에서는 제공이 안되어 권장하지는 않는다고 합니다.)&lt;/p&gt;
+&lt;p&gt;결과적으로 gatsby-ssr.js 파일에 다음과 같이 적용해주면 됩니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const React = require(&amp;#39;react&amp;#39;);
+
+exports.onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }) =&amp;gt; {
+  const script = `
+    const DARK = &amp;#39;dark&amp;#39;;
+    const LIGHT = &amp;#39;light&amp;#39;;
+    
+    const darkQuery = window.matchMedia(&amp;#39;(prefers-color-scheme: dark)&amp;#39;);
+    const savedTheme = localStorage.getItem(&amp;#39;theme&amp;#39;);
+    
+    const newTheme = savedTheme || (darkQuery.matches ? DARK : LIGHT);
+
+    const setTheme = (DARK) =&amp;gt; {
+    if (newTheme === &amp;#39;dark&amp;#39;) {
+        document.body.classList.add(&amp;#39;dark&amp;#39;);
+    } else {
+        document.body.classList.remove(&amp;#39;dark&amp;#39;);
+    }
+    localStorage.setItem(&amp;#39;theme&amp;#39;, newTheme);
+    };
+    
+    darkQuery.addListener((e) =&amp;gt; {
+    setTheme(e.matches ? &amp;#39;dark&amp;#39; : &amp;#39;light&amp;#39;);
+    });
+  `;
+  setHtmlAttributes({ lang: `ko` });
+  setPreBodyComponents(&amp;lt;script dangerouslySetInnerHTML={{ __html: script }} /&amp;gt;);
+}
+&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;br/&gt;
+&lt;h3&gt;사용자 설정에 따라 다크모드 설정&lt;/h3&gt;
+&lt;p&gt;아까 만들어 둔 버튼을 연동하여 사용자 설정에 따라서도 다크모드가 설정될 수 있도록 만들어야 합니다. 먼저 버튼에서 해당 스크립트의 함수 및 값을 사용할 수 있도록 window 객체에 넣어줍니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const React = require(&amp;#39;react&amp;#39;);
+
+exports.onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }) =&amp;gt; {
+  const script = `
+  window.__DARK = &amp;#39;dark&amp;#39;;
+  window.__LIGHT = &amp;#39;light&amp;#39;;
+  
+  const darkQuery = window.matchMedia(&amp;#39;(prefers-color-scheme: dark)&amp;#39;);
+  const savedTheme = localStorage.getItem(&amp;#39;theme&amp;#39;);
+
+  window.__theme = savedTheme || (darkQuery.matches ? window.__DARK : window.__LIGHT);
+
+  window.__setTheme = (newTheme) =&amp;gt; {
+    if (newTheme === window.__DARK) {
+      document.body.classList.add(window.__DARK);
+    } else {
+      document.body.classList.remove(window.__DARK);
+    }
+    localStorage.setItem(&amp;#39;theme&amp;#39;, newTheme);
+  };
+
+  darkQuery.addListener((e) =&amp;gt; {
+    window.__setTheme(e.matches ? window.__DARK : window.__LIGHT);
+  });
+
+  window.__setTheme(window.__theme);
+  `;
+  setHtmlAttributes({ lang: `ko` });
+  setPreBodyComponents(&amp;lt;script dangerouslySetInnerHTML={{ __html: script }} /&amp;gt;);
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;그리고 다크모드 버튼을 클릭하면 window객체에 저장해둔 &lt;code class=&quot;language-text&quot;&gt;__setTheme&lt;/code&gt; 함수를 호출하도록 코드를 작성합니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const Layout = ({ location, title, children }) =&amp;gt; {
+    ...
+	const [theme, setTheme] = useState(null);
+	const isDarkMode = theme === window.__DARK;
+
+	const onClickDarkModeButton = useCallback(() =&amp;gt; {
+		const newTheme = isDarkMode ? window.__LIGHT : window.__DARK;
+		window.__setTheme(newTheme);
+		setTheme(newTheme);
+	}, [isDarkMode]);
+
+	useEffect(() =&amp;gt; {
+		setTheme(window.__theme);
+	}, []);
+
+	return (
+        ...
+		&amp;lt;DarkModeButton onClick={onClickDarkModeButton}&amp;gt;{isDarkMode ? &amp;#39;☀️&amp;#39; : &amp;#39;🌙&amp;#39;}&amp;lt;/DarkModeButton&amp;gt;
+        ...
+	);
+};
+&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이렇게 하면 다크모드 버튼을 클릭할 때 마다 body요소에 &apos;dark&apos;클래스가 생겼다 사라졌다 하는 것을 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/cd172eb41cf4305b2f59faa300cb6587/darklight.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h3&gt;다크모드에 따라 스타일 설정하기&lt;/h3&gt;
+&lt;p&gt;이제 다크모드에 따른 스타일만 적용해주면 됩니다. 사실 다크모드와 라이트모드에서의 차이점은 색상밖에 없기 떄문에 색상만 잘 설정해주면 됩니다.
+이 부분은 GPT의 도움을 받았습니다. 제 블로그는 CSS-in-JS라이브러리로 emotion을 사용하고 있는데 글로벌 스타일을 적용할 때 body 요소에 &apos;dark&apos;클래스가 있는지에 따라 다른 스타일을 적용해주는 방법을 사용했습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;import React from &amp;#39;react&amp;#39;;
+import { Global, css } from &amp;#39;@emotion/react&amp;#39;;
+import Common from &amp;#39;./common&amp;#39;;
+
+// 기본 스타일
+const baseStyle = css`
+  /* ... 기본 스타일 ... */
+`;
+
+// 다크 모드 스타일
+const darkStyle = css`
+  /* ... 다크 모드 스타일 ... */
+`;
+
+const GlobalStyle = () =&amp;gt; {
+  // body 클래스에 따라 다른 스타일 선택
+  const currentStyle = css`
+    ${baseStyle};
+    ${document.body.classList.contains(&amp;#39;dark&amp;#39;) ? darkStyle : null};
+  `;
+
+  return &amp;lt;Global styles={currentStyle} /&amp;gt;;
+};
+
+export default GlobalStyle;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이렇게 해주고 다크모드 스타일에 기본 스타일의 색상변수를 다시 설정해주면 됩니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;// 기본 스타일
+const baseStyle = css`
+    ...
+    --color-text: black;
+    --color-background: white;
+`;
+
+// 다크 모드 스타일
+const darkStyle = css`
+    --color-text: white;
+    --color-background: black;
+`;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;br/&gt;
+그런데 아뿔싸 ... emotion을 적용하면서 css 변수를 common이라는 자바스크립트 파일을 만들고 그 파일 내에서 객체로 관리하도록 바꾸는 바람에 저 방식이 통하지 않아서 고민을 좀 했습니다.
+&lt;p&gt;고민 결과 Common 객체에 lightColor, darkColor를 속성으로 두고, 그 속성 하위에 색상을 정의해두기로 했습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const Common = {
+	...
+	lightColor: {
+		text: &amp;#39;black&amp;#39;,
+		background: &amp;#39;white&amp;#39;,
+	},
+	darkColor: {
+		text: &amp;#39;white&amp;#39;,
+		background: &amp;#39;black&amp;#39;,
+	},
+    ...
+};
+  
+export default Common;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;br/&gt;
+그리고 이걸 다시 css변수로 적어줬습니다.
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;// 기본 스타일
+const baseStyle = css`
+    ...
+    --color-text: ${Common.lightColor.text};
+    --color-background: ${Common.lightColor.background};
+`;
+
+// 다크 모드 스타일
+const darkStyle = css`
+    --color-text: ${Common.darkColor.text};
+    --color-background: ${Common.darkColor.background};
+`;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;br/&gt;
+뭔가 Common 객체로 전역적인 스타일을 한 번에 관리할 수 있는 점이 편리하지만 색상을 추가할 때 css변수로 한 번 더 추가해야 하는 번거로움과 다른 스타일은 Common객체에서 가져다 쓰는 반면 색상은 css 변수를 사용해야 한다는 점이 통일성을 해치는 기분이라 만족스럽지 못합니다. 이 부분에 대해서는 조언이 필요할 것 같습니다... 도와주세요 
+&lt;br/&gt;
+&lt;h2&gt;3. giscus(댓글)에 다크모드 설정하기&lt;/h2&gt;
+&lt;p&gt;헐 이렇게 하니까 다른 부분에는 다크모드가 잘 적용이 되지만 댓글에는 다크모드가 적용이 안돼서 둥둥 떠다닙니다. 댓글에도 다크모드를 설정해줘야 하는데 giscus를 가져다 쓰는 입장에서 어떻게 적용해야 하는지 생각해보니 giscus에서는 다양한 테마를 적용하고 있습니다. 그래서 다크모드 여부에 따라 테마가 변경되도록 구현을 해봤습니다.&lt;/p&gt;
+&lt;p&gt;먼저 댓글 컴포넌트에서 테마가 바뀌었다는 것을 감지할 수 있도록 window객체에 리스너를 등록할 수 있도록 바꿔줍니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const React = require(&amp;#39;react&amp;#39;);
+
+exports.onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }) =&amp;gt; {
+  const script = `
+  window.__DARK = &amp;#39;dark&amp;#39;;
+  window.__LIGHT = &amp;#39;light&amp;#39;;
+  
+  const darkQuery = window.matchMedia(&amp;#39;(prefers-color-scheme: dark)&amp;#39;);
+  const savedTheme = localStorage.getItem(&amp;#39;theme&amp;#39;);
+
+  window.__theme = savedTheme || (darkQuery.matches ? window.__DARK : window.__LIGHT);
+  window.__onThemeChange = () =&amp;gt; {};
+
+  window.__setTheme = (newTheme) =&amp;gt; {
+    if (newTheme === window.__DARK) {
+      document.body.classList.add(window.__DARK);
+    } else {
+      document.body.classList.remove(window.__DARK);
+    }
+    localStorage.setItem(&amp;#39;theme&amp;#39;, newTheme);
+    window.__onThemeChange(newTheme);
+  };
+  darkQuery.addListener((e) =&amp;gt; {
+    window.__setTheme(e.matches ? window.__DARK : window.__LIGHT);
+  });
+
+  window.__setTheme(window.__theme);
+  `;
+  setHtmlAttributes({ lang: `ko` });
+  setPreBodyComponents(&amp;lt;script dangerouslySetInnerHTML={{ __html: script }} /&amp;gt;);
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;br/&gt;
+이렇게 테마가 변경될 때 마다 window.__onThemeChange() 함수가 호출되도록 작성해줍니다.
+그 다음 댓글 컴포넌트에서 window.__onThemeChange() 함수를 등록해주면 됩니다. 여기서는 __onThemeChange() 함수 내부에서 댓글 테마가 바뀌도록 하여 전체 테마가 바뀔 때 마다 댓글 테마도 바뀌도록 해줬습니다.
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const [commentTheme, setCommentTheme] = useState(null);
+
+useEffect(() =&amp;gt; {
+	setCommentTheme(window.__theme === window.__DARK ? &amp;#39;dark&amp;#39; : &amp;#39;preferred_color_scheme&amp;#39;);
+	window.__onThemeChange = (theme) =&amp;gt; {
+		setCommentTheme(theme === window.__DARK ? &amp;#39;dark&amp;#39; : &amp;#39;preferred_color_scheme&amp;#39;);
+	};
+}, []);
+
+if (!commentTheme) {
+	return null;
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;여기까지 해서 다크모드 적용을 완료하였고 전체적으로 &lt;a href=&quot;https://godsenal.com/posts/gatsby-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EB%8B%A4%ED%81%AC-%ED%85%8C%EB%A7%88-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0&quot;&gt;이 블로그&lt;/a&gt;를 많이 참고하여 진행을 했습니다.&lt;/p&gt;
+&lt;h2&gt;향후 계획 점검&lt;/h2&gt;
+&lt;p&gt;일단 TOC를 구현은 했지만.. 분명 잘 되는 걸 확인하고 배포했는데 고장이 나서 링크가 작동하고 있지 않습니다. 이건 최대한 빨리 고쳐볼 예정입니다. 그리고 나머지 사항은 아직 진행할 생각이 없고 ... 그 동안은 자잘한 디자인을 수정하고 코드 리팩토링을 했습니다. 그 과정에서 컴포넌트를 분리하고 css-in-js 라이브러리로 emotion을 적용하여 스타일을 관리하도록 수정했습니다. 이제 또 수정하고 싶은 사항은 ...코드 블럭이 예쁘긴한데 줄바꿈도 때문인지 가독성이 전혀 없고 inline 코드 블럭이 너무 못생겨서 이것도 수정할 예정입니다. 자잘한 수정 사항은 그냥 수정만 하고 넘기겠지만 다크모드나 TOC 처럼 제 기준 조금 작업이 필요한 사항을 또 개발하거나 수정한다면 포스팅을 작성하겠습니다!!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gatsby로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
 맨 처음 마음 먹었을 때는 네이버 블로그를 사용했다. 당시 대학교…]]></description><link>https://klloo.github.io/make-blog/</link><guid isPermaLink="false">https://klloo.github.io/make-blog/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
@@ -12,7 +371,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 102.17391304347827%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEY0lEQVR42k2UyXIaRxzG53lcOfqSN3AeIJUq55RLonKO2aqcUyplJ5aMJEAgsCS0gyQbCQlrBQEDszMLwzLAgFCSF/kl01JSOXyX7uqv/9/SLQU9jyDoEgx7DEd9RqMB43BAGAaMxgPCyZBwEoi9CJPpiNl9yN1s/D+EzGZjZvcTpGDgMwi6jEZ9xuOAcRg8kgzp9zsMBr4gCqcBwbBLr+eJvYjkAY+E9w+QLEul47fxPAvHNfE6bXp9VxDZji7QtjX6gw6ebxFOBnQ6FtPpw+T/YnoXXTJCajSqVG4uqNUqaHoTw2jRUupUby/RdEUcHIV9/K6D37Pp9h0MU8G0VAFFbWFZBg25wSDwkTzXolq9RNWawj/fd3A9i+ndSMjr+Dbdnif8vLsLcV1beHz/x0TIHY56/PnXFNtu0+35SLatU7k5R1GaQqZhKOJwr9+h2aoLRCpUtUUQBITjB9LpNGQcjuj3fWazCZZl0ut1kNqWytXFOa1Wg/7AI/K0bev0+57wM4KqNbDaGkEwwPMcvI7LJCIcD8X0USimadLtekim2eT8/AxFbeB3bfxuW3jkuJbwbTjqCllRE9ptHdc1mM4CxtMBo3FPeDqZDTFMA7/rIhlGk9PTYxRVfkw4mlJjbu5rnj37jI3cmgjLtDQxje2YaLomKjQc9/B9m3A6RNVadHwHSVUbFItHaFoTq60Lw5fjizx58gkvX75kbS3DcNgT66ZpcHRY5P3RMVdX1yLVKMSoNprawvNsJEWpcXiwj2Y8TBG9kB9/+oHXv70SE9frFTFFJPvi4pz9vTwHhQOKxQ8PFvkOo3GfltLCddtIslylkN9B02VMSxG+HZ+8J7Oaolw+flyzhRWRivJZiVr9GrlZFQ/AcXThc7Mp4zgWUu32mkJ+F1WpU6lcikR1XSa2sEg6lf4vaa9jCYnlcomtXE60IOqo7RjCT1lu0LZNpGrlgsP8LjdX59Rq17TkCuuZNN9/9zPJRBK11RC9i8oePbmD/B7plbSYxuvYIvmoi/V6DcvSka4uy0JyRCyC0WWWYjG+fP4V8eVl5PqN6GBE4NgGywtLJONJHM/CjdZMXdhRu61imirSx/IJB4U96rVrIj8dS2Humxc8ffopu3tbOI6Bqsrik2g2b/ni8+e8mPsWq63g2Dod2yQYdmg0Khh6C6lU+iA8rFQukOUajeoVa6spErEYlxdnGGYLXW+KH0dR6iQWF9jNbYiLXNfk8qzE5WmJw0JeKJROjo8o7O/QqFcol05YTcTZy62zs/6OXDbD9sY6+9ubFPa2OcrvUj455PTDIaVikfOPZ+xs5Nh+t0Z2JY2qyUiF/DY7WxsU3+eJvZnn9S+/svD6FbE3C8R+n2fxzTzxt29IxuZJxObJpuKk40tkVtLkMhl21zfIb26xlsmIH0s62NvmtHjI0cEOm+tZkvElISuVWCSTSpBJxllNLJFcipFYfEv87Tzp+DLZlRXWUhFpls1MlmwqhfEP4d+2cwlvSS9hlgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 102.17391304347827%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEUklEQVR42k1UXVPiZhjN79np5d70H2x/QKcz26vetM72sl8z9qrTWdvVRUUXFxdBRUVAUZRFVBBIgJCQhPAZwofa9o+cnvfF7fTimSRvkvOc55zzvorXd+F5PXijPkb+AL4/xHgyxGTiwR/zOh2xPPlO1HTm4+FxgvuH8f9qggdeHx6nULxhF0MC+vx4PPYI5j2BjDAYdDDkewE0mXls2kOfBMQ7ATKvJ8DHeSmtVgOdrgXXbcFpm3A7FvqDtgSynaYsy9YxGHbgdlsEG6LTaWE2mzP/VLN70cSHUq2WULy9QrlchN7UYBg11OoVlO4KfK7LH/3JAN2eg27fRm/gwDDrMElEVL1RQ6tloKpWOWkXittuoVQqoKFrUr9u10GbbGf3vhyv0yUIr0LP+/sJ2m1bavz411SOO/L7+PufGWzb4ncEtO0mGeZRr2tyTMOoy5/71E+rVWSJKRpk4nkcbzwHnc0mBPapc5eGTMnSJIEOFIu0r6/yqNWq1MmF0NRik8HAlXqKauhVtCydgENq7XCtTbcJOB5J9sIU0zTR67lQTFNDPn9JLarUyWZZUiOHUgjdRn5PjiWSYFlNsjMwe2AaZkNO0peaTh9G/Mfg920ohqHh4uKMgOqTw4KljoWFb/HixReIxiLSLJNrgo3tmHzWZYRGBOxS4wmNa+g16u1AaZBZJpOGTlNaZCAEXw+u4tmzz7C4uIhIJIwRQy/WTbJIpzI4SZ/h+vpGuipMFLHRqbHr2lDq9TJSySPoxpyF2CE///ITlv54LRlXKkXJQox9Ra2PDhNIHidJ4nQuEQH98YBRq1EOC4qqlnCciHMMlYB1qdvZ+QnC70PI5c6e1mwphZgid5lFuXIDVSvJDeAw+EJnTVN534JSvrsh4AEaDHOxWJCONgkeWFnFVmjrP6dd7g4xYi6XxV4sJlMgMmo7htRTZbAt24RSKl4hRcDb6zx3yw1qahE74S38+MOv2NzYRINxErkTYRdbLpk4xNa7LcnG7djSeZHFSqVMM5tQrgs5ObIAlsaQ3VoggK9ffoPg+jrUyq3MoABwbAPrK2vYDG7CYYO2WDObUo7yXYmmNaB8zJ1T5ENUyE7o6VCzhe9e4fnzz3FwuEcgg7tElYeEpt3hqy9f4tXC92zCrHIDdDimN+pwNxVhNGtQstlTqWGRDFW1jGrpGhEaskGWhatLBrZGTTV54tSp88bqCg5iUdmozdOpQJMKF1mkjhNyQuX8LI3joziqjEcue473G0EcxnYQ3/mA2HYY+9EdHO3v4vhwH2k2zp2ncHGaQjaTQf7jJeLRGPY/RLBNXRu6CuU4sY/4XhSZkwQCb5ax9NvvWFl6zfsVBP5cxirXgm/fYDOwTNbL2A4FsRVcQ5gAsXAYBztRJHb3EOG9OLGUJDtfZFJIJ+PY3dmm4GtyrNDGKsKhDYQ3g2RNI9YCXH9L8GUCrpPRO0RCAnQbu6ztUAiGruFftnMJbx+fxgIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -51,7 +410,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 71.01449275362319%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAADqElEQVR42iWT3W9TBRyG+394oRcaPxAD4dJbIzFeTBLRTA14IdEpIQEhiBDCDCAgc0PYh3OfjPW06+i+23XUtT3n9Jye9pzTnp523RdsOLbh1p6uzM3Lx6xePPnlTX558t68rkh8EEkdITDZRyD0gFQ2SDITRM9OoWdDZPLTVexClNycyOxiHM0MoeoBCgsyM/MyphUhNyMxMyvhCscEwhEv/ocdjI51olsTJM0JjGwI0/6ftP0IKxdmdkFmeLyX2toaaj46TO2xo1z9+QLxRADLjmLZ07gikodp0YOoDqDqw1US+hB6JoBpT2JYQQxrktzsNKIyRF/rJVLDtwj1Xeb4px/w0suvcPLUVyjaOGZmak/YT0wWkBQPsjaAmnqIqvtJmqPomXHSVWmAhDmGX2hgMdzCds7PTsFHb+Np3tz3FgcOvYN/pBvTeoQrKvUjyv1IqoCc8KKmBtHMYRKGHyXlQzP9GNlxQqFu7v96FuHOOYS759Ee3uDiqc95fd9+Xn3jNX5rvoqeDuES4wKyIhDXPCjJARIpXxU9PUZ2RsIuKJi5KbRoD8bAdf7svoKn6Sxd177hw/ff5eChg+w/8Db3Wq6iJsdwVdvtCZNeZM1NIjWInY+ztLrM0uozrEIexdAQuhoYu30Gy3cTxV3Pg4Zvuffjcb6oeY+6777EP9xOVPTh2pNJihtREzAy4yyvzZN/soCW1sktFEhZJnfbWqg/fxLhpzpiPZeYaD1N740TnPj4MJ/VHqGzu6EqjMS8uGKqm1jCjWEMMb80z9zyE2KqjKjIWLM57LkCkbhER+tNbp85QvPFT2j64Sj1545xou5rLtd/T0fnLQb9bUxHBVwxzYsW+Z21VDtzmhePz81ocAI5IZOyDDJ5i6Rl4h3ow910DnfzBXrbb9LV04nXJzAy6iEU9qEkJoiKXlxJsZf8o1vow1dITrWRNiIU5kzsfJKsnWB+MUO+oJOb0Xn8OM/y00WcrTI7O7tsb1eoVIoUS8/YLC6T1CdwTXqvMyfeQfPXEw37qGw/I23GCE6OYKZV7JyBokrIcRFRipHOmPy7u8vu7i5bWw5blQ1KzirF0l/oZhCX0NdI3H+NxelGklEPq+vzbGwssFlaoVRep+Ss8c+OQzqto6pxbNsmm80iSRKyJFFy/sYpr1N0VtDN0N6Ww3j/uEwu+At56T5rzxcoOSvVJ6f8vNqg8qJEydmkXC5TqVSqd7O4l0tsvSjibK1SdJ4yawf4D0O9dBEQrhVQAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 71.01449275362319%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAADoElEQVR42iWT2U9cZRjG5//wQi80LrWmTS+9NTbGC2xiNahpvZAo2jRpLam1DSmG1oJFqC2LyFraOTMMDOvMMIDMvs+cWc4MAwNtqSytMAtTBC9/voMXT873nbz5vc/7vOfoHL4RPIEJrDNDWO0PiKRshBM2oqlZkZ1EZuFQWtZJetnN0qqPkGonELWSXfGymPOiJh2kFz0sLnnQzbsU5h1GzKM9TE71Ek1aCKsWYgJTtf8V1+ZIpudZEsD49CDV1VVUfXSS6jOnafz5Cr6glaTmFC2gc3gMLLgNuAPD0nX8UMHoGNGEVWAzxJI20QzppQXc/jGGOq8RGW/GPlTP2U8/4KWXX+Hc+a/wh6ZRE7MV4ENcXgWP34A3JNDIqEDN4nJSoNPirgK1ElSnMCstrM53sJc2s581Mdh6gTePvMWxE+9gnuiX0efQOQXo9j6UHBW8QaMARyQjcRkz44+Y5GyW8aex2/u5/+sllDt1KHcvExq9xdXzn/P6kaO8+sZr/NbeSDRuR+f2Cciv4AsZ8IeHCQqkomh8ipQErWX9qOlZQs4BYsM3+bP/Ooa2S/Td+IYP33+X4yeOc/TY29zraCQQnhJgxV0FGDbKyHqBjaBlfDzZXBNtkMxm8MdCKH0tTN2+SNLUhF/fwIOWb7n341m+qHqP2u++xDzejdNtQleBefx63CGFmGS2tpUj83iFUDxKeiVLJKlyt6uDhsvnUH6qxTVwDUvnBQZv1VDz8Uk+qz5Fb3/LIdDhMqJzBfS4gnpisTFyT3Isrz3GFfDKRr0kl9Joy1kcPg89nU3cvniK9quf0PbDaRrqzlBT+zX1Dd/T09vMiLmLBaciwJCRkON3tiLdLMvZYNIzabPIgrziLiYfdZKwuDQOD6Fvq0PffoXB7ib6BnoxmhQmJg3Y5034gxYZWRyG3YNk5pqJjl8nPNtFPOYgu6xKjmFSWpDcaoJMVsZfjPLoUYa1p6sUd0vs7x+wt1emXM6TL2ywk18jHLWgmzHeZNl9h5C5Aad0Ku9tEFdd2GYmUOMBtHQMf8CD1+fG7XERT6j8e3DAgWh3t8hueZtCcVOgfxFVbeiUoVZ85husLrQSdhrYfJZje3uFncI6hdIzKd7in/0icVlSIOBD0zRSqRQejzQRFYp/U5S6fHFdgPbKvzyP8Y960rZfyHjus/V8RYrWD4uKpeeHDsovCvJuh1KpJCOWD587+cq9wO6LvEQgDotPWdKs/AdDvXQRd2Q8cAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -130,7 +489,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 168.84057971014494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAAACXBIWXMAABYlAAAWJQFJUiTwAAAEmUlEQVR42qVWW2vcVhDWL8t7nRenD8aQkAbsQPMTEgyltA/FD6WkMS6BvvSWPG4fGqcYikntFLfEWXvjeK9aSavr6rIXyStpdfnKzK7Wduw4IdEye86R5nwzR/PNjARccuV5zvKuK58K/Que52FtbQ17e3vY3d3Fzs4Oj5ubmxBFEbIsY319HaXS7ziqHqFer2PjyQbK5TIOKgewLGtmnC6h0WhgaWkJt2/fxtWrV7G8vIy5uU+wuLiIK1euoFQq4c7nd3Dr1i1cv34dn167hrt372FhYQHz8/OoVCoMlGXZBDBJEuzv76PdbqPf72M0GsG2bbiui62tLR77/QEcx4GqqjAME8dBAMs0WS9N0zPHFw5fHWJubg43btzA6uoqVlZW8PTp03Pv8PS7fNucAXXdwIMHD3D//n2sr/+Amzc/w8OHD/kheV+AZiRZzkfj9XQ8B/hmxIIgQBhGM+snAOdBLxJh5kGWIcvSGQE+9GIPpeohxGadb3RUDYZpwbK6cBwXbUmBphs8kkhyBx1Vh+f1WM8kPddD13b4nuA7Gh599xV+Wr2HQbcD3bTRbIlQOipLrd5Es9WG2JbQaLTQaLZQrTWmBuSpMZkd8YMAgiLW8OU332Lli69Re12BZbuQlA4s22HrumHC6tpQNQOqbvA9msuKOvXeZMOu650cuYgUcYqsia0WdMtFRfFQ03rYlxzsiTZeyS7+a1g47Hg4kF286nioqh4Hit49B+U0YDhOcCDZ2K1qqKouxkmGME4QjVNE4wRRnCAcp4jHCesWzyaBLYIyXRTUGI7G8PyIxw+Kcv6uKpK/KVMHcLI+C5gDaUHaPJ/MszeI/J5l7MJM+dhLcIYh/ngh4UWri3LbxsZLGbsNEzs1A89rBv6pmyz2MLywGJwDHIzG2Ch3sHmgoiy7ePJSwaPtOp68lLFdNbBRlvHzsxrM3vH7AUZhCNcyMej14Ng2hoPepe3gnBTPCsA0yzAKQ4RxjDgeI4rHHL0iSCeRzc+Vq4u8FaIoRkuUOCcpwSnNZC4A2iRXNYNzWVY6s8JB+qqmc8q1xDbnexhO3rFAtY+UJVnhvKVqQordrs1rAlNVnZ/T2GHRGJTGMWVMGJ00KUIWJZm9oU0EIEkKe0De0DOlo/FmeVqBSI+E5v3BEL4fcKmL4hjCcOgz2OQI2qyakDLNTdPiqmKYk8pDRnTdhGXZvKc4mdiWEQTHEOiPNtMNAmw0RfaSRipNp9Pw7OQjMyVH/nbqzKKfQxjFCRTbhx/G0NyAyxSVKCpNquvD6B3jOErQC6IzDubT32mDDGj0R/j+z0POlF+3G3j8vInHOw389ncdpX9F/PKshh//es3px18I78qUOI7RtV24vQH6Qx9Or48oSREnKYj0aZpxEU0vaZ2nCS4Qj6hrUbSHvo/BcPhx1SaMYgZ0vR5/wxCvKFuIMkQRaj50j1pk0SpJ33Zc9PoDGIbF6+LjQKAvBWI9UYc7m6oz714f1XBUrTOFCJj4xuRWVNanlko8LHo1kXsGWJCYNtDXljnN1wmJDU5Daq3klapqbJRyn/YZpsnGKUsI8H+Wxf3oB2NjDQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 168.84057971014494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAAACXBIWXMAABYlAAAWJQFJUiTwAAAEmElEQVR42qVWS0/jVhT2L2Nf2DBdICTQFAmQOj9hRkhV1S4qFlVFQVRI3fQ1s6SLDlRIFWphKqYaJhAeSZw4sWPHdhznTZz313NO4vAcGM04OrnX9rnfPb7nO9+9Cu65+v2+2ENXf2j8rxSLRaytreHw8BAHBwfY39+XdmdnB5qmQdd1rK+vY3Pzd5zHzpFIJLD1cguRSATH0WO4rjuanC9FVVXMz89jcXERExMTWFhYwPj4J5iensbY2BgBbeLJ508wNzeHmZkZfProEZ4+fYapqSlMTk4iGo0KUK/XGwB2Oh0cHR0hnU6jXC6j0WjA8zz4vo/d3V1py+UKCoUCTNOEbTu4qNfhOo74dbvda5+vnJ6cUkTjmJ2dxfLyMpaWlrC9vX1rDa+u5bv6ApjL2VhdXcXKygqt1Q94/PgzbGxsyEuOPgTtsfX68mlyP2xvAd7MWJ0+Jwiao9kvAW6D3mXKKAJy6vW6IwJ86CURZmKn0JIJeZA1LdiOS3TIUyJ8pDMGLFoWbtkyepZ8cigWS+LnsJ9fRN4ryDOlVrDw/Luv8NPyM1TyWeQcD8mUBiNrisUTSbpPQ0tnoKopqMkUYnF1OIE+nEyXQGq0XIqhxfHlN99i6YuvET+LwvV8ZIwstQWZPUc0cfMeTMuGSYP5Gfd1wxxG78jEPkU5+uQwU8wpnk1LpZBzfUSNIuJWCUeZAg41Dye6j/9UF6fZIo6pf0JtzCxKonjtJSlXAYN2B8cZDwcxixx9tDs9BK0Omu0uGbXUD6jfanfEN3w3SGyYlOFNSI1qo41irSntB2W5/5CK9G/aMABc3l8HpPtuSFoy6fduEPk9ZezOSvnYSylUA/zxJoM3qTwiaQ9bb3UcqA724zZekf2bcMQ88rtLDG4BVmjxtyJZ7BybiBAVXr418HwvQa2OvZhN73T8/HccTuni/QCbQQDfdVAplVAgfatWSvduB7csfBcCdkkUGgQatFpotdrEtbZkL0zSZWb7t+TqrmiVZrOFlJaRmuQC5zLTRQCsQa1SmXEt60Z2JBzsb1o5KbmUlpZ6D4LBGiusfeyc0Q2pW1YTdswTMN8zmEnqwu+5zYpZAsptmyuGMEabFCNrFAlHw4MYIENFzxFwNPzOyFoyWB8qEPuxcb9cqaJWq4vUNWnZlGq1JmCDT7BGasLO3HcIlFXFdgbKw5PkSGFc15Mx4ZdpaZ3U/gIK//FgfsCAalKTKLllabpahtc7H1kpffTfTZ1R9km+GiRBhldDLWjB8usiUyxRLE2mX4NNhL5odlCqN68F2B/+rk4ogHa5ge//PJVK+XVPxYtXSbzYV/HbPwlsvtbwC1XJj3+dSfnJCeGhSmlRZvIk+36pgjIlqFAqo9khESVj0ne7PRHR7j1b51WCK8wj3rU429VaDZVq9ePUJqBKYUCftkA+wzCvuFqYMkwR3nz4GW+R4VbJ/h7xrkT+tu3KfXg4UPikwKxn6sjORpXAvDs7j9PxLSEUYmDmm5DbMMWft1TmYbhXM7lHgCGJeQCftpxhvQ5IbEsZ8tbKUZnkw5Ny7fM4m05hPDlXCQP+D5bF/egPmKDqAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -166,7 +525,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 25.362318840579707%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA0ElEQVR42pWP226DMBBE8x0J2ATfsAFjCE2aXtRWSv//k06FhSh97MPR7KxGo92DlJLQRZT1aFVjtaIxOuOMwhuN1TXBGrzVBGdodyw+esvSs3CQVYWbXrHDlesQeNxGvp4S99RzTx1zHxjbhrcpZo3ecel83g/BkYLLs9gKhaSZ32nSDdMMzLHjc068jD1G1RyLkqIUq66scylE1lNR/l5YmTN2eMbPHzy+E9aeiY3L7y2BaqHasfOyklvmT2EbJ7TzXOIRVQtOhUAIsYX+ww+isI9QdqKNbgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 25.362318840579707%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA0UlEQVR42o2P227DIBBE8x1pDMTAcrGNsUNza6u2Uvr/nzQFZFnOWx6OZgeNdocd5xy+D5DkoGQLUhJWq4rREi4rqRaeNBwpeKPRbSg+OELZU9hxIWDmD9B4xnn0eFwm/L5H3OKQ6ZEGj6mz+JxD1eAMTr2r76M3iJkys3Uh47DpCzZeoO2IFHr8pIj7NEDnxvtDg0PDFl1Y5oaxqm/Zrw2FPuZ2V7j0jcdfBNERwZr6vRIQBbFh47nga+ZpYRdmKONwCnvIluWLDCxf55vgq/wDorCPUPfKlSsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -245,7 +604,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 70.28985507246377%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACHElEQVR42q2T30tTYRjHz3/UVRcJ0T/QRYUXRWB10U0ohaCBYIaVbo4FlkTJ0DJSSprGys2t4Zr7eTZ31LAfKlE0yR+ztsidvTs75xPn6KpFF1k+8OV9noeX7/v8+L6SEIJCPk9Z3cIwDHRd/ydUKhU0TUMql8uoqkpZCCthxuapmWfV3wUksyoTe2VSqaQiROlHIpfLURLCqlioxd0T/p4wWzZnYuzM5m+t2qXEHptFqKolq7LqPC1Uq6xUauMdbN/76avFosVhEep65b8XU31IMqe0lN0kGIqQziR4n11jY3WFxTmZ+YyMz+thfX2N5QWFTDTIm7kUs6k4XzbXWX49T0aOMRMP81aJWlqUhKYTisg4bZd47B5g8nmIZPQFN7rbsfd0c7LhFPJ0mIXEJM8Gu7hju8jB/fsI+SfwPXKh+O4SGrlObLSXsighmaxDfTYc7U14xvoZHnSSTqe50NxIS1sztivXiE6FKXxQSI33MXzbzqG6AwQnnuBzP6CwGCCbHCUbHwNdQypufWPYdRO3qxPPfQdKzIff7+do/RFON5ygtfE8wXAM371ezhyuo/1sPceONzHp9RP09DMfHCL3KoBYkTFMQlUtoiSmkaeeEgmMk9/4SDwRp6Ozg1tOBwNdDpIzGbzuh9gvt+G62kpPyzleKmnE1yyr72bJxAJ8/rS0LRtzu+Yf/NPGagWv1ShBNwwrZ4n6F2F/B2KCAmQydbWDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 70.28985507246377%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACIklEQVR42q2T30tTYRjHz3/UVRcJ0T/QRYUXRWB10U0ohaCBsAwr3RwGlkTJ0DJSSprGSvej4Zruh2dzRxf2QyWKJumctUXu7Gw7+3Teo6sWXWT5wJf3eR8O3/d5nu/3SJqmkctmKapbVCoVdF3/J5TLZUqlElKxWERVVYoGsSiIuzhL4qzmu4AkuhLYq5AKBRVNK/woZDIZCka3omNNze+e8PeCGFnspLKzm7+N6pQSexwmoaoWzM6q+zRR7dJQr+a+g+3vfuZqPm9ymIS6Xv5vYaoPSWJLy6lN/IEZ4oko71PrbKytsrQgk0zIuCddpNPrrCwqJEJ+3izEmI9F+LKZZuV1koQcZi4S5K0SMr0oaSWdwIxMj/USj50DeJ4HmA294EaXBVt3FycbTiFPB1mMeng22Mkd60UO7t9HwDuB+5EDxX2XwMh1wqO9hjMKSIJ1qM+K3dKEa6yf4cEe4vE4F5obaWlrxnrlGqGpILkPCrHxPoZv2zhUdwD/xBPczgfklnykZkdJRcaMuQ1j57e+Mey4idPRgeu+HSXsxuv1crT+CKcbTtDaeB5/MIz7Xi9nDtdhOVvPseNNeCa9+F39JP1DZF750FZlQzSDUDXMq0SnkaeeMuMbJ7vxkUg0QntHO7d67Ax02pmdSzDpfIjtchuOq610t5zjpRJH+5pi7d08ibCPz5+Wt20j1BX/4J8UqzV8qcYJupGLmmnqX4z9HWKCAmTncr+3AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -310,7 +669,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.10144927536232%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABBklEQVR42p2RW2vCQBCF8///SaEv/QO2Ul9K9VGkBW9RN2685OImm93s7lci+CAtRT1wZhhmOGeYiQYvA0bvI0SyJl4s2EpJoSq891zgnLuq/0MUfKAsFePZmu+lYCqOzNITh1PDI4hqpalUTbKVHLOcpjF3bfRL8O25z7A/ZCsFq3iJTCVZoWiMfUzQO09RnJjMBV8LwVwcGK9z0lKfB8K9grax1FWNSCRS7s7iznk6I0K4jZ2xNvhCEb0+9fjsfZBsVsSzKVIkHLOCsqwIzt9G7wna4pXuNjTkecl0s2Oe7InTjInIEVn92A270LYtlTZo06KNpW4sxtjzt7veJf/FEK6v/APhGr1Jnr2UcAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 47.10144927536232%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABCElEQVR42p2RW2vCQBCF8///SaEv/QO2Ul9K9VGkBRONunHjJRdzT3a/TgQfpKWoA2eHZZdzZs5xRi8jJu8TVLDGXyzYak2S5RhjuFTXdVf3/8qxxpKmGVN3zfdSMVdH3PDE4VTxSDlFVpJnBcFWc4xiqqq+a6JfhG/PQ8bDsayqWPlLdKiJkoyqbh4jNJ0hSU7MPMXXQuGpA9N1TJiW5w/2XsKmaijyQkLRaL07k3ci0gth7W3ohcsaI5s5r08DPgcfBJsVvjtHq0C8TCSoHCukN0H8tmWDkTxkwpo4TplvdnjBHj+MmKkYFRWPedgfbduSy8hl3QrEArGhlt6n3b9d+l+w9trlH+EavUn9vw4vAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -349,7 +708,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 63.04347826086957%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAABJklEQVR42s1R207DMBTr/38lCMrSsTZprufkZpRsK5vYgEk8YMmy0p44sTMYucA7g4Z1XaGU6qq1Rs65f6+1XrGUAgoB3hM8JXjKqLWPYtBSInjXB9dVQ6lP0xAIMcbOlBKYYycxg4jARIjE4JhRTo4DTmi3YWaEEPpwo7EW3vvTmuGcgzEG1jrkXHALQykVtRyjWOPgrId3ATkVtH9dc73aVC9qiDGBY9zWw+XU/lXh7WnGflwwvUjIyWIZLawMW3ctSdMzzpVsN7w8VwiB3U5AiKmrlKr3KaXsnTY9HA6w1uIeNsPWqaUMvSrEdIxw64XP/NGwdTyOHrvnd0zjgkUYmJlQ0v3N3xq2yGpWmPcSWjkkLmCXvjzIA4b4VaSHDP8C/9/wA3P1AL6EbowPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 63.04347826086957%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAABKElEQVR42s1Ra0/DMBDr//+VIChtx9q830nNJWvHJjZgEh84yTolcZyz0ym2wBqFWkIIcM5bl1Ii59z213W9QikF3jlY62F9ImTab1R0kjE4axpRCEmCn6LOecQYG1JKCCE2+BDgvUcgRB8QYkbZFDtsVacJRHT0ciVXKK1pCrutA4wxUEpBa0P8glvVlUI2ysmKVgZGW4rAIaeCetZ6Xq8urRcxxEiTk4N93V2yDq8cb08zDv2C6YWBTRpLr6GZO2dXndS+1x7JecLLd8dxxDCM1KfWGeMtT0Y510xrPx6PZFnjXp0Fa6aafksKjphOFm798I4fBWvGfW8xPL9jIsvLqKBmj5LuX/5WsFrmM8d8YJDcIIWCYNKXD3lAEL+y9JDgX9T/F/wAc/UAviaoBeEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
