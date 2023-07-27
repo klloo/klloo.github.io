@@ -36,8 +36,9 @@ const Common = {
 		black: 900,
 	},
 	fontSize: {
-		root: '16px',
+		root: '17px',
 		0: '0.833rem',
+		0.5: '0.9rem',
 		1: '1rem',
 		2: '1.2rem',
 		3: '1.44rem',
@@ -55,7 +56,7 @@ const Common = {
 		normal: 1.5,
 		relaxed: 1.625,
 	},
-	color: {
+	lightColor: {
 		primary: '#005b99',
 		text: '#2e353f',
 		textLight: '#4f5969',
@@ -63,7 +64,19 @@ const Common = {
 		headingBlack: 'black',
 		accent: '#d1dce5',
 		tag: 'rgb(232, 232, 232)',
-		link: 'rgb(41,98,246)',
+		link: 'rgb(41, 98, 246)',
+		background: 'white',
+	},
+	darkColor: {
+		primary: '#005b99',
+		textLight: 'rgb(176,176,176)',
+		heading: 'white',
+		headingBlack: 'white',
+		accent: '#4f5969',
+		tag: 'rgb(56, 62, 70)',
+		link: 'rgb(146, 216, 252)',
+		text: 'white',
+		background: 'rgb(35,40,48)',
 	},
 	media: {
 		mobile: '42rem',

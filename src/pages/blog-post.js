@@ -2,10 +2,10 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 
-import Layout from '../../components/layout';
-import Seo from '../../components/seo';
-import BlogPostContent from '../../components/blog-post-content';
-import { PostTag, TableOfContents, PostIcon, PostDate } from './style';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import BlogPostContent from '../components/blog-post-content';
+import { PostTag, TableOfContents, PostIcon, PostDate } from '../style/blogPoststyle';
 
 function BlogPostTemplate({
 	data: {
@@ -14,8 +14,6 @@ function BlogPostTemplate({
 	location,
 }) {
 	const siteTitle = site.siteMetadata?.title || 'Title';
-
-	console.log(post.tableOfContents);
 
 	deckDeckGoHighlightElement();
 
@@ -34,9 +32,7 @@ function BlogPostTemplate({
 				</PostTag>
 				<h3 itemProp="headline">{post.frontmatter.title}</h3>
 				<PostDate>{post.frontmatter.date}</PostDate>
-				<p>{post.frontmatter.description}</p>
 				<hr />
-				<br />
 				<br />
 			</header>
 			<BlogPostContent previous={previous} next={next} post={post}/>
@@ -57,7 +53,7 @@ export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
-    $id: String!
+    $id: String
     $previousPostId: String
     $nextPostId: String
   ) {

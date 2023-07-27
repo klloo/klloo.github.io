@@ -21,4 +21,7 @@ export const BlogPostNav = styled.nav`
         justify-content: space-between;
         list-style: none;
     }
+    & a {
+        color: var(--color-link);
+    }
 `;

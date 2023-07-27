@@ -31,6 +31,7 @@
     "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-remark-autolink-headers": "^6.11.0",
     "gatsby-remark-code-buttons": "^2.0.7",
+    "gatsby-remark-copy-linked-files": "^6.11.0",
     "gatsby-remark-highlight-code": "^3.3.0",
     "gatsby-remark-images": "^7.11.0",
     "gatsby-remark-prismjs": "^7.11.0",
@@ -44,7 +45,9 @@
     "gh-pages": "^5.0.0",
     "prismjs": "^1.29.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-responsive": "^9.0.2",
+    "react-switch": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",

@@ -1,9 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'gatsby';
 import Giscus from '@giscus/react';
 import { BlogPost, BlogPostNav } from './style';
 
 const BlogPostContent = ({post, previous, next}) => {
+	const [commentTheme, setCommentTheme] = useState(null);
+
+	useEffect(() => {
+		if (typeof window !== 'undefined')  {
+			setCommentTheme(window.__theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
+			window.__onThemeChange = (theme) => {
+				setCommentTheme(theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
+			};
+		}
+	}, []);
+
+	if (!commentTheme) {
+		return null;
+	}
+
 	return (
 		<div>
 			<BlogPost
@@ -14,6 +29,8 @@ const BlogPostContent = ({post, previous, next}) => {
 					dangerouslySetInnerHTML={{ __html: post.html }}
 					itemProp="articleBody"
 				/>
+				<br />
+				<br />
 				<br />
 				<br />
 				<br />
@@ -53,7 +70,7 @@ const BlogPostContent = ({post, previous, next}) => {
 				reactionsEnabled="1"
 				emitMetadata="0"
 				inputPosition="bottom"
-				theme="preferred_color_scheme"
+				theme={commentTheme}
 				lang="ko"
 				crossorigin="anonymous"
 				async

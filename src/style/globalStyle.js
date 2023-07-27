@@ -4,7 +4,22 @@ import Common from './common';
 
 const fontFamilySerif = '"Merriweather", "Georgia", Cambria, "Times New Roman", Times, serif';
 
-const style = css`
+// 기본 스타일
+const baseStyle = css`
+    /* Colors */
+    :root {
+      /* Color 값을 CSS 변수로 설정 */
+      --color-primary: ${Common.lightColor.primary};
+      --color-text: ${Common.lightColor.text};
+      --color-textLight: ${Common.lightColor.textLight};
+      --color-heading: ${Common.lightColor.heading};
+      --color-headingBlack: ${Common.lightColor.headingBlack};
+      --color-accent: ${Common.lightColor.accent};
+      --color-tag: ${Common.lightColor.tag};
+      --color-link: ${Common.lightColor.link};
+      --color-background: ${Common.lightColor.background};
+    }
+
     @font-face {
         font-family: 'IBMPlexSansKR-Regular';
         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
@@ -20,7 +35,7 @@ const style = css`
     }
 
     html {
-        line-height: 1.8;
+        line-height: 1.75;
         font-size: ${Common.fontSize.root};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -31,11 +46,12 @@ const style = css`
     body {
         font-family: 'IBMPlexSansKR-Regular';
         font-size: ${Common.fontSize[1]};
-        color: ${Common.color.text};
+        color: var(--color-text);
+        background-color: var(--color-background);
     }
 
     hr {
-        background: ${Common.color.accent};
+        background: var(--color-accent);
         height: 1px;
         border: 0;
     }
@@ -47,7 +63,7 @@ const style = css`
     h4,
     h5,
     h6 {
-        margin-bottom: ${Common.spacing[6]};
+        margin-bottom: ${Common.spacing[3]};
     }
 
     h2,
@@ -56,33 +72,33 @@ const style = css`
     h5,
     h6 {
         font-weight: ${Common.fontWeight.bold};
-        color: ${Common.color.heading};
+        color: var(--color-heading);
     }
 
     h1 {
         font-weight: ${Common.fontWeight.black};
-        font-size: ${Common.fontSize[6]};
-        color:${Common.color.headingBlack};
+        font-size: ${Common.fontSize[5]};
+        color:var(--color-headingBlack);
     }
 
     h2 {
-        font-size: ${Common.fontSize[5]};
-    }
-
-    h3 {
         font-size: ${Common.fontSize[4]};
     }
 
-    h4 {
+    h3 {
         font-size: ${Common.fontSize[3]};
     }
 
-    h5 {
+    h4 {
         font-size: ${Common.fontSize[2]};
     }
 
-    h6 {
+    h5 {
         font-size: ${Common.fontSize[1]};
+    }
+
+    h6 {
+        font-size: ${Common.fontSize[0]};
     }
 
     h1 > a {
@@ -103,7 +119,7 @@ const style = css`
     p {
         --baseline-multiplier: 0.179;
         --x-height-multiplier: 0.35;
-        margin:${Common.spacing[0]} ${Common.spacing[0]} ${Common.spacing[8]} ${Common.spacing[0]};
+        margin:${Common.spacing[0]} ${Common.spacing[0]} ${Common.spacing[7]} ${Common.spacing[0]};
         padding: ${Common.spacing[0]};
     }
 
@@ -120,11 +136,11 @@ const style = css`
     ul li,
     ol li {
         padding-left: ${Common.spacing[0]};
-        margin-bottom: calc(${Common.spacing[8]} / 2);
+        margin-bottom: calc(${Common.spacing[4]} / 2);
     }
 
     li > p {
-        margin-bottom: calc(${Common.spacing[8]} / 2);
+        margin-bottom: calc(${Common.spacing[4]} / 2);
     }
 
     li *:last-child {
@@ -138,7 +154,7 @@ const style = css`
 
     /* Link */
     a {
-        color: ${Common.color.link};
+        color: var(--color-link);
         text-decoration: none;
     }
 
@@ -155,8 +171,31 @@ const style = css`
     }
 `;
 
+// 다크 모드 스타일
+const darkStyle = css`
+    /* Colors */
+    :root {
+      /* Color 값을 CSS 변수로 설정 */
+      --color-primary: ${Common.darkColor.primary};
+      --color-textLight: ${Common.darkColor.textLight};
+      --color-accent: ${Common.darkColor.accent};
+      --color-link: ${Common.darkColor.link};
+      --color-heading: ${Common.darkColor.heading};
+      --color-headingBlack: ${Common.darkColor.headingBlack};
+      --color-tag: ${Common.darkColor.tag};
+      --color-text: ${Common.darkColor.text};
+      --color-background: ${Common.darkColor.background};
+    }
+`;
+
 const GlobalStyle = () => {
-	return <Global styles={style} />;
+	// body 클래스에 따라 다른 스타일 선택
+	const currentStyle = css`
+    ${baseStyle};
+    ${document.body.classList.contains('dark') ? darkStyle : null};
+  `;
+
+	return <Global styles={currentStyle} />;
 };
-  
+
 export default GlobalStyle;

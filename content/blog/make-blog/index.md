@@ -1,8 +1,9 @@
 ---
-title: Gatsby와 Github pages로 깃허브 블로그 만들기
+title: Gatsby로 깃허브 블로그 만들기
 date: "2023-07-17"
 category: "블로그"
 icon: 📒
+description: "Gatsby와 Github pages로 기술 블로그를 만들어 봤습니다."
 ---
 
 ![](iamold.png)

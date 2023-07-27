@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 import Common from '../../style/common';
 
 export const PostList = styled.div`
-  border: 1px solid ${Common.color.accent};
-  background-color: white;
+  border: 1px solid var(--color-accent);
   border-radius: 10px;
+  width: 100%;
   width: calc(50% - 7px);
   padding: 0 ${Common.spacing[8]} ${Common.spacing[5]} ${Common.spacing[8]};
   margin-bottom: ${Common.spacing[5]};
@@ -29,11 +29,13 @@ export const PostList = styled.div`
 `;
 
 export const PostListItem = styled.article`
-  margin-bottom: ${Common.spacing[8]};
-  margin-top: ${Common.spacing[8]};
-  color: black;
+  margin-bottom: ${Common.spacing[4]};
+  margin-top: ${Common.spacing[4]};
+  color: var(--color-text);
   p {
     margin-bottom: ${Common.spacing[0]};
+    color: var(--color-textLight);
+    font-size: ${Common.fontSize[0.5]};
   }
   h2 {
     font-size: ${Common.fontSize[4]};
@@ -47,6 +49,15 @@ export const PostListItem = styled.article`
 
 export const PostItemHeader = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+`;
+
+
+export const PostTag = styled.span`
+    background-color: var(--color-tag);
+    font-size: ${Common.fontSize[0]};
+    border-radius: 5px;
+    padding: ${Common.spacing[0]} ${Common.spacing[3]};
+    border: none;
+    margin-right: ${Common.spacing[4]};
 `;

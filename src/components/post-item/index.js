@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { PostList, PostListItem, PostItemHeader } from './style';
-import { PostTag } from '../../pages/blog-post/style';
+import { PostList, PostListItem, PostItemHeader, PostTag } from './style';
 
 const PostItem = ({post, title}) => {
 	return (

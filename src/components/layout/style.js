@@ -5,17 +5,16 @@ import Common from '../../style/common';
 export const GlobalHeader = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: center;
     max-width: ${Common.maxWidth.full};
     margin-bottom:  ${Common.spacing[12]};
-    padding: ${Common.spacing[5]} ${Common.spacing[10]};
-    background-color: white;
+    padding: ${Common.spacing[4]} ${Common.spacing[10]};
     top: 0px;
     position: sticky;
     backdrop-filter: blur(20px);
     opacity: 0.9;
     z-index: 999;
-    border-bottom: 1px solid ${Common.color.accent};
+    border-bottom: 1px solid var(--color-accent);
     & div {
         cursor: pointer;
     }
@@ -23,8 +22,8 @@ export const GlobalHeader = styled.div`
 
 export const TitleLink = styled(Link)`
     font-weight: ${Common.fontWeight.bold};
+    color: var(--color-text);
     text-decoration: none;
-    color: black;
     font-size: ${Common.fontSize[2]};
 `;
 
@@ -49,4 +48,19 @@ export const GlobalFooter = styled.div`
     @media (max-width: ${Common.media.mobile}) {
         padding: ${Common.spacing[10]} ${Common.spacing[3]};
     }
+`;
+
+export const DarkModeButton = styled.button`
+    display: inline;
+    width: 17px;
+    cursor: pointer;
+    margin-left: ${Common.spacing[5]};
+    border: none;
+    background: transparent;
+`;
+
+export const FlexWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;

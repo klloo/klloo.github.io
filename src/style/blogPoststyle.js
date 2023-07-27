@@ -1,21 +1,20 @@
 import styled from '@emotion/styled';
-import Common from '../../style/common';
+import Common from './common';
 
 export const TableOfContents = styled.aside`
   position: fixed;
   top: 100px;
-  left: calc(50% + 400px);
-  font-size: ${Common.fontSize[0]};
+  left: calc(50% + 430px);
+  font-size: 13px;
+  border-left: 3px solid  var(--color-tag);
   & ul {
     list-style: none;
-    padding-left: ${Common.spacing[3]};
-    border-left: 4px solid ${Common.color.tag};
   }
   & a {
-    padding: ${Common.spacing[3]};
+    padding-left: ${Common.spacing[4]};
     border-radius: 5px;
     text-decoration: none;
-    color: ${Common.color.text};
+    color: var(--color-textLight);
     cursor: pointer;
     /* background-image: linear-gradient(to left, #90969a 0%, #8d9496 100%);
     background-size: 0% 1px; 
@@ -36,7 +35,7 @@ export const PostIcon = styled.div`
     font-size: ${Common.fontSize[10]};
 `;
 export const PostTag = styled.span`
-    background-color: ${Common.color.tag};
+    background-color: var(--color-tag);
     font-size: ${Common.fontSize[0]};
     border-radius: 5px;
     padding: ${Common.spacing[1]} ${Common.spacing[3]};

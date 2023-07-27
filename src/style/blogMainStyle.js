@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { config } from '@fortawesome/fontawesome-svg-core';
-import Common from '../../style/common';
+import Common from './common';
 
 config.autoAddCss = false;
 
@@ -14,7 +14,7 @@ export const SearchInputForm = styled.form`
     outline: none;
     text-decoration: none;
     padding-left: ${Common.spacing[7]};
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--color-text);
     margin-top: ${Common.spacing[12]};
     background: transparent;
   }
