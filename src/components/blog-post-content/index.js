@@ -7,12 +7,10 @@ const BlogPostContent = ({post, previous, next}) => {
 	const [commentTheme, setCommentTheme] = useState(null);
 
 	useEffect(() => {
-		if (typeof window !== 'undefined')  {
-			setCommentTheme(window.__theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
-			window.__onThemeChange = (theme) => {
-				setCommentTheme(theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
-			};
-		}
+		setCommentTheme(window.__theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
+		window.__onThemeChange = (theme) => {
+			setCommentTheme(theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
+		};
 	}, []);
 
 	if (!commentTheme) {

@@ -8,17 +8,15 @@ const Layout = ({ location, title, children }) => {
 	const isRootPath = location.pathname === rootPath;
 
 	const [theme, setTheme] = useState(null);
-	
+
 	let isDarkMode = false;
 	if (typeof window !== 'undefined')  
 		isDarkMode = theme === window.__DARK;
 
 	const onClickDarkModeButton = useCallback(() => {
-		if (typeof window !== 'undefined')  {
-			const newTheme = isDarkMode ? window.__LIGHT : window.__DARK;
-			window.__setTheme(newTheme);
-			setTheme(newTheme);
-		}
+		const newTheme = isDarkMode ? window.__LIGHT : window.__DARK;
+		window.__setTheme(newTheme);
+		setTheme(newTheme);
 	}, [isDarkMode]);
 
 	useEffect(() => {

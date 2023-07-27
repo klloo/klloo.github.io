@@ -158,6 +158,7 @@ exports.onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }) => {
       document.body.classList.remove(window.__DARK);
     }
     localStorage.setItem('theme', newTheme);
+    window.__theme = newTheme;
   };
 
   darkQuery.addListener((e) => {
@@ -183,11 +184,9 @@ const Layout = ({ location, title, children }) => {
 		isDarkMode = theme === window.__DARK;
 
 	const onClickDarkModeButton = useCallback(() => {
-		if (typeof window !== 'undefined')  {
-			const newTheme = isDarkMode ? window.__LIGHT : window.__DARK;
-			window.__setTheme(newTheme);
-			setTheme(newTheme);
-		}
+		const newTheme = isDarkMode ? window.__LIGHT : window.__DARK;
+		window.__setTheme(newTheme);
+		setTheme(newTheme);
 	}, [isDarkMode]);
 
 	useEffect(() => {
@@ -213,7 +212,7 @@ const Layout = ({ location, title, children }) => {
 
 
 ### 다크모드에 따라 스타일 설정하기
-이제 다크모드에 따른 스타일만 적용해주면 됩니다. 사실 다크모드와 라이트모드에서의 차이점은 색상밖에 없기 떄문에 색상만 잘 설정해주면 됩니다.
+이제 다크모드에 따른 스타일만 적용해주면 됩니다. 사실 다크모드와 라이트모드에서의 차이점은 색상밖에 없기 때문에 색상만 잘 설정해주면 됩니다.
 이 부분은 GPT의 도움을 받았습니다. 제 블로그는 CSS-in-JS라이브러리로 emotion을 사용하고 있는데 글로벌 스타일을 적용할 때 body 요소에 'dark'클래스가 있는지에 따라 다른 스타일을 적용해주는 방법을 사용했습니다.
 
 ```javascript
@@ -329,6 +328,7 @@ exports.onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }) => {
       document.body.classList.remove(window.__DARK);
     }
     localStorage.setItem('theme', newTheme);
+    window.__theme = newTheme;
     window.__onThemeChange(newTheme);
   };
   darkQuery.addListener((e) => {
@@ -349,12 +349,10 @@ exports.onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }) => {
 const [commentTheme, setCommentTheme] = useState(null);
 
 useEffect(() => {
-	if (typeof window !== 'undefined')  {
-		setCommentTheme(window.__theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
-		window.__onThemeChange = (theme) => {
-			setCommentTheme(theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
-		};
-	}
+	setCommentTheme(window.__theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
+	window.__onThemeChange = (theme) => {
+		setCommentTheme(theme === window.__DARK ? 'dark' : 'preferred_color_scheme');
+	};
 }, []);
 
 if (!commentTheme) {

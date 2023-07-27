@@ -8,7 +8,6 @@ const fontFamilySerif = '"Merriweather", "Georgia", Cambria, "Times New Roman", 
 const baseStyle = css`
     /* Colors */
     :root {
-      /* Color 값을 CSS 변수로 설정 */
       --color-primary: ${Common.lightColor.primary};
       --color-text: ${Common.lightColor.text};
       --color-textLight: ${Common.lightColor.textLight};
@@ -175,7 +174,6 @@ const baseStyle = css`
 const darkStyle = css`
     /* Colors */
     :root {
-      /* Color 값을 CSS 변수로 설정 */
       --color-primary: ${Common.darkColor.primary};
       --color-textLight: ${Common.darkColor.textLight};
       --color-accent: ${Common.darkColor.accent};

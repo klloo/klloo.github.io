@@ -26,6 +26,7 @@ exports.onRenderBody = ({ setPreBodyComponents, setHtmlAttributes }) => {
       document.body.classList.remove(window.__DARK);
     }
     localStorage.setItem('theme', newTheme);
+    window.__theme = newTheme;
     window.__onThemeChange(newTheme);
   };
 
