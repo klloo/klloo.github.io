@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 31 Jul 2023 04:20:12 GMT</lastBuildDate><item><title><![CDATA[첫 사이드 프로젝트 진행기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/alteration-detective/</link><guid isPermaLink="false">https://klloo.github.io/alteration-detective/</guid><pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;구구절절 프로젝트 개요 및 기간&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 11 Aug 2023 11:37:22 GMT</lastBuildDate><item><title><![CDATA[첫 사이드 프로젝트 진행기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/alteration-detective/</link><guid isPermaLink="false">https://klloo.github.io/alteration-detective/</guid><pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;구구절절 프로젝트 개요 및 기간&lt;/h3&gt;
 &lt;p&gt;수선탐정 프로젝트는 근처의 수선집을 찾아주는 웹 프로젝트 입니다. 별건 아니고 그냥 지도앱인데, 이런 저런 기능은 덜어내고 수선집 조회에만 특화된 지도 앱이라고 보시면 될 것 같습니다.&lt;/p&gt;
 &lt;p&gt;프로젝트를 시작한 건 웹 퍼블리셔로 일하던 친구가 학습 목적으로 이런 프로젝트를 진행하려고 하는데 혹시 같이 하지 않겠냐고 제안해줘서 시작하게 되었습니다. 그렇게 해서 기획자 2 퍼블리셔 2 개발자 1 (나) 이렇게 총 5명이 진행을 하게 되었습니다.&lt;/p&gt;
 &lt;p&gt;그런데 프로젝트 초기에 친구가 개인 사정으로 나가게 되고, 저와 다른 분들 간의 연결 고리 역할을 해주던 친구가 없어지니 프로젝트는 자연스레 흐지부지 되었습니다. 이 때가 아무 기능 구현 없이 일단 대충 화면 틀만 잡아놓은 상태였습니다.&lt;/p&gt;
@@ -7,7 +7,7 @@
 &lt;h3&gt;기술 스택&lt;/h3&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -48,7 +48,7 @@
 &lt;p&gt;MVC 패턴을 참고하여 설계했습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -81,7 +81,7 @@
 &lt;h5&gt;frontend&lt;/h5&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -181,7 +181,7 @@ module.exports = Result;&lt;/code&gt;
 &lt;h4&gt;회원 가입 및 로그인&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -215,7 +215,7 @@ module.exports = Result;&lt;/code&gt;
 &lt;h4&gt;지도 조회 및 검색&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -249,7 +249,7 @@ module.exports = Result;&lt;/code&gt;
 &lt;h4&gt;수선집 상세 화면&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -288,7 +288,7 @@ module.exports = Result;&lt;/code&gt;
 &lt;p&gt;여러모로 아쉬운 부분이 더 큰 프로젝트였지만 개발과 관련된 부분 뿐만 아니라 개발 외적인 부분에서도 많은 것을 배울 수 있었던 것 같습니다. 사실 결과물 자체는 완성도가 많이 낮아 어디 내놓을만한 프로젝트는 아니지만... 진행하며 깨달은 점이 많아 기록해두고 싶었습니다. 원래 과정보다는 결과가 중요하다는 주의였는데, 이 프로젝트를 계기로 생각이 많이 바뀌게 되었습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA["window" is not available 에러 해결]]></title><description><![CDATA[다크모드를 적용하고, 로컬에서 잘 돌아가는 것을 확인한 다음 배포를 하려고 했는데 이런 에러가 발생했습니다.  에러 메시지를 읽어보니 window…]]></description><link>https://klloo.github.io/gatsby-window-not-abailable/</link><guid isPermaLink="false">https://klloo.github.io/gatsby-window-not-abailable/</guid><pubDate>Sat, 29 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;다크모드를 적용하고, 로컬에서 잘 돌아가는 것을 확인한 다음 배포를 하려고 했는데 이런 에러가 발생했습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -324,7 +324,7 @@ module.exports = Result;&lt;/code&gt;
 Node.js에서는 window라는 객체가 존재하지 않아, 빌드시 초기 Gatsby가 서버사이드 렌더링 할 때 window객체를 참조할 수 없어 생기는 문제였습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -378,7 +378,7 @@ if (isBrowser) {
 처음에는 폰트어썸을 사용했는데 돈을 내지 않고서는&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -410,7 +410,7 @@ if (isBrowser) {
 &lt;p&gt;앞에 두 개 아이콘 밖에 사용할 수가 없었는데 뭔 톱니바퀴 같기도하고 하여간 너무 맘에 안들어서 그냥 이모지로 표현을 해버렸습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 277px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 277px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -741,7 +741,7 @@ if (!commentTheme) {
 &lt;p&gt;일단 TOC를 구현은 했지만.. 분명 잘 되는 걸 확인하고 배포했는데 고장이 나서 링크가 작동하고 있지 않습니다. 이건 최대한 빨리 고쳐볼 예정입니다. 그리고 나머지 사항은 아직 진행할 생각이 없고 ... 그 동안은 자잘한 디자인을 수정하고 코드 리팩토링을 했습니다. 그 과정에서 컴포넌트를 분리하고 css-in-js 라이브러리로 emotion을 적용하여 스타일을 관리하도록 수정했습니다. 이제 또 수정하고 싶은 사항은 ...코드 블럭이 예쁘긴한데 줄바꿈 때문인지 가독성이 전혀 없고 inline 코드 블럭이 너무 못생겨서 이것도 수정할 예정입니다. 자잘한 수정 사항은 그냥 수정만 하고 넘기겠지만 다크모드나 TOC 처럼 제 기준 조금 작업이 필요한 사항을 또 개발하거나 수정한다면 포스팅을 작성하겠습니다!!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gatsby로 깃허브 블로그 만들기]]></title><description><![CDATA[내 나이 26 ... 드디어 깃허브 블로그를 만들다... 계기 이전에도 기술 블로그를 운영하려는 노력은 꾸준히 해왔다.
 맨 처음 마음 먹었을 때는 네이버 블로그를 사용했다. 당시 대학교…]]></description><link>https://klloo.github.io/make-blog/</link><guid isPermaLink="false">https://klloo.github.io/make-blog/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -780,7 +780,7 @@ if (!commentTheme) {
 &lt;p&gt;주로 개념 정리를 하다보니 그냥 여기저기서 긁어온 내용을 누덕누덕 기운 누더기 포스팅만 잔뜩 생겼었다. 당연히 궁금했던 내용, 알아야하는 내용을 찾아보고 이해한 내용을 정리하면서 큰 도움이 됐고 아직도 필요할 때 마다 정리했던 내용을 찾아보기도 하지만 이런걸 꼭 블로그에 써야하나? 하는 생각이 들었다. 그래서 그냥 다 노션으로 옮겨놓고, 앞으로는 이렇게 개념 정리나 혼자 공부한 내용은 노션에 작성을 하고, 프로젝트를 진행하는 과정이나 하여튼 뭔가 혼자 생각해보고 혼자 해결한 과정 같은 것들은 블로그에 기록해두고 싶었다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -815,7 +815,7 @@ if (!commentTheme) {
 &lt;h4&gt;플랫폼 선정&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -859,7 +859,7 @@ if (!commentTheme) {
 &lt;p&gt;자세한 진행 과정은 &lt;a href=&quot;https://devfoxstar.github.io/web/github-pages-gatsby&quot;&gt;이 블로그&lt;/a&gt;를 보고 진행하였다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 498px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 498px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -895,7 +895,7 @@ if (!commentTheme) {
 &lt;p&gt;카테고리 추가는 그냥 마크다운 문서 가장 위쪽에 있는 메타데이터를  &lt;code class=&quot;language-text&quot;&gt;frontmatter&lt;/code&gt; 라고 하는데 그냥 여기에 category 항목만 추가하면 됐다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -974,7 +974,7 @@ if (!commentTheme) {
 &lt;p&gt;대충 이 정도만 추가하고 본격적으로 꾸미기 시작했다. 일단 나는 최대한 심플하고 깔끔하게 만들고 싶었다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1039,7 +1039,7 @@ if (!commentTheme) {
 &lt;p&gt;github actions는 github에서 제공하는 CI/CD를 위해 제공되는 서비스로 repository에서 에서 어떤 이벤트가 발생했을 때 특정 작업이 일어나게 하거나 주기적으로 어떤 작업들을 반복해서 실행시킬 수도 있다. 그래서 댓글이 달리면(discussion이 생성되거나, discussion에 댓글이 달렸을 경우), 슬랙으로 알림을 보낼 수 있도록 설정해주면 되는 것이다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1078,7 +1078,7 @@ if (!commentTheme) {
 &lt;p&gt;+ 하루만에 노출이 되고 있는 것을 확인했다!&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important; box-shadow: 0 0 10px rgb(210, 210, 210);&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
