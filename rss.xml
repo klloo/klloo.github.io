@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 11 Aug 2023 11:37:22 GMT</lastBuildDate><item><title><![CDATA[첫 사이드 프로젝트 진행기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/alteration-detective/</link><guid isPermaLink="false">https://klloo.github.io/alteration-detective/</guid><pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;구구절절 프로젝트 개요 및 기간&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 01 Sep 2023 07:33:51 GMT</lastBuildDate><item><title><![CDATA[첫 사이드 프로젝트 진행기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/alteration-detective/</link><guid isPermaLink="false">https://klloo.github.io/alteration-detective/</guid><pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;구구절절 프로젝트 개요 및 기간&lt;/h3&gt;
 &lt;p&gt;수선탐정 프로젝트는 근처의 수선집을 찾아주는 웹 프로젝트 입니다. 별건 아니고 그냥 지도앱인데, 이런 저런 기능은 덜어내고 수선집 조회에만 특화된 지도 앱이라고 보시면 될 것 같습니다.&lt;/p&gt;
 &lt;p&gt;프로젝트를 시작한 건 웹 퍼블리셔로 일하던 친구가 학습 목적으로 이런 프로젝트를 진행하려고 하는데 혹시 같이 하지 않겠냐고 제안해줘서 시작하게 되었습니다. 그렇게 해서 기획자 2 퍼블리셔 2 개발자 1 (나) 이렇게 총 5명이 진행을 하게 되었습니다.&lt;/p&gt;
 &lt;p&gt;그런데 프로젝트 초기에 친구가 개인 사정으로 나가게 되고, 저와 다른 분들 간의 연결 고리 역할을 해주던 친구가 없어지니 프로젝트는 자연스레 흐지부지 되었습니다. 이 때가 아무 기능 구현 없이 일단 대충 화면 틀만 잡아놓은 상태였습니다.&lt;/p&gt;
@@ -43,87 +43,19 @@
 &lt;h3&gt;개발 내용&lt;/h3&gt;
 &lt;p&gt;개발한 기능은 회원 가입 및 로그인, 수선집 조회(지도 및 리스트), 수선집 리뷰 작성, 수선집 즐겨찾기 이렇게가 끝입니다.&lt;/p&gt;
 &lt;p&gt;지도와 주소 변환 관련해서는 네이버 api를 사용하였습니다. 주소 검색시에는 공공 api를 사용하였고, 세탁소 데이터 또한 공공데이터에서 가져온 데이터를 가공하여 사용했습니다. 회원가입시 이메일 인증 과정은 nodemailer라는 패키지를 사용하였습니다. nodemailer는 쉽게 이메일을 보낼 수 있도록 하는 Node.js 애플리케이션용 모듈입니다.&lt;/p&gt;
-&lt;h4&gt;디렉토리 구조&lt;/h4&gt;
-&lt;h5&gt;backend&lt;/h5&gt;
-&lt;p&gt;MVC 패턴을 참고하여 설계했습니다.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9e37ab997fbcb619a419da1a2d91e16d/c6bbc/backend.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 51.449275362318836%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB70lEQVR42oWSXYsSYRTH56ZdBV8Yo5hx3lqpiwhZCnqBqC3c3RkNaunSCSRXo/oaruMH8it454VeiAheiO/v3oji+z/PE2MLQT1wOPxn5vmd/zlzuFwuh6/fvuP6x09cJxJI7COZTCIWiyGbzYLOfD7HYrHAarXC/w4XNaO4c0+E9uwleI8bDscxXC4XOI5DKBRCt9tFuVxGp9NhsV6vsVwuGdyO28W4L6YJWVbw+PwDTp4+h6RqUBQFPM8jHA6j2WyiWCyi3++j3W6z3Gg0GJw0FazX6xgMBn+AguiHfP4R0sUVhMAjiIIAj8cDwzDQarVQrVYxHA4ZpNfrMQhBqRhp+mY2m90C+v0IXH6CdqZDfnIKTXsAr9cLXdcZhBzabkiTG4LYjglMebvdgjP3QFEUcXZxifd6GC9ev0EwGITPxzMgXSwUCocZkjNyTG3WajUWVIDe0c87OHyoX+Hk1VvIogBxr91uNwNOp1PWFrmhbINtx/bsdrvd75bNaBSKqiJgfIb2zoAkSVD32ufzMSBdopYmkwmbI8V4PGZ5NBr9vTbxeJytiEsNwHH3Po6PjuB0OtmzSCTCZlMqlZgTgpOm1aF5UdjODsBKpYJ0Og3rJgUrfQPLspDJZJBKpZDP59lHtHebzYbtGkH+tdi/AGnOUkI1Pq70AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;backend&quot;
-        title=&quot;&quot;
-        src=&quot;/static/9e37ab997fbcb619a419da1a2d91e16d/dd45a/backend.png&quot;
-        srcset=&quot;/static/9e37ab997fbcb619a419da1a2d91e16d/948cf/backend.png 138w,
-/static/9e37ab997fbcb619a419da1a2d91e16d/6b2ea/backend.png 275w,
-/static/9e37ab997fbcb619a419da1a2d91e16d/dd45a/backend.png 550w,
-/static/9e37ab997fbcb619a419da1a2d91e16d/d4c13/backend.png 825w,
-/static/9e37ab997fbcb619a419da1a2d91e16d/c6bbc/backend.png 910w&quot;
-        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h5&gt;frontend&lt;/h5&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/449b9d50195749ae9144f499ecab9cd4/38a65/frontend.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 63.04347826086957%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACaElEQVR42n2TWU8aYRSGJ6F3sshWxmGxhtGCghqCBazGAoWS9MKEhGCa+Gv8T/4EhJJ4YSCyurC5At4QNuXtnM+OJdX2S06+M5nMc97znjPcj/19fPkWQzASRSgUQiQSQTQaRTgcxuHhIeg8Pj7i6emJhXwmkwneOtw7pRpL21+xvhPCB5sNOp0eBoMBCoUCiUQCnU4HlUoF19fXaLVaDPQvGAOaDHos+zaxHNuF3W6HMMfDYrVCo9EgmUyi3W4zUL1eR6PRYAXomeLq6ooVonfD4fAZqJ3VYGndA2cwBofXD95qA28yQalUYm9vDzc3N0zhw8MDAxCUgnKyYjweYzQavajmdFotPP5N7OzG4Y1+x6qUu1ZWoFKpGPDu7g6lUgm3t7c4OztjYBnyZssGvQ7rvgC2trbxaW0VTqcDNslLAlLLpJBABGw2m6/8+9tTjrwi78SNAESvj7XL8zxrmYAEury8ZDBqlQrc398zb+kmtdNT59QScFECuv2fsRaMYGFhAVZpKDKQWp4G0k3+1Wo1dne7XVZ0MBj8UbgoinB5N+AJReByuSFKz/JQaIq5XI61fXp6ikKhwPJqtYpiscji5OQEFxcXv4Gzs3CIdsx7fDAFQnhvNMIsCFCp1QxIlUkhrQl9REE5qaWcFJPafr//DFRJSkSHE5ZAEILbA95ogCABZ2ZmEI/HWcvZbJYpIQgpI9C0DVSA/KTinNVigWCbh/BxGYLZjDlpsc3STVYcHByg1+shn8/j/PycLbCsltZGXh/5pl+TK5fLSKVS+Hl0hEwmLUUG6XQax8fHL0bLE5RX5H+/3i+JDP4fiIirzQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;frontend&quot;
-        title=&quot;&quot;
-        src=&quot;/static/449b9d50195749ae9144f499ecab9cd4/dd45a/frontend.png&quot;
-        srcset=&quot;/static/449b9d50195749ae9144f499ecab9cd4/948cf/frontend.png 138w,
-/static/449b9d50195749ae9144f499ecab9cd4/6b2ea/frontend.png 275w,
-/static/449b9d50195749ae9144f499ecab9cd4/dd45a/frontend.png 550w,
-/static/449b9d50195749ae9144f499ecab9cd4/d4c13/frontend.png 825w,
-/static/449b9d50195749ae9144f499ecab9cd4/38a65/frontend.png 1075w&quot;
-        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
 &lt;h4&gt;에러 처리 방식&lt;/h4&gt;
 &lt;p&gt;Express는 라우팅과 미들웨어 기반의 프레임워크 입니다. 여기서 미들웨어란 HTTP 요청에 대한 응답 과정 중간에 어떤한 동작을 해주는 함수인데 이 미들웨어의 종류 중 Error Handling 미들웨어를 사용하여 에러를 처리했습니다.&lt;/p&gt;
 &lt;p&gt;Error Handling 미들웨어는 express-generator로 생성 시 기본적으로 다음과 같이 만들어져 있는데요. 에러가 발생하면 해당 코드가 동작하게 됩니다.&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
           &lt;code slot=&quot;code&quot;&gt;// error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get(&amp;quot;env&amp;quot;) === &amp;quot;development&amp;quot; ? err : {};
+ // set locals, only providing error in development
+ res.locals.message = err.message;
+ res.locals.error = req.app.get(&amp;#39;env&amp;#39;) === &amp;#39;development&amp;#39; ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render(&amp;quot;error&amp;quot;);
+ // render the error page
+ res.status(err.status || 500);
+ res.render(&amp;#39;error&amp;#39;);
 });&lt;/code&gt;
         &lt;/deckgo-highlight-code&gt;
 &lt;h5&gt;비동기 에러 처리&lt;/h5&gt;
@@ -131,10 +63,10 @@ app.use(function (err, req, res, next) {
 그래서 매 비동기 요청마다 try, catch를 달아주어야 하는데 이를 해결하기 위해 router 함수를 감쌀 수 있는 wrapper 함수를 정의하여 사용했습니다.&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
           &lt;code slot=&quot;code&quot;&gt;module.exports = wrapAsyncController = (fn) =&amp;gt; {
-    return (req, res, next) =&amp;gt; {
-        // 모든 오류를 catch()로 처리하고 next()로 전달한다.
-        fn(req, res, next).catch(next);
-    }
+ return (req, res, next) =&amp;gt; {
+  // 모든 오류를 catch()로 처리하고 next()로 전달한다.
+  fn(req, res, next).catch(next);
+ };
 };&lt;/code&gt;
         &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이 wrapper함수를 다음과 같이 router에 감싸서 사용하면 매번 try, catch를 사용하지 않고도 비동기 에러 처리가 가능하게 됩니다.&lt;/p&gt;
@@ -147,13 +79,13 @@ router.post(&amp;#39;/register&amp;#39;, wrapAsyncController(UserController.regi
 &lt;p&gt;서버와 클라이언트 통신 시에 일관된 형식으로 응답을 주고받을 수 있도록 응답 클래스를 정의하여 사용했습니다.&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
           &lt;code slot=&quot;code&quot;&gt;class Result {
-    success; // 성공 여부
-    data; // 전달 데이터
-    message; // 오류 메시지
+ success; // 성공 여부
+ data; // 전달 데이터
+ message; // 오류 메시지
 
-    constructor() {
-        this.success = false;
-    }
+ constructor() {
+  this.success = false;
+ }
 }
 
 module.exports = Result;&lt;/code&gt;
@@ -165,11 +97,11 @@ module.exports = Result;&lt;/code&gt;
      const result = data.data;
      // 응답에 성공한 경우
      if (result.success) {
-   	// data로 전달받은 사용자 정보를 가져온다.
+		// data로 전달받은 사용자 정보를 가져온다.
        const userInfo = result.data;
-   			...
+				...
      } else {
-   	// 에러가 발생한 경우 전달받은 에러메시지를 출력한다.
+		// 에러가 발생한 경우 전달받은 에러메시지를 출력한다.
        this.$toast.error(result.message);
      }
    })
@@ -285,7 +217,7 @@ module.exports = Result;&lt;/code&gt;
 &lt;p&gt;스타일 관련된 부분을 통일성 있게 관리하지 못했다는 점도 아쉬웠습니다. 프로젝트 초기에는 퍼블리셔분들이 잘 해주셨는데 혼자가 된 이후 어떻게 관리할지 갈피를 못잡고 전역으로 선언한 스타일도 많아서 !important 를 남발하는 등 그야말로 주먹구구식으로 진행해버리고 말았습니다. 아직도 스타일 관리와 적용에 대해서 모르는 부분이 많지만 그 중요성 만큼은 확실히 알게 되었습니다.&lt;/p&gt;
 &lt;p&gt;node로 백엔드 개발을 진행한 부분은 굉장히 유익했던 것 같습니다. 이전에 백엔드 개발로는 스프링을 사용했었기 때문에 자연스럽게 MVC 구조를 따라 설계를 했습니다. Express는 자유도가 높은 것이 장점이자 단점인데 이를 충분히 활용하지 못한 것 같아 Nest.js를 사용하는게 낫지 않았을까 하는 생각도 들었지만 많은 것을 배울 수 있어서 큰 아쉬움은 없는 것 같습니다.&lt;/p&gt;
 &lt;p&gt;프로젝트의 주된 목적이었던 vue 프레임워크 활용에 대해서도 어느정도 달성한 것 같습니다. 이전에도 vue로 개발은 종종 해봤지만 프로젝트를 처음부터 진행해본 것은 처음이었고, 주로 지도와 주소에 관련된 API를 다룬 것도 큰 도움이 되었습니다.&lt;/p&gt;
-&lt;p&gt;여러모로 아쉬운 부분이 더 큰 프로젝트였지만 개발과 관련된 부분 뿐만 아니라 개발 외적인 부분에서도 많은 것을 배울 수 있었던 것 같습니다. 사실 결과물 자체는 완성도가 많이 낮아 어디 내놓을만한 프로젝트는 아니지만... 진행하며 깨달은 점이 많아 기록해두고 싶었습니다. 원래 과정보다는 결과가 중요하다는 주의였는데, 이 프로젝트를 계기로 생각이 많이 바뀌게 되었습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA["window" is not available 에러 해결]]></title><description><![CDATA[다크모드를 적용하고, 로컬에서 잘 돌아가는 것을 확인한 다음 배포를 하려고 했는데 이런 에러가 발생했습니다.  에러 메시지를 읽어보니 window…]]></description><link>https://klloo.github.io/gatsby-window-not-abailable/</link><guid isPermaLink="false">https://klloo.github.io/gatsby-window-not-abailable/</guid><pubDate>Sat, 29 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;다크모드를 적용하고, 로컬에서 잘 돌아가는 것을 확인한 다음 배포를 하려고 했는데 이런 에러가 발생했습니다.&lt;/p&gt;
+&lt;p&gt;여러모로 아쉬운 부분이 더 큰 프로젝트였지만 많은 것을 배울 수 있었던 것 같습니다. 사실 결과물 자체는 완성도가 조금 낮다고 생각되어 어디 내놓을만한 프로젝트는 아니지만... 진행하며 깨달은 점이 많아 기록해두고 싶었습니다. 원래 과정보다는 결과가 중요하다는 주의였는데, 이 프로젝트를 계기로 생각이 많이 바뀌게 되었습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA["window" is not available 에러 해결]]></title><description><![CDATA[다크모드를 적용하고, 로컬에서 잘 돌아가는 것을 확인한 다음 배포를 하려고 했는데 이런 에러가 발생했습니다.  에러 메시지를 읽어보니 window…]]></description><link>https://klloo.github.io/gatsby-window-not-abailable/</link><guid isPermaLink="false">https://klloo.github.io/gatsby-window-not-abailable/</guid><pubDate>Sat, 29 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;다크모드를 적용하고, 로컬에서 잘 돌아가는 것을 확인한 다음 배포를 하려고 했는데 이런 에러가 발생했습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
