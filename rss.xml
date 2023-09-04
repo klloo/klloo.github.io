@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 04 Sep 2023 14:24:15 GMT</lastBuildDate><item><title><![CDATA[세션 기반 인증과 토큰 기반 인증]]></title><description><![CDATA[개인 프로젝트를 진행하며 로그인 기능을 구현했던 과정을 기록해보려고 합니다. 백엔드 개발자와 협의하여 로그인은 JWT…]]></description><link>https://klloo.github.io/session-jwt/</link><guid isPermaLink="false">https://klloo.github.io/session-jwt/</guid><pubDate>Mon, 04 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;개인 프로젝트를 진행하며 로그인 기능을 구현했던 과정을 기록해보려고 합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 04 Sep 2023 14:26:31 GMT</lastBuildDate><item><title><![CDATA[세션 기반 인증과 토큰 기반 인증]]></title><description><![CDATA[개인 프로젝트를 진행하며 로그인 기능을 구현했던 과정을 기록해보려고 합니다. 백엔드 개발자와 협의하여 로그인은 JWT…]]></description><link>https://klloo.github.io/session-jwt/</link><guid isPermaLink="false">https://klloo.github.io/session-jwt/</guid><pubDate>Mon, 04 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;개인 프로젝트를 진행하며 로그인 기능을 구현했던 과정을 기록해보려고 합니다.&lt;/p&gt;
 &lt;p&gt;백엔드 개발자와 협의하여 로그인은 JWT를 사용하여 구성하기로 했는데 토큰 방식의 로그인에 개념은 어렴풋이 알고 있었지만 막상 바로 적용하려 하니 어려움이 있어서 먼저 해당 개념에 대해 공부를 했습니다.&lt;/p&gt;
 &lt;h2&gt;로그인 방식&lt;/h2&gt;
 &lt;p&gt;로그인을 구성하는 방식은 크게 쿠키와 세션을 사용하는 방식과 토큰 기반의 인증 방식으로 나뉩니다.&lt;/p&gt;
@@ -393,7 +393,7 @@ module.exports = Result;&lt;/code&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h3&gt;회고&lt;/h3&gt;
-&lt;p&gt;데이터베이스 설계와 백엔드부터 프론트엔드 전부 혼자 개발해본 경험이 처음이라 큰 의미가 있었습니다. 하지만 미비한 기획에서 시작한 탓인지 완성도가 많이 낮은 상태로 프로젝트를 종료하게 되었습니다.&lt;/p&gt;
+&lt;p&gt;데이터베이스 설계와 백엔드부터 프론트엔드 전부 혼자 개발해본 경험이 처음이라 큰 의미가 있었습니다. 하지만 미비한 기획에서 시작한 탓인지 완성도가 조금 낮은 상태로 프로젝트를 종료하게 되었습니다.&lt;/p&gt;
 &lt;p&gt;어차피 퍼블리셔를 제외한 개발자는 저 혼자였으니 인원이 빠져나가도 크게 상관은 없었지만 모든 기능과 기획에 대해 혼자 의사결정을 해야하는 부분이 생각외로 고민도 많았고 힘들었습니다. 그래서 처음 기획했었던 기능 대다수를 걷어낸 부분이 제일 아쉬운 것 같습니다.&lt;/p&gt;
 &lt;p&gt;스타일 관련된 부분을 통일성 있게 관리하지 못했다는 점도 아쉬웠습니다. 프로젝트 초기에는 퍼블리셔분들이 잘 해주셨는데 혼자가 된 이후 어떻게 관리할지 갈피를 못잡고 전역으로 선언한 스타일도 많아서 !important 를 남발하는 등 그야말로 주먹구구식으로 진행해버리고 말았습니다. 아직도 스타일 관리와 적용에 대해서 모르는 부분이 많지만 그 중요성 만큼은 확실히 알게 되었습니다.&lt;/p&gt;
 &lt;p&gt;node로 백엔드 개발을 진행한 부분은 굉장히 유익했던 것 같습니다. 이전에 백엔드 개발로는 스프링을 사용했었기 때문에 자연스럽게 MVC 구조를 따라 설계를 했습니다. Express는 자유도가 높은 것이 장점이자 단점인데 이를 충분히 활용하지 못한 것 같아 Nest.js를 사용하는게 낫지 않았을까 하는 생각도 들었지만 많은 것을 배울 수 있어서 큰 아쉬움은 없는 것 같습니다.&lt;/p&gt;
