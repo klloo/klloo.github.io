@@ -1,4 +1,490 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 05 Sep 2023 00:46:05 GMT</lastBuildDate><item><title><![CDATA[세션 기반 인증과 토큰 기반 인증]]></title><description><![CDATA[개인 프로젝트를 진행하며 로그인 기능을 구현했던 과정을 기록해보려고 합니다. 백엔드 개발자와 협의하여 로그인은 JWT…]]></description><link>https://klloo.github.io/session-jwt/</link><guid isPermaLink="false">https://klloo.github.io/session-jwt/</guid><pubDate>Mon, 04 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;개인 프로젝트를 진행하며 로그인 기능을 구현했던 과정을 기록해보려고 합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 05 Sep 2023 02:25:17 GMT</lastBuildDate><item><title><![CDATA[리액트로 자체 잔디 심기 기능 구현하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/make-streak/</link><guid isPermaLink="false">https://klloo.github.io/make-streak/</guid><pubDate>Tue, 05 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이번 프로젝트에서 구현한 기능 중 매일 한 문제씩 랜덤으로 문제를 추천해주는 기능이 있는데요, 매일 해당 문제를 풀었는지 체크해서 잔디를 심어 보여줄 수 있는 기능이 있으면 좋겠다고 생각했습니다.&lt;/p&gt;
+&lt;p&gt;처음에는 흔한 기능이라 생각하여 라이브러리나 참고할만한 코드가 있겠지... 하며 안일하게 생각했었는데 웬걸 ...이 기능의 정확한 명칭도 모르겠고 일단 제가 찾아본 결과로는 라이브러리는 커녕 딱히 참고할만한 코드도 없었습니다. 그래서 한 번 직접 구현해보기로 했습니다.&lt;/p&gt;
+&lt;h3&gt;분석&lt;/h3&gt;
+&lt;p&gt;먼저 제가 이 잔디 기능을 가장 많이 접했던 사이트가 github와 solved.ac이었는데요 먼저 해당 사이트의 잔디가 어떻게 구현되고 있는지 html을 살펴봤습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6fe329cf20ac3db1f28449dbb05f6ad7/cdf95/solvedac_grass1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.608695652173914%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAABmUlEQVR42m2R3WvTYBSH+6/3ZjoRP7YbVxVBEZ2wzY8Lce1WQQRBtLqpbaf9SPImaZO8SZq0+Vzz+KYIIng4D79zc56LcxphtCRJctKs+C9Jmm+o56IsyYs1UrgETsh8nhHIlCgqyJY5VVXR+Dn8gTA0qC5VF1Trv1CVpElMni5ZX9YLawVkrofUbSajmNBdEvspRS1cK2H7i+D0fEb3zKPTU3yWtBV1nvT8DcefJK8/evTNFU4KIxExGNr0hjEDLaavpwz0hLGd0Nhta1x/NWb7YErz4USh0XyksfXUYOuJwZV9wdVnJs3HOsfnAUEOuiz4+t3h24VDf+JzNvTU7PHLiGi0ukp4OOXmc4MbRwbb+yoPTHZe2tw6srj9wmZHce1Q8P4ipK5S3XEhHEJrRmBazMc6riaJvBWNB+9M7p6a3Ota3H9r0eoI7rR19k4Eex2D1p/cfaPzYbTYCPO8UoIZUglnUxsx0pgbAWEtlHGGXCriFF/lLIgxHB/hBv9gyQWrrFS6irKslMxXn/ZxTQ9zOiewQ1Zxxm+hK/pUciOOCQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;solvedac grass1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6fe329cf20ac3db1f28449dbb05f6ad7/dd45a/solvedac_grass1.png&quot;
+        srcset=&quot;/static/6fe329cf20ac3db1f28449dbb05f6ad7/948cf/solvedac_grass1.png 138w,
+/static/6fe329cf20ac3db1f28449dbb05f6ad7/6b2ea/solvedac_grass1.png 275w,
+/static/6fe329cf20ac3db1f28449dbb05f6ad7/dd45a/solvedac_grass1.png 550w,
+/static/6fe329cf20ac3db1f28449dbb05f6ad7/d4c13/solvedac_grass1.png 825w,
+/static/6fe329cf20ac3db1f28449dbb05f6ad7/99f37/solvedac_grass1.png 1100w,
+/static/6fe329cf20ac3db1f28449dbb05f6ad7/cdf95/solvedac_grass1.png 2106w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4feef0e28d05b9ce1bab5f756bdac8e9/3c2d4/solvedac_grass2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.985507246376812%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABX0lEQVR42l2RW2/TQBCF8/9/BY+8UgSiAlG1iDalRVCSQi8ksWPXt8beXXu967WdfmyNxAMjHY3m5ZszZ2ZhFPOQpBhr6Zz7Tz3aWHRrpnkcR56A/dCTBQXJJkFEK7JQIBKF0Y5ZkmZs44hGG4xxtO1fNY1D6w5ZScqqpK5bD9zDBBwpt4+oosRWBVpo2kqhKstMyMY73HGzKDl5U3J8IDl+pTh7p/nyseXbvOb7qdcn7cF7Cgup6FkuMm7ucoJgy/1asQoqVknrgUpw9TXm/GjHyWvBwYsdhy8F5x8Mn98a5u8t80PH5VGHUiPO32zsQBzkbNcJeRgSbSRprJC1d1jrmlvvbnHht/xquTpruL5o+b103P1wrK4dPy8Nt0szgZ7rqR/I1ynpKkaE9+TeXRVLrPbAruvphwHXu6mbziCU/CdZKyopqJtmesoEHAcKn2EeZsiHDY+Rzy+rcbbnD6GLwKd9tvxBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;solvedac grass2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4feef0e28d05b9ce1bab5f756bdac8e9/dd45a/solvedac_grass2.png&quot;
+        srcset=&quot;/static/4feef0e28d05b9ce1bab5f756bdac8e9/948cf/solvedac_grass2.png 138w,
+/static/4feef0e28d05b9ce1bab5f756bdac8e9/6b2ea/solvedac_grass2.png 275w,
+/static/4feef0e28d05b9ce1bab5f756bdac8e9/dd45a/solvedac_grass2.png 550w,
+/static/4feef0e28d05b9ce1bab5f756bdac8e9/d4c13/solvedac_grass2.png 825w,
+/static/4feef0e28d05b9ce1bab5f756bdac8e9/99f37/solvedac_grass2.png 1100w,
+/static/4feef0e28d05b9ce1bab5f756bdac8e9/3c2d4/solvedac_grass2.png 2092w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;solved.ac는 svg를 이용하여 각 네모칸을 그려주고 있었고&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/80e36aaa23ee40b2b5c895ea28cfe719/62b00/github_grass1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.46376811594203%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA/ElEQVR42k2NSW+CUACE+f9/ops99da0XnprrLS2TVTcl0R4LEYeoGwiPviKnjrJZGYyyYzm+wFxnHEqCqIoIs9z/qOua1RVXb06nYmcHeYmwXUypJ8gZcbhcCRPS8pCockgIMuPFKeSQ5ISpxlnVVOqirw4kTadUuo6WNUQbgM8ESGsBMeSOGKPJXI8N2EfxGh3HcHNu8lDx+a+YevDpdX1eNRdbpv89OMSNKdCCFzPZWKs0Dtj9O4CXV/T+5zz25vx/TVjZFho7aHkZeDTHkgu/qKvTb7wub/jbSoJwxDbtvG2HqulSb+/wTBMxuMNi8mM9XTOaLhkvnD4A9uDJPKH+4rBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;github grass1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/80e36aaa23ee40b2b5c895ea28cfe719/dd45a/github_grass1.png&quot;
+        srcset=&quot;/static/80e36aaa23ee40b2b5c895ea28cfe719/948cf/github_grass1.png 138w,
+/static/80e36aaa23ee40b2b5c895ea28cfe719/6b2ea/github_grass1.png 275w,
+/static/80e36aaa23ee40b2b5c895ea28cfe719/dd45a/github_grass1.png 550w,
+/static/80e36aaa23ee40b2b5c895ea28cfe719/d4c13/github_grass1.png 825w,
+/static/80e36aaa23ee40b2b5c895ea28cfe719/99f37/github_grass1.png 1100w,
+/static/80e36aaa23ee40b2b5c895ea28cfe719/62b00/github_grass1.png 2708w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/07090eefbedb8696587fa09105dfb39c/b6425/github_grass2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 5.797101449275362%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAABYlAAAWJQFJUiTwAAAASElEQVR42i3KOw6AIBBAQe9/SQsTNHwMC+4a0PCksJpmlj0KLmVSuQlihKy/hhfFF+XIFWsP1gfaBvbCmRS3ejY3T6yk+eXqfBGNTGhI2l/tAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;github grass2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/07090eefbedb8696587fa09105dfb39c/dd45a/github_grass2.png&quot;
+        srcset=&quot;/static/07090eefbedb8696587fa09105dfb39c/948cf/github_grass2.png 138w,
+/static/07090eefbedb8696587fa09105dfb39c/6b2ea/github_grass2.png 275w,
+/static/07090eefbedb8696587fa09105dfb39c/dd45a/github_grass2.png 550w,
+/static/07090eefbedb8696587fa09105dfb39c/d4c13/github_grass2.png 825w,
+/static/07090eefbedb8696587fa09105dfb39c/99f37/github_grass2.png 1100w,
+/static/07090eefbedb8696587fa09105dfb39c/b6425/github_grass2.png 2336w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;github는 table태그를 사용해서 행과 열을 가지는 테이블 형태로 요소들을 그려주고 있었습니다.&lt;/p&gt;
+&lt;p&gt;이 잔디 기능에서는 보통&lt;/p&gt;
+&lt;p&gt;1 4 7 10&lt;br/&gt;
+2 5 8 ...&lt;br/&gt;
+3 6 9&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;이런 순서로 날짜가 진행됩니다. (1이 가장 오래된 날짜) 제가 생각하기로는 이 순서를 관리하기 위해서는 행과 열로 이루어진 table태그 보다는 각각 요소를 svg로 따로 넣어주는 편이 구현이 쉽겠다고 판단해서 solved.ac를 따라가기로 했습니다.&lt;/p&gt;
+&lt;h3&gt;구현&lt;/h3&gt;
+&lt;h4&gt;스트릭 정보 가공&lt;/h4&gt;
+&lt;p&gt;서버에서 받아오는 스트릭 정보는 아래와 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/20e4f9efcda8fd19a3b95f421d3b5937/a4262/streakinfo.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.536231884057973%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABCElEQVR42lWQi46EIAxF/f/Pm82OOj5REGFUfCUmJnqXdpZNlqSBvk4vjZRUUEqhrmv0vUHTNGiVRiUkzHuCVB3n6lqg6zSmaeJ66fucc7DWwhiDbdtAJxq7AQRN05e3lIFlUSLPC373fc93HCfIshxlWXlgh+K3hsAEFKL5ANdhgfHKsjxHkhCw5SQ1SCkZRg1xHHOeoMMwoKoqBratxDiOPOg8T0SznWG04cIkSSA8gIDfz6f/Iikp/DcdHo+vvxoC0gqCYudmlH7Avu+IdrdhHEY/iZQJVmPtm79Ck2lf67qyolCzLAvHybTWvD9aw3EciO77RrDruvimE3yy4Af7+Ne/WIj/AD5Pvw6hTl5tAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;streakinfo&quot;
+        title=&quot;&quot;
+        src=&quot;/static/20e4f9efcda8fd19a3b95f421d3b5937/dd45a/streakinfo.png&quot;
+        srcset=&quot;/static/20e4f9efcda8fd19a3b95f421d3b5937/948cf/streakinfo.png 138w,
+/static/20e4f9efcda8fd19a3b95f421d3b5937/6b2ea/streakinfo.png 275w,
+/static/20e4f9efcda8fd19a3b95f421d3b5937/dd45a/streakinfo.png 550w,
+/static/20e4f9efcda8fd19a3b95f421d3b5937/a4262/streakinfo.png 814w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;해결한 문제의 번호와 문제를 해결한 날짜, 그리고 그 날에 해당 문제를 풀었는지 여부가 주어집니다.&lt;/p&gt;
+&lt;p&gt;저는 먼저 이 객체 배열을 날짜를 키, 다른 부가 정보를 값으로 가지는 객체로 가공을 했습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;// 스트릭 정보 생성. 스트릭의 날짜를 key값으로 가지는 객체를 생성한다.
+const streakInfo = randomStreak.reduce((result, item) =&amp;gt; {
+ result[item.date] = item;
+ return result;
+}, {});&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;그리고 maxStreak을 스트릭 컴포넌트의 props로 받아서 오늘 기준으로 maxStreak전날까지의 모든 날짜 정보를 가지는 객체 배열을 생성했습니다.
+배열을 만들면서 위에서 만든 객체를 활용하여 그 날짜에 문제 해결 여부를 함께 담아줬습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;// maxStreak 개수 만큼 스트릭을 생성한다.
+// 스트릭 정보에는 날짜, x,y좌표, 그 날짜에 해결했는지 여부, 스트릭 프리즈 여부가 포함된다.
+setStreakList(
+ [...Array(maxStreak)].map((_, i) =&amp;gt; {
+  /**
+   * 오늘 날짜에서 i번째 이전 날짜를 반환한다.
+   */
+  const getPreviousDate = useCallback((i) =&amp;gt; {
+   const today = new Date();
+   // 오전 6시 기준으로 오늘이 나뉨. 오전 6시 이전이라면 어제를 오늘로 친다.
+   if (today.getHours() &amp;lt; 6) {
+    today.setDate(today.getDate() - 1);
+   }
+   const previousDate = new Date(today);
+   previousDate.setDate(today.getDate() - i);
+   return previousDate;
+  }, []);
+
+  // maxStreak전 날 부터 오늘 날짜 까지 데이터 생성
+  const streakDate = moment(getPreviousDate(maxStreak - i - 1));
+  const formatDate = moment(streakDate).format(&amp;#39;YYYY-MM-DD&amp;#39;);
+  // streakInfo 객체에 해당 값이 있고 해당 값의 grassInfo가 true라면 그 날 푼 것임
+  const solved = streakInfo.hasOwnProperty(formatDate) &amp;amp;&amp;amp; streakInfo[formatDate].grassInfo;
+  // 스트릭 프리즈
+  const isFreeze = solved &amp;amp;&amp;amp; streakInfo[formatDate].problemId == 0;
+  return {
+   date: formatDate,
+   x: parseInt(i / line) * 20 + 1,
+   y: (i % line) * 20 + 1,
+   solved: solved,
+   isFreeze: isFreeze,
+  };
+ }),
+);&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;하루의 기준은 자정이 아닌 오전 6시로 설정을 해주었고, solved.ac를 참고하여 스트릭 프리즈 기능도 함께 개발했기 때문에 그 날짜에 데이터는 있으나, 푼 문제의 번호가 0번이라면 스트릭 프리즈가 활성된 것으로 판단하였습니다.&lt;/p&gt;
+&lt;p&gt;각 x좌표와 y좌표는&lt;/p&gt;
+&lt;p&gt;1 4 7 10&lt;br/&gt;
+2 5 8 ...&lt;br/&gt;
+3 6 9&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;이 순서로 설정해줬습니다. (곱해주는 20은 잔디 한 칸의 크기와 공백을 고려한 크기 이고, line변수는 스트릭을 몇 줄 만들건지에 관한 변수입니다.)&lt;/p&gt;
+&lt;p&gt;이렇게 설정을하면 맨 오른쪽 아래 잔디는 항상 오늘이 됩니다. 다른 사이트들의 스트릭 기능 처럼 매일 새로운 잔디가 순서대로 붙여지는 것이 아닌 맨 오른쪽 아래에 오늘의 잔디가 하나 생기면 그 전의 것들이 하나씩 밀려나는 방식으로 구현이 됩니다.&lt;/p&gt;
+&lt;h4&gt;잔디 그리기&lt;/h4&gt;
+&lt;p&gt;이제 위에서 가공한 정보를 바탕으로 잔디를 그려주기만 하면됩니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;&amp;lt;svg height={height} width={width} overflow=&amp;quot;auto&amp;quot;&amp;gt;
+ {streakList.map((streak, i) =&amp;gt; (
+  &amp;lt;React.Fragment key={`${streak.date}-fragment`}&amp;gt;
+   &amp;lt;StreakIcon streak={streak} /&amp;gt;
+  &amp;lt;/React.Fragment&amp;gt;
+ ))}
+&amp;lt;/svg&amp;gt;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;StreakIcon 컴포넌트는 아래와 같습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const StreakIcon = ({ streak }) =&amp;gt; {
+ return (
+  &amp;lt;rect
+   width=&amp;quot;18&amp;quot;
+   height=&amp;quot;18&amp;quot;
+   x={streak.x}
+   y={streak.y}
+   rx=&amp;quot;5&amp;quot;
+   fill={streak.solved ? (streak.isFreeze ? &amp;#39;var(--color-toggle)&amp;#39; : &amp;#39;var(--color-checked)&amp;#39;) : &amp;#39;var(--color-unchecked)&amp;#39;}
+  /&amp;gt;
+ );
+};&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;각 네모 한 칸은 rect 태그를 사용하였고 좌표는 위에서 계산된 잔디 별 좌표를 사용했습니다. 또 풀었는지 안풀었는지, 스트릭 프리즈가 적용됐는지 여부에 따라 다른색이 적용되도록 하였습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/93ad7a969e6cad1eb17dcabb896b2a37/9cab2/streak1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 29.71014492753623%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA0klEQVR42qWQvWrDMBRG89x5iw5dM2Zqp059inRocGyMobL8G4NjRaqwIT7JlcmWDKUXDldwpSN9WvV9TxRFpGlKURTEcUyWZVRVRZIkjOPIX2rlvacsS+q6puu6IGqaJqy11hhjsNY+5GzPjG4iHzI608LlJnTOked5eJ0gQukik4tk9hhFoUu+f77YHl55O2wYfL8I74elC88lC7JHaUWjj3ym77zs13wk20UokZVSAZHfeRZTCHNn+XWeymii047BnpbI0zTRtm34t3me+W9dAczxxObGtMViAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;streak1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/93ad7a969e6cad1eb17dcabb896b2a37/dd45a/streak1.png&quot;
+        srcset=&quot;/static/93ad7a969e6cad1eb17dcabb896b2a37/948cf/streak1.png 138w,
+/static/93ad7a969e6cad1eb17dcabb896b2a37/6b2ea/streak1.png 275w,
+/static/93ad7a969e6cad1eb17dcabb896b2a37/dd45a/streak1.png 550w,
+/static/93ad7a969e6cad1eb17dcabb896b2a37/d4c13/streak1.png 825w,
+/static/93ad7a969e6cad1eb17dcabb896b2a37/9cab2/streak1.png 864w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h4&gt;툴팁 기능&lt;/h4&gt;
+&lt;p&gt;스트릭 기능은 대충 완성이 되었지만 해당 잔디가 어느 날짜의 잔디인지 알려면 마우스 오버 시 보여지는 툴팁이 필요합니다.&lt;/p&gt;
+&lt;p&gt;처음에는 &lt;a href=&quot;https://www.npmjs.com/package/react-tooltip&quot;&gt;react-tooltip&lt;/a&gt; 패키지를 사용하려했으나 ... 적용이 안돼서 찾아보니 svg에는 적용이 안된다고 합니다. svg에 적용되는 툴팁 라이브러리가 있긴 했으나 썩 맘에 들지않아 툴팁도 직접 구현하게 되었습니다.&lt;/p&gt;
+&lt;p&gt;svg요소 내부에 툴팁을 띄워야 했으므로 툴팁도 직접 그려줬습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;function StreakTooltip({ streak }) {
+ return (
+  &amp;lt;g&amp;gt;
+   &amp;lt;rect
+    x={streak.x + 85 &amp;gt; 550 ? streak.x - 88 : streak.x + 22}
+    y={streak.y}
+    width={85}
+    height={20}
+    rx={5}
+    fill=&amp;quot;#2a2a2a&amp;quot;
+   /&amp;gt;
+   &amp;lt;text x={streak.x + 85 &amp;gt; 550 ? streak.x - 12 : streak.x + 98} y={14 + streak.y} fontSize={12} fill=&amp;quot;white&amp;quot;&amp;gt;
+    {streak.date}
+   &amp;lt;/text&amp;gt;
+  &amp;lt;/g&amp;gt;
+ );
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;마우스 오버된 스트릭을 props로 전달하면 해당 위치의 스트릭을 잘 계산하여 ... 적절한 위치에 툴팁을 띄워줬습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/18c399fe746f515c9d3444bf3c04aea7/ad12c/tooltip1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 29.71014492753623%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA80lEQVR42pVRy4qDQBD0K/ML+YA95BrIZW6bmNfuKV/gyR8I5L43ZRW8+BwVD75Qs9Fae4JiIATSUFR3Q1d3zUhRFEHTNJimCdd1oes6LMsSuWEYqKoKFF3XYRpUTzGEVJYlgiAA5xxJkgimJZT7vo80TZHnuUBRFIKbpnkQiq8+eOYCf71glmXiGhr2PG9k6hE7jjPCtm2xUFVVyLKM3X6L4/ob7LTE5rxE0IuOgnQl8XR4Kjb0wjCEoihgjGH9ucFi9YH5YYavC+sFHUhkYxgg+1S/wmC5bdv+IYH0luC3+kFc8Lvluq6FDbrwnXj2IfQp/5/WvKhxm9tuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tooltip1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/18c399fe746f515c9d3444bf3c04aea7/dd45a/tooltip1.png&quot;
+        srcset=&quot;/static/18c399fe746f515c9d3444bf3c04aea7/948cf/tooltip1.png 138w,
+/static/18c399fe746f515c9d3444bf3c04aea7/6b2ea/tooltip1.png 275w,
+/static/18c399fe746f515c9d3444bf3c04aea7/dd45a/tooltip1.png 550w,
+/static/18c399fe746f515c9d3444bf3c04aea7/d4c13/tooltip1.png 825w,
+/static/18c399fe746f515c9d3444bf3c04aea7/ad12c/tooltip1.png 856w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/936e6bca32febbbcf598427df27fc8b2/f0551/tooltip2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 30.434782608695656%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABCklEQVR42pWQvW+CUBTF/b9ZTdwZMW6dmtqNpOnkxNTBJtJI6gACIhTDV3kPlfqr7xmHfgztSX7JHW7OvecMyrLEdV08zyMMQxaLhZ7jONazlBKl0+nEXzTouo7tdkuSJBRFQdM02uRwONC2raaqqi/Uda2pqhJZ71ntXkiKGPqzoRCC9XpNmqY4joNlWYxGI4bDIYZhYNu2Pqh2VAJFFEWEUcgm2vDsP3GzNLldWhQivxiqhSzLmM/nTKdTJpMJ4/EY0zSZzWb6+5+G5yeiNx5X95iuwcPrHY2sLpGDIMD3fdT8vavj8Yg6ekXVoRBS0Mk9uzbDrz3eRQMf58h93+vu8jzXZr/xH30C/xa89gAbvQwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tooltip2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/936e6bca32febbbcf598427df27fc8b2/dd45a/tooltip2.png&quot;
+        srcset=&quot;/static/936e6bca32febbbcf598427df27fc8b2/948cf/tooltip2.png 138w,
+/static/936e6bca32febbbcf598427df27fc8b2/6b2ea/tooltip2.png 275w,
+/static/936e6bca32febbbcf598427df27fc8b2/dd45a/tooltip2.png 550w,
+/static/936e6bca32febbbcf598427df27fc8b2/d4c13/tooltip2.png 825w,
+/static/936e6bca32febbbcf598427df27fc8b2/f0551/tooltip2.png 862w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이런식으로 오른쪽에 공간이 없다면 왼쪽에 그려주고, 그 외에는 모두 오른쪽에 그려주도록 계산한 내용입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ea38b29b9de26d3a8ca57ec3d3eeae74/1e088/hide_tooltip.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.15942028985507%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAw0lEQVR42qWRSwqEMBBEc/+19/ACHkEQxYW4iRr//yj4WWgNHVEcmYGBCTyoJt1Fp8KyLINt2/B9H1EUwXEccM4RBAFc18WyLPjl7PuuYNM0oSgKVFWFpmlQliXqulY6z3O0bQspJfq+v+i67k3T/TzPh+EwDGqzOI4vhBCKp77XBM2laQrLsqBpGgzDABvHEUmSgJ5+b37yNDsNadbzPOi6DtM0D8MwDFUDrU1QDJ/0t3pdV2zbprJkFDplRvxzzk95Adt4xQrt/hPHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;hide tooltip&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ea38b29b9de26d3a8ca57ec3d3eeae74/dd45a/hide_tooltip.png&quot;
+        srcset=&quot;/static/ea38b29b9de26d3a8ca57ec3d3eeae74/948cf/hide_tooltip.png 138w,
+/static/ea38b29b9de26d3a8ca57ec3d3eeae74/6b2ea/hide_tooltip.png 275w,
+/static/ea38b29b9de26d3a8ca57ec3d3eeae74/dd45a/hide_tooltip.png 550w,
+/static/ea38b29b9de26d3a8ca57ec3d3eeae74/d4c13/hide_tooltip.png 825w,
+/static/ea38b29b9de26d3a8ca57ec3d3eeae74/1e088/hide_tooltip.png 840w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;하지만 이렇게 하니.. 스크롤을 넘기면 보여지는 부분에서는 오른쪽에 공간이 없음에도 그대로 오른쪽에 그려지도록 되고 있었습니다.
+이부분은 개선이 필요해보이는 사항이나 어떻게 개선할지 아이디어도 떠오르지 않았고 스크롤을 넘기면 볼 수 있으므로 일단은 그냥 뒀습니다ㅜㅜ&lt;/p&gt;
+&lt;p&gt;어떤 스트릭에 마우스 오버를 했는지 판단하기 위한 코드도 추가를 했습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;&amp;lt;svg height={height} width={width} overflow=&amp;quot;auto&amp;quot;&amp;gt;
+ {streakList.map((streak, i) =&amp;gt; (
+  &amp;lt;React.Fragment key={`${streak.date}-fragment`}&amp;gt;
+   {/* 마우스 오버했는지 여부, 마우스를 오버하면 해당 스트릭의 인덱스를 저장해둔다. */}
+   &amp;lt;StreakIcon
+    isHovering={hoveringStreakIdx == i}
+    onMouseEnter={() =&amp;gt; {
+     setHoveringStreakIdx(i);
+    }}
+    onMouseOut={() =&amp;gt; {
+     setHoveringStreakIdx(-1);
+    }}
+    streak={streak}
+   /&amp;gt;
+  &amp;lt;/React.Fragment&amp;gt;
+ ))}
+ {/* 툴팁 */}
+ {hoveringStreakIdx != -1 &amp;amp;&amp;amp; &amp;lt;StreakTooltip streak={streakList[hoveringStreakIdx]} /&amp;gt;}
+&amp;lt;/svg&amp;gt;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const StreakIcon = ({ isHovering, streak, onMouseEnter, onMouseOut }) =&amp;gt; {
+ // 마우스 enter, out시 이벤트를 전달하고 마우스 오버 여부에 따라 윤곽선을 그려준다.
+ return (
+  &amp;lt;rect
+   width=&amp;quot;18&amp;quot;
+   height=&amp;quot;18&amp;quot;
+   x={streak.x}
+   y={streak.y}
+   rx=&amp;quot;5&amp;quot;
+   fill={streak.solved ? (streak.isFreeze ? &amp;#39;var(--color-toggle)&amp;#39; : &amp;#39;var(--color-checked)&amp;#39;) : &amp;#39;var(--color-unchecked)&amp;#39;}
+   strokeWidth=&amp;quot;2.5&amp;quot;
+   stroke={isHovering ? &amp;#39;#000000&amp;#39; : &amp;#39;transparent&amp;#39;}
+   onMouseEnter={onMouseEnter}
+   onMouseOut={onMouseOut}
+  /&amp;gt;
+ );
+};&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f444864352f22cc82ad03c0a22f338f8/33e10/tada.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 30.434782608695656%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABBklEQVR42nVQy0rDUBTMZ7sKWWRXF7rwAxKIi2xdBkQQVJJ1EbmJktfNQ9KS501akrHnCgVrOzDMfRyGmaNUVQXGGMIwRJqm8H0fSZKAc44gCDCOIwjLsvzjOSht2x4NiqKQ5zzPUZYloihCXdcYhgHTNP0xmucZYhTYDXtUXYmi5cD+YNh1nUyWZZk0JdKdjOktjmOpruvCNE1YlgXDMGDbNjzXgx8yPDAL9+93SLfRb0JKQkakp6RVUHLHcaBpGnRdh6qqWF2v8Pr8hpfgETfrK5jrW3xtPqD0fX9MR/VO2TSNVJqj6kQhhNSmbsG3MbzvJ0SbT2B3qEwftDNKcmnRl3Bu/geLLru/57WSqQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;tada&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f444864352f22cc82ad03c0a22f338f8/dd45a/tada.png&quot;
+        srcset=&quot;/static/f444864352f22cc82ad03c0a22f338f8/948cf/tada.png 138w,
+/static/f444864352f22cc82ad03c0a22f338f8/6b2ea/tada.png 275w,
+/static/f444864352f22cc82ad03c0a22f338f8/dd45a/tada.png 550w,
+/static/f444864352f22cc82ad03c0a22f338f8/d4c13/tada.png 825w,
+/static/f444864352f22cc82ad03c0a22f338f8/33e10/tada.png 844w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 해서 자체 잔디심기 기능을 완성했습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[세션 기반 인증과 토큰 기반 인증]]></title><description><![CDATA[개인 프로젝트를 진행하며 로그인 기능을 구현했던 과정을 기록해보려고 합니다. 백엔드 개발자와 협의하여 로그인은 JWT…]]></description><link>https://klloo.github.io/session-jwt/</link><guid isPermaLink="false">https://klloo.github.io/session-jwt/</guid><pubDate>Mon, 04 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;개인 프로젝트를 진행하며 로그인 기능을 구현했던 과정을 기록해보려고 합니다.&lt;/p&gt;
 &lt;p&gt;백엔드 개발자와 협의하여 로그인은 JWT를 사용하여 구성하기로 했는데 토큰 방식의 로그인에 개념은 어렴풋이 알고 있었지만 막상 바로 적용하려 하니 어려움이 있어서 먼저 해당 개념에 대해 공부를 했습니다.&lt;/p&gt;
 &lt;h2&gt;로그인 방식&lt;/h2&gt;
 &lt;p&gt;로그인을 구성하는 방식은 크게 쿠키와 세션을 사용하는 방식과 토큰 기반의 인증 방식으로 나뉩니다.&lt;/p&gt;
