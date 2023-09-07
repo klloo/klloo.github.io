@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 06 Sep 2023 12:43:41 GMT</lastBuildDate><item><title><![CDATA[No title]]></title><link>https://klloo.github.io/svg/</link><guid isPermaLink="false">https://klloo.github.io/svg/</guid><content:encoded></content:encoded></item><item><title><![CDATA[컨벡스 헐(Convex Hull) 알고리즘]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/convex-hull/</link><guid isPermaLink="false">https://klloo.github.io/convex-hull/</guid><pubDate>Wed, 06 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;친구에게 알고리즘 문제를 추천받았는데 알고리즘 분류에 &apos;볼록 껍질 알고리즘(=컨벡스헐)&apos; 이라는 분류가 있었습니다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[장희영의 블로그]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Sep 2023 11:43:03 GMT</lastBuildDate><item><title><![CDATA[emotion으로 Global style 설정하기]]></title><description><![CDATA[현재 리액트에서 emotion이라는 CSS-in-JS 라이브러리를 사용하여 스타일을 관리하고 있는데요! Global style…]]></description><link>https://klloo.github.io/emotion-global/</link><guid isPermaLink="false">https://klloo.github.io/emotion-global/</guid><pubDate>Thu, 07 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;현재 리액트에서 emotion이라는 CSS-in-JS 라이브러리를 사용하여 스타일을 관리하고 있는데요! Global style을 설정하려 할 때 마다 방법을 까먹길래 ... 기록용으로 적어보려고 합니다.&lt;/p&gt;
+&lt;p&gt;먼저 전역으로 적용할 스타일을 작성해서 Global 태그에 해당 스타일을 넣은 컴포넌트를 반환합니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;import React from &amp;#39;react&amp;#39;;
+import { Global, css } from &amp;#39;@emotion/react&amp;#39;;
+
+const baseStyle = css`
+ // css 설정 내용
+ // reset.css 및 원하는 전역 스타일 작성
+`;
+
+const GlobalStyle = () =&amp;gt; &amp;lt;Global styles={baseStyle} /&amp;gt;;
+
+export default GlobalStyle;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;그리고 App.tsx에 GlobalStyle을 적용해주면 끝입니다!&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;javascript&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;import Main from &amp;#39;pages/Main&amp;#39;;
+import React from &amp;#39;react&amp;#39;;
+import GlobalStyle from &amp;#39;styles/globalStyle&amp;#39;;
+
+function App() {
+ return (
+  &amp;lt;div&amp;gt;
+   &amp;lt;GlobalStyle /&amp;gt;
+   &amp;lt;Main /&amp;gt;
+  &amp;lt;/div&amp;gt;
+ );
+}
+
+export default App;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;Global 태그 아래로 다른 컴포넌트를 넣어주면 Global style이 적용됩니다!&lt;/p&gt;
+&lt;p&gt;이렇게 간단한데 왜 자꾸 까먹었을까요 허허&lt;/p&gt;
+&lt;p&gt;저는 주로 reset.css 스타일을 적용하려고 할 때 Global style을 사용합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;reset.css&lt;/strong&gt;란 웹 브라우저마다 각기 다른 default 스타일이 지정되어 있는데요, 이를 초기화함으로써 다양한 웹브라우저에서도 동일한 스타일이 적용되도록 하는 설정입니다.&lt;/p&gt;
+&lt;p&gt;이것을 적용하는 데에는 여러 방법이 있습니다.&lt;/p&gt;
+&lt;p&gt;먼저 요즘 많이 사용되고 있는 &lt;strong&gt;normalize.css&lt;/strong&gt;입니다.&lt;br/&gt;
+normalize.css는 CDN 기법을 통해 &lt;a href=&quot;https://cdnjs.com/libraries/normalize&quot;&gt;링크&lt;/a&gt;로 적용시킬 수 있습니다.&lt;/p&gt;
+&lt;p&gt;normalize.css는 모든 스타일을 reset시키지 않고, 브라우저 별로 다른 스타일만 초기화하는 방식으로 적용된다는 것이 특징입니다.&lt;/p&gt;
+&lt;p&gt;다음으로는 제가 사용한 &lt;strong&gt;reset.css&lt;/strong&gt;인데요 reset.css는 css를 모두 초기화 해줍니다.&lt;br/&gt;
+구글링하면 많이 나오는데 저는 &lt;a href=&quot;https://meyerweb.com/eric/tools/css/reset/&quot;&gt;여기&lt;/a&gt;서 가져와서 사용했습니다.&lt;/p&gt;
+&lt;p&gt;저는 사실 모든 스타일을 초기화 시킨 상태로 작업을 시작하고 싶었고, 기본 설정에 더해 원하는 기본 스타일을 추가하고 싶어서 위 링크에서 복사한 내용을 baseStyle에 붙여넣어주고 원하는 스타일을 추가하는 방식으로 진행했습니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[컨벡스 헐(Convex Hull) 알고리즘]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/convex-hull/</link><guid isPermaLink="false">https://klloo.github.io/convex-hull/</guid><pubDate>Wed, 06 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;친구에게 알고리즘 문제를 추천받았는데 알고리즘 분류에 &apos;볼록 껍질 알고리즘(=컨벡스헐)&apos; 이라는 분류가 있었습니다.
 생전 처음 들어본 기묘한 이름에... 이게 대체 무슨 알고리즘인지 궁금해서 슬쩍 찾아봤는데 무슨 기하..외적...이런 키워드에 지레 겁먹고 미루고 미루다가 아무래도 궁금해서 드디어 공부를 해봤습니다.&lt;/p&gt;
 &lt;h3&gt;개념&lt;/h3&gt;
 &lt;p&gt;컨벡스 헐이란 &lt;strong&gt;차원 평면에 여러개의 점이 있을 때, 그 점 중 일부를 이어서 나머지 점을 내부에 포함할 수 있는 볼록 다각형을 만드는 알고리즘&lt;/strong&gt;입니다.&lt;/p&gt;
