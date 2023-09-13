@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Sep 2023 17:06:13 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Sep 2023 17:06:56 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
 &lt;h2&gt;전체적인 구조&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -376,7 +376,7 @@ steps:
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;먼저 AWS_ACCESS_KEY_ID 와 AWS_SECERET_ACCESS_KEY는 aws 사용자의 액세스 키와 시크릿 액세스 키를 의미합니다. 또한 AWS_SG_ID는 EC2에 적용된 보안 그룹 아이디, DOCKER_USERNAME과 DOCKER_PASSWORD는 도커 아이디/비밀번호를 의미하고 HOST_ID와 PRIVATE_KEY는 EC2로의 SSH 접속을 위한 EC2 퍼블릭 아이디와 키 페어를 의미했습니다.&lt;/p&gt;
+&lt;p&gt;먼저 AWS_ACCESS_KEY_ID 와 AWS_SECERET_ACCESS_KEY는 aws 사용자의 액세스 키와 시크릿 액세스 키를 의미합니다. 또한 AWS_SG_ID는 EC2에 적용된 보안 그룹 아이디, DOCKER_USERNAME과 DOCKER_PASSWORD는 도커 아이디/비밀번호를 의미하고 HOST_ID와 PRIVATE_KEY는 EC2로의 SSH 접속을 위한 EC2 퍼블릭 아이디와 키 페어를 의미하고 있습니다.&lt;/p&gt;
 &lt;h4&gt;backend&lt;/h4&gt;
 &lt;deckgo-highlight-code language=&quot;yml&quot;  &gt;
           &lt;code slot=&quot;code&quot;&gt;# This workflow will build a Java project with Gradle
