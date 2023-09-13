@@ -1,4 +1,431 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 12 Sep 2023 03:03:29 GMT</lastBuildDate><item><title><![CDATA[CSR과 SSR]]></title><description><![CDATA[평소 CSR과 SSR에 대해서 이름 그대로 CSR은 클라이언트에서 렌더링 되는거고 SSR은 서버에서 렌더링 되는거아냐? 이 정도로만 알고 있었기 때문에 ... 한 번 정리가 필요해보여 제대로 알아봤습니다. SPA와 MPA 알아보다보니 CSR과 SSR…]]></description><link>https://klloo.github.io/csr-ssr/</link><guid isPermaLink="false">https://klloo.github.io/csr-ssr/</guid><pubDate>Tue, 12 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;평소 CSR과 SSR에 대해서 이름 그대로 CSR은 클라이언트에서 렌더링 되는거고 SSR은 서버에서 렌더링 되는거아냐?&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Sep 2023 16:24:13 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[최근 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다 전체적인 구조  전체적인 구조는 위와 같습니다.
+먼저 AWS…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
+&lt;h2&gt;전체적인 구조&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/5a6dd/structure.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.79710144927537%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeklEQVR42o1Sy27CMBDMl/dveuPWD+ipUoW4UKQeWlSkFlAeBNvBxolf07VRIkihwtLKyXp3dnZ3Mlw7wZOF4VeZgJ0MMA7wYRQaLh0Z/jl9qNABP8yjEhpSGzjnbuZko3LpkssZzO47AQbvE3RkIgSHlAe0bZviPNGtm/a8mRPgQJvu+FVPn2DXC/jkc6ilxXxroNUR1joCSi/YC4mHxyk0zSJ4l3D+tkwPG2GwKFyapXcWedPhdc1gvIKxhpiKwZhooFsNY+wJMFZbLpdQSkFrje6oaF5HzAuaVyOQ5wX5JT52L/jav0O1CozxBHZoGnClwVkB0+nUXWatxWQyQVmW4Jyj4Q3WbE2AczgTGRpUxPAtp5aIraeFxJyYHRnFBUXrx5CNV++dB5MMpaxSgboqsdpxPK82sBRWWA/bdQlgLJkLwN5i9XFgcSgw206xl0d87gW11yLcJZskBWJArUXr2+lMR8sgH92WJGPv1uGZ+q/ZIPYQbgL+AjGYW6WgXw4JAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;structure&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/dd45a/structure.png&quot;
+        srcset=&quot;/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/948cf/structure.png 138w,
+/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/6b2ea/structure.png 275w,
+/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/dd45a/structure.png 550w,
+/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/5a6dd/structure.png 802w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;전체적인 구조는 위와 같습니다.
+먼저 AWS의 EC2와 RDS를 생성하였고 spring boot 코드에서 데이터베이스를 RDS와 연동해두었습니다. 그리고 EC2 내부에서는 도커를 사용해서 총 3개의 컨테이너를 띄웠습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Reverse Proxy 서버로 사용할 Nginx&lt;/li&gt;
+&lt;li&gt;Spring boot&lt;/li&gt;
+&lt;li&gt;Web Server로 사용할 Nginx (빌드된 React 파일이 마운트 되어 있음)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;외부에서 443으로 요청이 오면 Reverse Proxy 서버인 Nginx가 먼저 요청을 받고, /api로 시작하는 요청이라면 8080포트로, 그냥 /로 시작하는 요청이라면 3000 포트로 요청을 전달해주게 됩니다.&lt;/p&gt;
+&lt;p&gt;여기서 &lt;strong&gt;리버스 프록시&lt;/strong&gt;란 클라이언트와 웹 서버 사이에 위치하여 클라이언트 요청을 서버로 전달하고, 서버에서 받은 응답을 클라이언트에게 전달하는 중간 서버 역할을 하는 서버를 말합니다.
+리버스 프록시를 사용하면 로드 밸런싱, 무중단 배포 등 여러 방면에서 이점이 있습니다.&lt;/p&gt;
+&lt;p&gt;하지만 제가 배포하려는 서비스는 규모가 큰 서비스가 아니었기 때문에 이런 부분들은 큰 고려 사항이 아니었고, CORS 설정을 간단하게 처리할 수 있다는 점 때문에 이런 구조를 선택하게 되었습니다. (Nginx 설정 중 proxy_pass를 통해 CORS를 쉽게 해결할 수 있습니다.)&lt;/p&gt;
+&lt;p&gt;도커 이미지를 띄우는 과정은 아래와 같이 진행했습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;로컬에서 Frontend 이미지 빌드&lt;/li&gt;
+&lt;li&gt;로컬에서 Backend 이미지 빌드&lt;/li&gt;
+&lt;li&gt;Docker hub에 빌드한 이미지 push&lt;/li&gt;
+&lt;li&gt;EC2 내부에서 해당 이미지 pull&lt;/li&gt;
+&lt;li&gt;docker-compose를 사용해 Nginx 이미지와 pull받은 두 이미지를 동시에 실행&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;도커를 사용한 이유는 배포가 편리하기 때문..!이었습니다. 아직 인프라와 관련된 지식이 부족한 편인데.. 일단 배포 환경을 신경 쓸 필요가 없었고 수정 사항이 생기더라도 새로 빌드한 이미지만 갈아끼우면 되기 때문에 이런 방식들이 깔끔하고 마음에 들어서 사용을 했습니다!&lt;/p&gt;
+&lt;h2&gt;배포 과정&lt;/h2&gt;
+&lt;p&gt;위에서 간략하게 설명한 배포 과정을 자세히 살펴보겠습니다.&lt;/p&gt;
+&lt;h3&gt;도메인 구입 및 연동&lt;/h3&gt;
+&lt;p&gt;도메인은 &lt;a href=&quot;https://domain.gabia.com/&quot;&gt;가비아&lt;/a&gt;에서 구매를 했습니다. 1년치를 구매했고요 ...
+여러 도메인을 검색해보며 가격을 비교하는게 꽤나 재밌었습니다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;a href=&quot;https://developer-ping9.tistory.com/320&quot;&gt;이 블로그&lt;/a&gt;를 참고하여 EC2와 도메인을 연결했습니다.&lt;/p&gt;
+&lt;h3&gt;도커 파일 작성&lt;/h3&gt;
+&lt;p&gt;로컬에서 frontend쪽 이미지와 backend쪽 이미지를 빌드하기 위한 도커 파일을 작성해뒀습니다.&lt;/p&gt;
+&lt;h4&gt;frontend&lt;/h4&gt;
+&lt;deckgo-highlight-code language=&quot;dockerfile&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;FROM node:alpine as builder
+WORKDIR /usr/src/app
+COPY package.json .
+RUN yarn install
+COPY ./ ./
+RUN yarn build
+
+FROM nginx
+EXPOSE 3000
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder usr/src/app/build  /usr/share/nginx/html&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이 도커파일을 해석해 보자면 ...&lt;/p&gt;
+&lt;p&gt;먼저 node 이미지를 기반으로 React 코드를 빌드합니다.
+package.json 파일을 컨테이너의 작업 디렉토리로 복사하여 yarn install을 통해 필요한 종속성을 설치하고, 현재 디렉토리의 파일 전체를 컨테이너의 작업 디렉토리로 복사하여 yarn build 명령어를 통해 React 코드를 빌드합니다.&lt;/p&gt;
+&lt;p&gt;그리고 nginx 이미지를 기반으로 웹서버를 구성합니다.
+먼저 컨테이너 외부로 3000 포트를 열고 현재 디렉토리에 작성해둔 nginx 설정파일을 컨테이너 내부의 nginx 설정파일로 복사해줍니다.
+그리고 이전 builder 단계에서 빌드한 파일을 nginx의 기본 웹 루트 디렉토리로 복사합니다.&lt;/p&gt;
+&lt;p&gt;작성한 nginx 설정 파일은 아래와 같습니다.&lt;/p&gt;
+&lt;h4&gt;nginx.conf&lt;/h4&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;server {
+    listen 3000;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+        try_files $uri  $uri/ /index.html;
+    }
+    underscores_in_headers on;
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;먼저 3000 포트로 요청을 받기로 합니다.
+그리고 &apos;/&apos;으로 들어오는 모든 요청에 대해 nginx 기본 웹 루트 디렉토리에서 정적 파일들을 제공하도록 했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;underscores_in_headers on&lt;/code&gt;은 http요청 헤더에서 underscore(_)를 허용하도록하는 옵션입니다. nginx는 기본적으로 헤더에 underscore가 포함되어 있다면 해당 헤더를 자동으로 버려버린다고 합니다... 저희 프로젝트에서는 인증 시 사용하는 토큰을 요청 헤더에서 주고 받을 때 해당 헤더 이름에 _가 들어가는데 이 설정을 해주지 않은 바람에 조금 많이 애를 먹었었습니다...&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게하면 리액트 코드를 빌드한 결과물인 정적 파일을 서브할 수 있는 웹서버를 구성할 수 있습니다.&lt;/p&gt;
+&lt;h4&gt;backend&lt;/h4&gt;
+&lt;deckgo-highlight-code language=&quot;dockerfile&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;FROM openjdk:11
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT [&amp;quot;java&amp;quot;,&amp;quot;-jar&amp;quot;,&amp;quot;/app.jar&amp;quot;]&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;먼저 jdk 11 이미지를 기반으로 합니다. 이 이미지에는 Java 11이 설치되어 있습니다.
+그리고 빌드된 jar파일을 컨테이너 내부 app.jar라는 이름으로 복사를 해둡니다.
+ENTRYPOINT는 컨테이너가 시작될 때 실행되는 명령을 지정할 수 있는데 여기서는 java -jar /app.jar 명령을 지정하여 컨테이너 실행 시 내부에서 JAR파일을 실행하도록 했습니다.&lt;/p&gt;
+&lt;h3&gt;SSL 인증서 발급&lt;/h3&gt;
+&lt;p&gt;EC2 내부에서 certbot을 이용해 SSL 인증서를 발급받았습니다.&lt;/p&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;apt-get install python3-certbot-nginx
+certbot certonly --nginx -d &amp;lt;도메인 주소&amp;gt;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이 인증서의 만료기한은 90일이라 .. 90일마다 갱신을 해줘야 합니다. crontab을 사용하면 자동으로 인증서를 갱신하도록 설정해줄 수 있습니다.&lt;/p&gt;
+&lt;h3&gt;docker-compose.yml 파일 생성&lt;/h3&gt;
+&lt;p&gt;EC2내부에서 도커 이미지를 동시에 띄우기 위해 docker-compose.yml파일을 작성해야 합니다.&lt;/p&gt;
+&lt;deckgo-highlight-code language=&quot;yml&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;version: &amp;#39;1&amp;#39;
+services:
+ backend:
+  container_name: springboot-app
+  image: backend-image
+  expose:
+   - 8080
+
+ frontend:
+  container_name: react-app
+  image: frontend-image
+  expose:
+   - 3000
+
+ nginx:
+  container_name: nginx
+  image: nginx:latest
+  restart: always
+  volumes:
+   - ./conf/:/etc/nginx/conf.d
+   - /var/log/nginx:/var/log/nginx
+   - /etc/letsencrypt:/etc/letsencrypt
+  ports:
+   - 80:80
+   - 443:443
+  depends_on:
+   - backend
+   - frontend&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;backend, frontend, nginx 총 3개의 서비스를 정의하고 각 서비스가 실행되는 방식 및 설정을 지정한 파일입니다.&lt;/p&gt;
+&lt;h4&gt;backend&lt;/h4&gt;
+&lt;p&gt;&apos;springboot-app&apos;이라는 이름으로 컨테이너를 띄웁니다.
+이 서비스는 docker hub에서 backend-image라는 이미지를 가져와서 실행 시키고 컨테이너를 8080포트로 노출합니다.&lt;/p&gt;
+&lt;h4&gt;frontend&lt;/h4&gt;
+&lt;p&gt;&apos;react-app&apos;이라는 이름으로 컨테이너를 띄웁니다.
+이 서비스는 docker hub에서 frontend-image라는 이미지를 가져와서 실행 시키고 컨테이너를 3000포트로 노출합니다.&lt;/p&gt;
+&lt;h4&gt;nginx&lt;/h4&gt;
+&lt;p&gt;&apos;react-app&apos;이라는 이름으로 컨테이너를 띄웁니다.
+이 서비스는 nginx 이미지로 실행을 시키는데 호스트 시스템의 디렉토리를 컨테이너 내부 디렉토리와 공유하여 nginx 설정, 로그 및 SSL 인증서를 관리합니다.
+또 호스트의 80번 포트와 443번 포트를 컨테이너의 80번 포트와 443번 포트로 연결합니다.&lt;/p&gt;
+&lt;p&gt;./conf 경로에 있는 설정 파일들을 nginx설정에 사용하도록 하였는데 해당 설정파일은 아래와 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;nginx.conf&lt;/strong&gt;&lt;/p&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;server {
+       listen 80;
+       server_name randps.kr;
+       underscores_in_headers on;
+       return 301 https://randps.kr$request_uri;   # http로 들어오면 https로 redirect 해주는 부분
+}
+
+server {
+       listen 443 ssl;
+
+       server_name randps.kr;
+
+       ssl_certificate /etc/letsencrypt/live/randps.kr/fullchain.pem;
+       ssl_certificate_key /etc/letsencrypt/live/randps.kr/privkey.pem;
+
+       location /api {
+	       proxy_pass http://springboot-app:8080;
+	       proxy_set_header Host $host;
+               proxy_set_header X-Real-IP $remote_addr;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header X-Forwarded-Proto $scheme;
+               }
+       location / {
+               proxy_pass http://react-app:3000;
+               proxy_set_header Host $host;
+               proxy_set_header X-Real-IP $remote_addr;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header X-Forwarded-Proto $scheme;
+       }
+       underscores_in_headers on;
+
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이 설정파일은 nginx를 사용하여 HTTPS로 보안된 연결을 설정하고 백엔드 API와 웹 애플리케이션을 프록시하는 간단한 리버스 프록시 구성을 나타냅니다.&lt;/p&gt;
+&lt;p&gt;먼저 80포트로 HTTP요청을 받는다면 HTTPS로 리다이렉션 합니다.&lt;/p&gt;
+&lt;p&gt;그리고 443 포트로 HTTPS 요청을 받으며 SSL을 사용합니다. ssl_certificate 및 ssl_certificate_key는 SSL 인증서와 개인 키 파일의 경로를 지정합니다.&lt;/p&gt;
+&lt;p&gt;Let&apos;s Encrypt를 사용하므로 etc/letsencrypt/live/randps.kr/fullchain.pem 및 /etc/letsencrypt/live/randps.kr/privkey.pem 경로에 인증서와 키 파일이 있어야 합니다.&lt;/p&gt;
+&lt;p&gt;또 /api 경로로 들어오는 요청을 백엔드 서버로 프록시 하고 springboot-app컨테이너의 8080포트로 요청을 전달하도록 했습니다. 그 외의 /로 들어오는 모든 요청은 웹 서버로 프록시 하여 react-app 컨테이너의 3000포트로 요청을 전달하게 됩니다.&lt;/p&gt;
+&lt;h3&gt;배포&lt;/h3&gt;
+&lt;p&gt;배포를 위한 준비는 다 되었습니다. 이제 도커 이미지를 빌드하고 EC2에서 해당 이미지를 내려받아 실행시켜주기만 하면됩니다.&lt;/p&gt;
+&lt;p&gt;먼저 frontend와 backend 이미지를 각각 빌드하여 Docker hub에 올려줍니다.&lt;/p&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;docker build --platform linux/amd64 -t &amp;lt;image 이름&amp;gt; . // 이미지 빌드
+docker push &amp;lt;image 이름&amp;gt; // 이미지 푸시&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;저는 M1 맥북을 사용하고 있는데, 이미지를 그냥 빌드하게 되면 도커가 해당 이미지를 빌드할때 생성된 빌드 플랫폼이 EC2서버와 M1 맥북간의 호환성이 안맞아 문제가 발생합니다. 그래서 이를 linux/amd64 플랫폼 형태로 빌드하기 위해 &lt;code class=&quot;language-text&quot;&gt;--platform linux/amd64&lt;/code&gt; 옵션을 적어주었습니다.&lt;/p&gt;
+&lt;p&gt;그리고 EC2에서는 두 이미지를 pull 받아줍니다. (도커가 설치되어 있어야하고, 도커 허브에 로그인 되어있어야 합니다.)&lt;/p&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;sudo docker pull &amp;lt;backend image 이름&amp;gt;
+sudo docker pull &amp;lt;frontend image 이름&amp;gt;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;그리고 docker-compose 명령어를 통해 이미지를 모두 실행시켜주면 배포가 완료됩니다!&lt;/p&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;sudo docker-compose up -d // -d 옵션은 컨테이너를 백그라운드에서 실행시키는 옵션&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;h2&gt;배포 자동화&lt;/h2&gt;
+&lt;p&gt;docker를 사용하여 비교적 간단하게 배포를 진행할 수는 있지만 이 작업마저도 귀찮은 부분이 있습니다.. 수정 사항이 발생하면 매번 이미지를 새로 빌드하고, EC2에 접속하여 새 이미지를 pull받은 다음 다시 실행시켜줘야 합니다.&lt;/p&gt;
+&lt;p&gt;그래서 이 부분을 자동화 시켜보기로 했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a414becd4834606010acd1c8ac1941e9/f0551/cicd.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.15942028985507%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4klEQVR42n1R22rDMAzN/3/O/mIPexlbWMogzQJL19HFdnxLfDmV7A5GaXdAWOhyjiQ3MUZs2wYG+yGE4ueMm7iO56tA8zVNaF+eYZ1D275i13Xw5Ctt8alAYgHGGEgpy5tvKVEsp1QJuSClWqSUKo0MnvQkFjjvywZa62KjyJhtxhqBhepPSkN0j9BPD5Xw+3jA++6N1C0+hgHjOMI5i8U4TDJiJTJPpNVWKA/4LSOkeqJIk1klYH6OlXCeBSZamzHs9+j7vk4YE6RDaUgXuwfe8vcQzd8EN7Hqf7j3WbhQngHCktSY/F+9fwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cicd&quot;
+        title=&quot;&quot;
+        src=&quot;/static/a414becd4834606010acd1c8ac1941e9/dd45a/cicd.png&quot;
+        srcset=&quot;/static/a414becd4834606010acd1c8ac1941e9/948cf/cicd.png 138w,
+/static/a414becd4834606010acd1c8ac1941e9/6b2ea/cicd.png 275w,
+/static/a414becd4834606010acd1c8ac1941e9/dd45a/cicd.png 550w,
+/static/a414becd4834606010acd1c8ac1941e9/d4c13/cicd.png 825w,
+/static/a414becd4834606010acd1c8ac1941e9/f0551/cicd.png 862w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;자동화 도구로는 Github Actions를 사용했습니다. 각 Repository 특정 브랜치에 푸시하게 되면, 자동으로 도커 이미지를 빌드하고 EC2에 접속하여 새 이미지를 Pull받은 후 이미지들을 다시 실행시켜주게 됩니다.&lt;/p&gt;
+&lt;h3&gt;깃허브 액션 파일 설정&lt;/h3&gt;
+&lt;p&gt;깃허브 액션은 yml 파일을 통해 workflow를 구성할 수 있습니다.
+이 파일은 Repository의 Actions탭에서 New workflow를 클릭하여 생성하거나 Repository에 .github/workflows 디렉토리 안에 yml 파일을 생성하여 구성할 수 있습니다.&lt;/p&gt;
+&lt;h4&gt;frontend&lt;/h4&gt;
+&lt;deckgo-highlight-code language=&quot;yml&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;#front-deploy.yml
+
+name: Deploy
+
+on:
+push:
+branches:
+
+- main
+
+jobs:
+build:
+
+# 실행 환경 지정
+
+runs-on: ubuntu-latest
+
+strategy:
+matrix:
+node-version: [20.5.x]
+
+steps:
+
+- uses: actions/checkout@v2
+- name: Use Node.js ${{ matrix.node-version }}
+  uses: actions/setup-node@v1
+  with:
+  node-version: ${{ matrix.node-version }}
+
+  # 도커 로그인하고 도커 이미지 빌드 후 푸시한다.
+
+- name: web docker build and push
+  run: |
+  docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+  docker build --platform linux/amd64 -t ${{ secrets.DOCKER_USERNAME }}/randps-front .
+  docker push ${{ secrets.DOCKER_USERNAME }}/randps-front
+
+  # Github Actions IP 가져온다.
+
+- name: Get Github Actions IP
+  id: ip
+  uses: haythem/public-ip@v1.2
+
+- name: Configure AWS Credentials
+  uses: aws-actions/configure-aws-credentials@v1
+  with:
+  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  aws-region: ap-northeast-2
+
+  # Github Actions IP를 AWS 보안그룹에 추가한다.
+
+- name: Add Github Actions IP to Security group
+  run: |
+  aws ec2 authorize-security-group-ingress --group-id ${{ secrets.AWS_SG_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+  # ssh로 EC2 접속해서 도커 컨테이너를 모두 멈춘 후, 도커 파일을 새로 받아 다시 docker-compose로 이미지를 실행시킨다.
+
+- name: executing remote ssh commands using password
+  uses: appleboy/ssh-action@master
+  with:
+  host: ${{ secrets.HOST_ID }}
+  username: ubuntu
+  key: ${{ secrets.PRIVATE_KEY }}
+  script: |
+  sudo docker rm -f $(sudo docker ps -qa)
+  sudo docker pull ${{ secrets.DOCKER_USERNAME }}/randps-front
+  sudo docker-compose up -d
+  sudo docker image prune -f
+
+  # AWS 보안그룹에서 Github Actions IP를 삭제한다.
+
+- name: Remove Github Actions IP From Security Group
+  run: |
+  aws ec2 revoke-security-group-ingress --group-id ${{ secrets.AWS_SG_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32```
+&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;이 파일은 GitHub Actions를 사용하여 프론트엔드 웹 애플리케이션을 빌드하고 AWS EC2 인스턴스에 배포하는 작업을 정의합니다.&lt;/p&gt;
+&lt;p&gt;먼저 main 브랜치로의 push 이벤트에 의해 트리거 되면 해당 워크플로우가 ubuntu-latest 운영체제 환경에서 실행됩니다.&lt;/p&gt;
+&lt;p&gt;그리고 actions/setup-node@v1 액션을 사용하여 Node.js 환경을 설정합니다.&lt;/p&gt;
+&lt;p&gt;그 다음에는 docker login을 사용하여 Docker Hub에 로그인하고
+애플리케이션의 Docker 이미지를 빌드하고 Docker Hub에 푸시합니다.&lt;/p&gt;
+&lt;p&gt;haythem/public-&lt;a href=&quot;mailto:ip@v1.2&quot;&gt;ip@v1.2&lt;/a&gt; 액션을 사용하여 GitHub Actions의 공용 IP 주소를 가져옵니다. 이 IP 주소는 보안 그룹 설정에 사용됩니다.&lt;/p&gt;
+&lt;p&gt;AWS 자격 증명을 설정하기 위해 aws-actions/configure-aws-credentials@v1 액션을 사용합니다. 이 작업은 AWS 서비스와 상호 작용하기 위해 필요합니다.&lt;/p&gt;
+&lt;p&gt;그리고 AWS 보안 그룹에 GitHub Actions IP를 추가합니다.
+aws ec2 authorize-security-group-ingress 명령을 사용하여 AWS 보안 그룹에 SSH 포트(22)로의 인바운드 액세스를 GitHub Actions의 IP 주소로 추가합니다.&lt;/p&gt;
+&lt;p&gt;appleboy/ssh-action@master 액션을 사용하여 원격 EC2 서버에 SSH 연결하고 명령을 실행합니다.
+원격 서버에서 실행되는 명령들은 아래와 같습니다.&lt;/p&gt;
+&lt;p&gt;먼저 현재 실행 중인 Docker 컨테이너를 모두 중지 및 제거합니다.
+이후 Docker Hub에서 새로운 프론트엔드 Docker 이미지를 가져오고, Docker Compose를 사용하여 컨테이너를 시작합니다.
+그리고 더 이상 사용되지 않는 Docker 이미지를 정리합니다.&lt;/p&gt;
+&lt;p&gt;작업이 완료되면 aws ec2 revoke-security-group-ingress 명령을 사용하여 AWS 보안 그룹에서 GitHub Actions IP 주소로의 SSH 액세스를 제거합니다.&lt;/p&gt;
+&lt;h4&gt;깃허브 시크릿 등록&lt;/h4&gt;
+&lt;h4&gt;backend&lt;/h4&gt;
+&lt;deckgo-highlight-code language=&quot;yml&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;# This workflow will build a Java project with Gradle
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
+
+name: Spring Boot &amp;amp; Gradle CI/CD
+
+on:
+ push:
+  branches:
+   - master
+
+jobs:
+ build:
+  # 실행 환경 지정
+  runs-on: ubuntu-latest
+
+  steps:
+   - uses: actions/checkout@v2
+
+   - name: Set up JDK 11
+     uses: actions/setup-java@v1
+     with:
+      java-version: 11
+
+   - name: Grant execute permission for gradlew
+     run: chmod +x gradlew
+
+     # 스프링부트 코드 Build
+   - name: Build with Gradle
+     run: ./gradlew clean build
+
+     # 도커 로그인하고 도커 이미지 빌드 후 푸시한다.
+   - name: web docker build and push
+     run: |
+      docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      docker build --platform linux/amd64 -t ${{ secrets.DOCKER_USERNAME }}/randps-back .
+      docker push ${{ secrets.DOCKER_USERNAME }}/randps-back
+
+     # Github Actions IP 가져온다.
+   - name: Get Github Actions IP
+     id: ip
+     uses: haythem/public-ip@v1.2
+
+   - name: Configure AWS Credentials
+     uses: aws-actions/configure-aws-credentials@v1
+     with:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-region: ap-northeast-2
+
+     # Github Actions IP를 AWS 보안그룹에 추가한다.
+   - name: Add Github Actions IP to Security group
+     run: |
+      aws ec2 authorize-security-group-ingress --group-id ${{ secrets.AWS_SG_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+
+     # ssh로 EC2 접속해서 도커 컨테이너를 모두 멈춘 후, 도커 파일을 새로 받아 다시 docker-compose로 이미지를 실행시킨다.
+   - name: executing remote ssh commands using password
+     uses: appleboy/ssh-action@master
+     with:
+      host: ${{ secrets.HOST_ID }}
+      username: ubuntu
+      key: ${{ secrets.PRIVATE_KEY }}
+      script: |
+       sudo docker rm -f $(sudo docker ps -qa)
+       sudo docker pull ${{ secrets.DOCKER_USERNAME }}/randps-back
+       sudo docker-compose up -d
+       sudo docker image prune -f
+
+     # AWS 보안그룹에서 Github Actions IP를 삭제한다.
+   - name: Remove Github Actions IP From Security Group
+     run: |
+      aws ec2 revoke-security-group-ingress --group-id ${{ secrets.AWS_SG_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32```&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;p&gt;도커 이미지 이름과 도커 이미지 빌드 전 gradle build 단계가 추가된 것 이외에는 frontend 쪽의 로직과 동일합니다.&lt;/p&gt;
+&lt;p&gt;이렇게 해주고 지정한 브랜치에 푸시하면 자동으로 배포가 되고 있는 것을 확인할 수 있습니다! 예에&lt;/p&gt;</content:encoded></item><item><title><![CDATA[CSR과 SSR]]></title><description><![CDATA[평소 CSR과 SSR에 대해서 이름 그대로 CSR은 클라이언트에서 렌더링 되는거고 SSR은 서버에서 렌더링 되는거아냐? 이 정도로만 알고 있었기 때문에 ... 한 번 정리가 필요해보여 제대로 알아봤습니다. SPA와 MPA 알아보다보니 CSR과 SSR…]]></description><link>https://klloo.github.io/csr-ssr/</link><guid isPermaLink="false">https://klloo.github.io/csr-ssr/</guid><pubDate>Tue, 12 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;평소 CSR과 SSR에 대해서 이름 그대로 CSR은 클라이언트에서 렌더링 되는거고 SSR은 서버에서 렌더링 되는거아냐?&lt;/p&gt;
 &lt;p&gt;이 정도로만 알고 있었기 때문에 ... 한 번 정리가 필요해보여 제대로 알아봤습니다.&lt;/p&gt;
 &lt;h2&gt;SPA와 MPA&lt;/h2&gt;
 &lt;p&gt;알아보다보니 CSR과 SSR은 SPA, MPA와 밀접한 관련이 있는 것 같아 먼저 SPA와 MPA의 개념을 알아봤습니다.&lt;/p&gt;
