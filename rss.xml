@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 13 Sep 2023 17:06:56 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 14 Sep 2023 04:11:17 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
 &lt;h2&gt;전체적인 구조&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -335,12 +335,10 @@ steps:
         &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이 파일은 GitHub Actions를 사용하여 프론트엔드 웹 애플리케이션을 빌드하고 AWS EC2 인스턴스에 배포하는 작업을 정의합니다.&lt;/p&gt;
 &lt;p&gt;각각의 작업은 주석에 작성해 놓은 그대로 진행되는 작업들입니다.&lt;/p&gt;
-&lt;p&gt;먼저 main 브랜치로의 push 이벤트에 의해 트리거 되면 해당 워크플로우가 ubuntu-latest 운영체제 환경에서 실행되고 도커 이미지를 빌드하고 도커에 로그인하여 해당 이미지를 푸시합니다.&lt;/p&gt;
-&lt;p&gt;그리고 EC2에 접속하여 해당 이미지를 내려받고 실행시키는 등의 작업이 필요한데, 현재 EC2에 적용된 보안그룹에 제 로컬 컴퓨터의 IP만을 SSH로 접근할 수 있도록 설정하였기 때문에 Github pages에서 사용되는 IP또한 해당 그룹에 포함될 필요가 있었습니다. 따라서 이를 위해 먼저 AWS 사용자 키와 사용자 secret키를 통해 AWS 서비스와 상호작용하기 위한 aws-actions/configure-aws-credentials@v1 액션을 사용합니다. 그리고 그 후 aws ec2 authorize-security-group-ingress 명령을 사용하여 AWS 보안 그룹에 SSH 포트(22)로의 인바운드 액세스를 GitHub Actions의 IP 주소로 추가합니다.&lt;/p&gt;
-&lt;p&gt;그 다음으로는 appleboy/ssh-action@master 액션을 사용하여 ssh를 통해 EC2에 접속하고 다음과 같은 명령어들을 실행했습니다.
-먼저 현재 실행 중인 Docker 컨테이너를 모두 중지 및 제거한 이후 Docker Hub에서 새로운 프론트엔드 Docker 이미지를 가져오고, Docker Compose를 사용하여 컨테이너를 시작했습니다.
-이후 더 이상 사용되지 않는 Docker 이미지는 docker image prune -f 명령어를 통해 삭제하도록 했습니다.&lt;/p&gt;
-&lt;p&gt;작업이 완료되면 aws ec2 revoke-security-group-ingress 명령을 사용하여 AWS 보안 그룹에서 GitHub Actions IP 주소로의 SSH 액세스를 제거합니다.&lt;/p&gt;
+&lt;p&gt;먼저 main 브랜치로의 push 이벤트에 의해 트리거 되면 도커 이미지를 빌드하고 도커에 로그인하여 해당 이미지를 푸시합니다.&lt;/p&gt;
+&lt;p&gt;그리고 EC2에 접속하여 해당 이미지를 내려받고 실행시키는 등의 작업이 필요한데, 현재 EC2에 적용된 보안그룹에 제 로컬 컴퓨터의 IP만을 SSH로 접근할 수 있도록 설정하였기 때문에 Github pages에서 사용되는 IP또한 해당 그룹에 포함될 필요가 있었습니다. 이를 위해 먼저 AWS 사용자 키와 사용자 secret키를 통해 AWS 서비스와 상호작용하기 위한 aws-actions/configure-aws-credentials@v1 액션을 사용했습니다. 그리고 그 후 aws ec2 authorize-security-group-ingress 명령을 사용하여 AWS 보안 그룹에 SSH 포트(22)로의 인바운드 액세스를 GitHub Actions의 IP 주소로 추가합니다.&lt;/p&gt;
+&lt;p&gt;그 다음으로는 appleboy/ssh-action@master 액션을 사용하여 ssh를 통해 EC2에 접속하여 새 도커 이미지를 가져오고 새로 이미지를 실행시키는 작업을 하도록 해줬습니다.&lt;/p&gt;
+&lt;p&gt;작업이 완료되면 AWS 보안 그룹에서 GitHub Actions IP 주소로의 SSH 액세스를 제거해줍니다.&lt;/p&gt;
 &lt;h4&gt;깃허브 시크릿 등록&lt;/h4&gt;
 &lt;p&gt;위의 작업에서 ${{ secrets.DOCKER_USERNAME }} 이런 형식으로 나타나는 부분은 secret key로 등록된 부분입니다. Repository의 settings &gt; Secerets and variables &gt; Actions에서 등록할 수 있으며 위의 작업을 위해 총 7개의 secret을 등록하였습니다.&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -376,7 +374,7 @@ steps:
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;먼저 AWS_ACCESS_KEY_ID 와 AWS_SECERET_ACCESS_KEY는 aws 사용자의 액세스 키와 시크릿 액세스 키를 의미합니다. 또한 AWS_SG_ID는 EC2에 적용된 보안 그룹 아이디, DOCKER_USERNAME과 DOCKER_PASSWORD는 도커 아이디/비밀번호를 의미하고 HOST_ID와 PRIVATE_KEY는 EC2로의 SSH 접속을 위한 EC2 퍼블릭 아이디와 키 페어를 의미하고 있습니다.&lt;/p&gt;
+&lt;p&gt;먼저 AWS_ACCESS_KEY_ID 와 AWS_SECERET_ACCESS_KEY는 aws 사용자의 액세스 키와 시크릿 액세스 키를 의미합니다. AWS_SG_ID는 EC2에 적용된 보안 그룹 아이디, DOCKER_USERNAME과 DOCKER_PASSWORD는 도커 아이디/비밀번호를 의미하고 HOST_ID와 PRIVATE_KEY는 EC2로의 SSH 접속을 위한 EC2 퍼블릭 아이디와 키 페어를 의미하고 있습니다.&lt;/p&gt;
 &lt;h4&gt;backend&lt;/h4&gt;
 &lt;deckgo-highlight-code language=&quot;yml&quot;  &gt;
           &lt;code slot=&quot;code&quot;&gt;# This workflow will build a Java project with Gradle
