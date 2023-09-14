@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 14 Sep 2023 04:37:11 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 14 Sep 2023 04:53:02 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
 &lt;h2&gt;전체적인 구조&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -2629,7 +2629,7 @@ if (!commentTheme) {
 &lt;p&gt;깃허브 블로그의 가장 큰 장점은 모든걸 커스터마이징할 수 있다는 것이다. 깃허브 블로그를 선택한 이유가 멋있어서... 라고 했는데 이 점이 제일 멋있는 것 같다.&lt;/p&gt;
 &lt;p&gt;먼저 원했던 기능들을 추가한 다음, 디자인을 추가했다.&lt;/p&gt;
 &lt;h5&gt;카테고리 기능&lt;/h5&gt;
-&lt;p&gt;카테고리 추가는 그냥 마크다운 문서 가장 위쪽에 있는 메타데이터를  &lt;code class=&quot;language-text&quot;&gt;frontmatter&lt;/code&gt; 라고 하는데 그냥 여기에 category 항목만 추가하면 됐다.&lt;/p&gt;
+&lt;p&gt;카테고리 추가는 그냥 마크다운 문서 가장 위쪽에 있는 메타데이터를 &lt;code class=&quot;language-text&quot;&gt;frontmatter&lt;/code&gt; 라고 하는데 그냥 여기에 category 항목만 추가하면 됐다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
@@ -2673,39 +2673,44 @@ if (!commentTheme) {
         &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;아무튼 이렇게 가져와서&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
-          &lt;code slot=&quot;code&quot;&gt;const categories = [{fieldValue: ALL_NAME, totalCount: allPosts.length}, ...data.categories.group]&lt;/code&gt;
+          &lt;code slot=&quot;code&quot;&gt;const categories = [{ fieldValue: ALL_NAME, totalCount: allPosts.length }, ...data.categories.group];&lt;/code&gt;
         &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이렇게 전체보기 카테고리까지 추가한 다음 화면에 뿌려줬다.&lt;/p&gt;
 &lt;p&gt;그 다음 카테고리를 선택하면 페이지 전환 없이 그냥 포스트 목록에서 제목에 검색 키워드가 포함되는 포스트만 조회되도록 하고싶었다. 이 부분은 따로 질의 하지 않고 그냥 전체 포스트 목록에서 걸러주는 식으로 만들었다.&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
           &lt;code slot=&quot;code&quot;&gt;useEffect(() =&amp;gt; {
-  if (curCategory === ALL_NAME) {
-    setPosts([...allPosts]);
-    return;
-  } setPosts([...allPosts.filter((post)=&amp;gt;post.frontmatter.category === curCategory)]);
+ if (curCategory === ALL_NAME) {
+  setPosts([...allPosts]);
+  return;
+ }
+ setPosts([...allPosts.filter((post) =&amp;gt; post.frontmatter.category === curCategory)]);
 }, [curCategory]);&lt;/code&gt;
         &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이렇게 카테고리가 바뀔 때 마다 다른 포스트들을 보여주도록 했다.&lt;/p&gt;
 &lt;h5&gt;검색 기능&lt;/h5&gt;
 &lt;p&gt;검색도 카테고리와 마찬가지로 전체 포스트 목록에서 키워드로 걸러주는 방식으로 만들었다.&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
-          &lt;code slot=&quot;code&quot;&gt;  const searchProc = useCallback((e) =&amp;gt; {
-    e.preventDefault();
-    // 검색 키워드가 없으면 전체보기 카테고리로 이동
-    if(!keyword || !keyword.trim()) {
-      setCurCategory(ALL_NAME);
-      setPosts([...allPosts]);
-      return;
+          &lt;code slot=&quot;code&quot;&gt;const searchProc = useCallback(
+ (e) =&amp;gt; {
+  e.preventDefault();
+  // 검색 키워드가 없으면 전체보기 카테고리로 이동
+  if (!keyword || !keyword.trim()) {
+   setCurCategory(ALL_NAME);
+   setPosts([...allPosts]);
+   return;
+  }
+  setPosts([
+   ...allPosts.filter((post) =&amp;gt; {
+    // 키워드가 포스팅의 제목 또는 설명에 포함이 되어야 하고 현재 카테고리가 전체보기거나, 전체보기가 아니라면 해당 카테고리에 속하는 게시글이어야 한다. (카테고리 별로 검색)
+    if (post.frontmatter.title?.includes(keyword) || post.frontmatter.description?.includes(keyword)) {
+     if (curCategory !== ALL_NAME) return post.frontmatter.category === curCategory;
+     return true;
     }
-    setPosts([...allPosts.filter((post)=&amp;gt; {
-      // 키워드가 포스팅의 제목 또는 설명에 포함이 되어야 하고 현재 카테고리가 전체보기거나, 전체보기가 아니라면 해당 카테고리에 속하는 게시글이어야 한다. (카테고리 별로 검색)
-      if ((post.frontmatter.title?.includes(keyword) || post.frontmatter.description?.includes(keyword))) {
-        if (curCategory !== ALL_NAME) 
-          return post.frontmatter.category === curCategory;
-        return true;
-      }
-  })])
-  }, [keyword, curCategory]);&lt;/code&gt;
+   }),
+  ]);
+ },
+ [keyword, curCategory],
+);&lt;/code&gt;
         &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이렇게... 했어욥&lt;/p&gt;
 &lt;p&gt;대충 이 정도만 추가하고 본격적으로 꾸미기 시작했다. 일단 나는 최대한 심플하고 깔끔하게 만들고 싶었다.&lt;/p&gt;
@@ -2754,20 +2759,20 @@ if (!commentTheme) {
 &lt;p&gt;이 문서의 마지막에 페이지에 넣으라고 스크립트를 제공해주는데 이걸 어떻게 적용시키지...? 싶었다. 그래서 찾아보니 &lt;code class=&quot;language-text&quot;&gt;@giscus/react&lt;/code&gt; 라는 패키지가 있었다. 이 패키지를 설치하고 &lt;a href=&quot;https://github.com/giscus/giscus-component&quot;&gt;여기서&lt;/a&gt; 하라는대로 컴포넌트를 추가해줬다!&lt;/p&gt;
 &lt;deckgo-highlight-code language=&quot;html&quot;  &gt;
           &lt;code slot=&quot;code&quot;&gt;&amp;lt;Giscus
-    id=&amp;quot;comments&amp;quot;
-    repo=&amp;quot;klloo/blog-comments&amp;quot;
-    repoId=&amp;quot;&amp;quot;
-    category=&amp;quot;&amp;quot;
-    categoryId=&amp;quot;&amp;quot;
-    mapping=&amp;quot;pathname&amp;quot;
-    strict=&amp;quot;0&amp;quot;
-    reactionsEnabled=&amp;quot;1&amp;quot;
-    emitMetadata=&amp;quot;0&amp;quot;
-    inputPosition=&amp;quot;bottom&amp;quot;
-    theme=&amp;quot;preferred_color_scheme&amp;quot;
-    lang=&amp;quot;ko&amp;quot;
-    crossorigin=&amp;quot;anonymous&amp;quot;
-    async
+ id=&amp;quot;comments&amp;quot;
+ repo=&amp;quot;klloo/blog-comments&amp;quot;
+ repoId=&amp;quot;&amp;quot;
+ category=&amp;quot;&amp;quot;
+ categoryId=&amp;quot;&amp;quot;
+ mapping=&amp;quot;pathname&amp;quot;
+ strict=&amp;quot;0&amp;quot;
+ reactionsEnabled=&amp;quot;1&amp;quot;
+ emitMetadata=&amp;quot;0&amp;quot;
+ inputPosition=&amp;quot;bottom&amp;quot;
+ theme=&amp;quot;preferred_color_scheme&amp;quot;
+ lang=&amp;quot;ko&amp;quot;
+ crossorigin=&amp;quot;anonymous&amp;quot;
+ async
 /&amp;gt;&lt;/code&gt;
         &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;giscus에서 제공해주는 스크립트의 속성명(케밥케이스)과 컴포넌트에 넣어야하는 prop이름(카멜케이스)이 다르기 때문에 주의해야 한다. 이 사항은 &lt;code class=&quot;language-text&quot;&gt;@giscus/react&lt;/code&gt; 패키지 설명에도 나와있긴하다.&lt;/p&gt;
@@ -2845,20 +2850,4 @@ if (!commentTheme) {
         decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h4&gt;향후 계획&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;1. about 페이지 추가&lt;/strong&gt;
-&lt;br/&gt;
-우측 상단에 버튼만 덩그러니 만들어 놨는데... 당장은 안할 것 같지만 언젠가 나에 대한 내용으로 차차 채워 볼 예정이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. 페이징 기능 추가&lt;/strong&gt;
-&lt;br/&gt;
-게시글이 많아진다면 페이징 기능도 추가해봐야할 것 같다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. 블로그 홈 배너 위치에 있는 내용 수정&lt;/strong&gt;
-&lt;br/&gt;
-뭐 넣어야할 지 몰라서 일단 갤러리 뒤져서 아무 사진이나 넣어뒀는데 나쁘지 않길래 그냥 뒀다. 좋은 아이디어가 떠오르면 바로 수정할 예정이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4. SEO 최적화&lt;/strong&gt;
-&lt;br/&gt;
-아직 검색엔진과 검색엔진 최적화에 대한 개념이 많이 부족하기도 하고 작성한 글도 없으니...일단은 미뤄두지만 조만간 공부해보고 적용해볼 예정이다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;5. 게시물 목차(TOC) 구현&lt;/strong&gt;
-&lt;br/&gt;
-그 보통 개발 블로그 보면 게시물 옆에 졸졸 따라다니는 목차가 있는데 나도 필요할 것 같다. 이건 이번주 안에 추가할 예정이다.&lt;/p&gt;</content:encoded></item></channel></rss>
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
