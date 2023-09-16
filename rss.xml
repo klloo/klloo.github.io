@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 14 Sep 2023 06:20:19 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Sep 2023 05:46:38 GMT</lastBuildDate><item><title><![CDATA[Spring Boot/React 웹 서비스 배포하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/deploy/</link><guid isPermaLink="false">https://klloo.github.io/deploy/</guid><pubDate>Wed, 13 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 제가 참여하고 있는 알고리즘 스터디를 위한 내부 사이트를 제작하는 프로젝트를 진행하고 있었는데요. 어느정도 형태가 갖추어지면서 이제 사용해도 좋겠다! 싶어 일단 배포를 해두기로 했습니다&lt;/p&gt;
 &lt;h2&gt;전체적인 구조&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -97,10 +97,14 @@ package.json 파일을 컨테이너의 작업 디렉토리로 복사하여 yarn 
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; openjdk:11&lt;/span&gt;
 &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ARG&lt;/span&gt; JAR_FILE=build/libs/*.jar&lt;/span&gt;
 &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;${JAR_FILE}&lt;/span&gt; app.jar&lt;/span&gt;
-&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENTRYPOINT&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;java&quot;&lt;/span&gt;,&lt;span class=&quot;token string&quot;&gt;&quot;-jar&quot;&lt;/span&gt;,&lt;span class=&quot;token string&quot;&gt;&quot;/app.jar&quot;&lt;/span&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENTRYPOINT&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;java&quot;&lt;/span&gt;,&lt;span class=&quot;token string&quot;&gt;&quot;-jar&quot;&lt;/span&gt;,&lt;span class=&quot;token string&quot;&gt;&quot;/app.jar&quot;&lt;/span&gt;, &lt;span class=&quot;token operator&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;--spring.config.location=/config/application.properties&quot;&lt;/span&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;backend 쪽은 먼저 jdk 11 이미지를 기반으로 합니다. 이 이미지에는 Java 11이 설치되어 있습니다.
 그리고 빌드된 jar파일을 컨테이너 내부 app.jar라는 이름으로 복사를 해둡니다.
-ENTRYPOINT는 컨테이너가 시작될 때 실행되는 명령을 지정할 수 있는데 여기서는 java -jar /app.jar 명령을 지정하여 컨테이너 실행 시 내부에서 JAR파일을 실행하도록 했습니다.&lt;/p&gt;
+ENTRYPOINT는 컨테이너가 시작될 때 실행되는 명령을 지정할 수 있는데 여기서는 java -jar /app.jar 명령을 지정하여 컨테이너 실행 시 내부에서 JAR파일을 실행하도록 하였습니다.&lt;/p&gt;
+&lt;p&gt;또한 spring.config.location은 환경 프로퍼티로 특정 위치를 참조할 수 있도록 하는 옵션인데 이를 사용하여 컨테이너 내부 config 경로에 있는 application.properties 파일을 사용하도록 하였습니다.
+applicaion.properties는 데이터베이스 연결 정보나 로그 설정 정보 등 애플리케이션에서 사용하는 여러가지 설정 값들을 정의하고 있어 민감한 정보를 담고 있습니다. 그래서 이 파일은 깃허브에 올리지 않고 배포를 하기 위해 이 부분을 추가해줬습니다.&lt;/p&gt;
+&lt;p&gt;이렇게 하면 EC2 내부에서 applicaion.properties을 작성하고 해당 경로를 컨테이너 내부의 config경로와 마운트 시켜주면 application.properties파일을 외부에서 주입하여 사용할 수 있게 됩니다.&lt;/p&gt;
 &lt;h3&gt;SSL 인증서 발급&lt;/h3&gt;
 &lt;p&gt;EC2 내부에서 certbot을 이용해 SSL 인증서를 발급받았습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apt-get install python3-certbot-nginx
@@ -112,13 +116,15 @@ certbot certonly --nginx -d &amp;lt;도메인 주소&gt;&lt;/code&gt;&lt;/pre&gt
 &lt;span class=&quot;token key atrule&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
  &lt;span class=&quot;token key atrule&quot;&gt;backend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
   &lt;span class=&quot;token key atrule&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; springboot&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;app
-  &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; backend&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;image
+  &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; asdf11245/randps&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;back
   &lt;span class=&quot;token key atrule&quot;&gt;expose&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8080&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; ./config&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;/config
 
  &lt;span class=&quot;token key atrule&quot;&gt;frontend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
   &lt;span class=&quot;token key atrule&quot;&gt;container_name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; react&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;app
-  &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; frontend&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;image
+  &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; asdf11245/randps&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;front
   &lt;span class=&quot;token key atrule&quot;&gt;expose&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3000&lt;/span&gt;
 
@@ -140,6 +146,9 @@ certbot certonly --nginx -d &amp;lt;도메인 주소&gt;&lt;/code&gt;&lt;/pre&gt
 &lt;h4&gt;backend&lt;/h4&gt;
 &lt;p&gt;&apos;springboot-app&apos;이라는 이름으로 컨테이너를 띄웁니다.
 이 서비스는 docker hub에서 backend-image라는 이미지를 가져와서 실행 시키고 컨테이너를 8080포트로 노출합니다.&lt;/p&gt;
+&lt;p&gt;그리고 EC2 내부의 config폴더와 컨테이너 내부의 config폴더를 마운트하여 컨테이너 내부에서 config 폴더를 사용할 수 있도록 해줬습니다.
+위에서 작성한 도커 파일 내용 중 application.properties 파일을 외부에서 주입하여 사용하기 위해 적용했던 옵션을 위한 설정입니다.&lt;/p&gt;
+&lt;p&gt;EC2 내부의 config 폴더 안에는 application.properties 파일이 작성되어 있어야 합니다.&lt;/p&gt;
 &lt;h4&gt;frontend&lt;/h4&gt;
 &lt;p&gt;&apos;react-app&apos;이라는 이름으로 컨테이너를 띄웁니다.
 이 서비스는 docker hub에서 frontend-image라는 이미지를 가져와서 실행 시키고 컨테이너를 3000포트로 노출합니다.&lt;/p&gt;
@@ -354,7 +363,7 @@ sudo docker pull &amp;lt;frontend image 이름&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;먼저 AWS_ACCESS_KEY_ID 와 AWS_SECERET_ACCESS_KEY는 aws 사용자의 액세스 키와 시크릿 액세스 키를 의미합니다. AWS_SG_ID는 EC2에 적용된 보안 그룹 아이디, DOCKER_USERNAME과 DOCKER_PASSWORD는 도커 아이디/비밀번호를 의미하고 HOST_ID와 PRIVATE_KEY는 EC2로의 SSH 접속을 위한 EC2 퍼블릭 아이디와 키 페어를 의미하고 있습니다.&lt;/p&gt;
+&lt;p&gt;먼저 AWS_ACCESS_KEY_ID 와 AWS_SECRET_ACCESS_KEY는 aws 사용자의 액세스 키와 시크릿 액세스 키를 의미합니다. AWS_SG_ID는 EC2에 적용된 보안 그룹 아이디, DOCKER_USERNAME과 DOCKER_PASSWORD는 도커 아이디/비밀번호를 의미하고 HOST_ID와 PRIVATE_KEY는 EC2로의 SSH 접속을 위한 EC2 퍼블릭 아이디와 키 페어를 의미하고 있습니다.&lt;/p&gt;
 &lt;h4&gt;backend&lt;/h4&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# This workflow will build a Java project with Gradle&lt;/span&gt;
 &lt;span class=&quot;token comment&quot;&gt;# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle&lt;/span&gt;
@@ -426,7 +435,7 @@ sudo docker pull &amp;lt;frontend image 이름&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/
      &lt;span class=&quot;token comment&quot;&gt;# AWS 보안그룹에서 Github Actions IP를 삭제한다.&lt;/span&gt;
    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Remove Github Actions IP From Security Group
      &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
-      aws ec2 revoke-security-group-ingress --group-id ${{ secrets.AWS_SG_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32```&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      aws ec2 revoke-security-group-ingress --group-id ${{ secrets.AWS_SG_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;도커 이미지 이름과 도커 이미지 빌드 전 gradle build 단계가 추가된 것 이외에는 frontend 쪽의 로직과 동일합니다.&lt;/p&gt;
 &lt;p&gt;이렇게 해주고 지정한 브랜치에 푸시하면 자동으로 배포가 되고 있는 것을 확인할 수 있습니다! 예에&lt;/p&gt;
 &lt;hr/&gt;
