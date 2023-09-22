@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 22 Sep 2023 09:03:28 GMT</lastBuildDate><item><title><![CDATA[Next.js에서 스타일 파일 분리하기]]></title><description><![CDATA[저는 리액트로 개발을 할 때 주로 Emotion을 사용하여 스타일 관리를 하고 있었고  이렇게 컴포넌트 디렉터리 안에서 스타일 파일을 분리해서 사용했었습니다. Next.js…]]></description><link>https://klloo.github.io/next-page/</link><guid isPermaLink="false">https://klloo.github.io/next-page/</guid><pubDate>Fri, 22 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;저는 리액트로 개발을 할 때 주로 Emotion을 사용하여 스타일 관리를 하고 있었고&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 22 Sep 2023 09:20:14 GMT</lastBuildDate><item><title><![CDATA[Next.js에서 스타일 파일 분리하기]]></title><description><![CDATA[저는 리액트로 개발을 할 때 주로 Emotion을 사용하여 스타일 관리를 하고 있었고  이렇게 컴포넌트 디렉터리 안에서 스타일 파일을 분리해서 사용했었습니다. Next.js…]]></description><link>https://klloo.github.io/next-page/</link><guid isPermaLink="false">https://klloo.github.io/next-page/</guid><pubDate>Fri, 22 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;저는 리액트로 개발을 할 때 주로 Emotion을 사용하여 스타일 관리를 하고 있었고&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 378px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
@@ -1933,6 +1933,95 @@ CSRF는 정상 사용자가 img 태그를 보거나 link를 클릭하도록 유�
 &lt;p&gt;데이터베이스는 mysql을 사용했습니다. 저에게는 raw쿼리가 더 익숙했고 orm으로는 복잡한 쿼리를 작성하는데 어려웠던 기억이 있어서 orm은 사용하지 않고 raw쿼리와 knex.js라는 쿼리빌더 라이브러리를 사용했습니다. 그렇기 때문에 프로젝트 인원들이 로컬에서 각각 데이터베이스를 관리하는데 어려움이 있을 것 같아 heroku에 데이터베이스를 생성하고 하나의 데이터베이스를 사용할 수 있도록 했습니다. heroku는 PaaS(Platform-as-a-service) 클라우드 서비스로 heroku를 사용하면 간단하게 프로젝트를 배포할 수 있습니다.&lt;/p&gt;
 &lt;p&gt;프론트엔드 프레임워크로는 vue를 사용했고 상태관리 라이브러리로는 vuex를 사용했습니다. vue 와 자바스크립트 학습이 프로젝트의 목표 중 하나였으므로 vue를 사용하게 되었습니다. ui 라이브러리로는 element ui를 사용했습니다. element ui는 깔끔하고 다양한 컴포넌트를 제공해주고 있지만 생태계가 풍부하지는 못하다는 단점이 있습니다. 하지만 공식 문서가 잘 되어있어서 크게 상관은 없었던 것 같습니다.&lt;/p&gt;
 &lt;p&gt;소스는 깃허브로 관리했고 notion과 swit이라는 협업툴을 사용했습니다. 주로 개발자간에는 노션을 사용하여 일정과 개발 관련된 진행 사항을 공유했고 기획자와 개발자간에는 swit으로 의사소통을 하였습니다. swit은 얼마 사용하지 못하였지만 노션은 혼자서라도 사용하며 일정을 관리했습니다.&lt;/p&gt;
+&lt;h3&gt;디렉토리 구조&lt;/h3&gt;
+&lt;h4&gt;backend&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/94746f1283a86516bbed89d59b073e9c/c655d/backend.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 71.73913043478261%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAABAUlEQVR42qWTXW6DMBCEcxIQxjYGAiUhLTY/Aafk/keaerfqW1Op+GElWyt/mtnxntI0xW9VliX8MmBxPepwFrlEaQyyLMOrN1SnV41CGzhr0bUNhMihlIYpCCiOAbUuYD967NuItm35XgWlh4FKa1jr4P0n7vcVRVAnpYpR+A3c9ye67sIgsh1l+XrtMY4TmqbF+dywysOhEPB2e8cw2DDDN1YZBSR7pM77B8N/ko6e4bZ5GFNyIASOmiHZXdeNLUcDyZ61I+Z5ZoV0jwLWtcI0OYYSJA+rR3UolCRJwzdRWJYxWPZwznFRSFLK0E/+r7CqJANpU7z3PE+yLsTflr8A+SOM+RJcSW4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;backend&quot;
+        title=&quot;&quot;
+        src=&quot;/static/94746f1283a86516bbed89d59b073e9c/dd45a/backend.png&quot;
+        srcset=&quot;/static/94746f1283a86516bbed89d59b073e9c/948cf/backend.png 138w,
+/static/94746f1283a86516bbed89d59b073e9c/6b2ea/backend.png 275w,
+/static/94746f1283a86516bbed89d59b073e9c/dd45a/backend.png 550w,
+/static/94746f1283a86516bbed89d59b073e9c/d4c13/backend.png 825w,
+/static/94746f1283a86516bbed89d59b073e9c/99f37/backend.png 1100w,
+/static/94746f1283a86516bbed89d59b073e9c/c655d/backend.png 1586w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;MVC 패턴을 참고하여 설계를 했습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;config&lt;/code&gt; : 설정 관련 파일을 담고 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;database&lt;/code&gt; : 데이터베이스 설정 관련 파일을 담고 있습니다. connection 객체 생성하는 함수 등이 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;routes&lt;/code&gt; : 라우터 관련 파일들입니다. 기능별로 파일 분리하여 관리하였고, 라우터는 경로와 컨트롤러를 연결하는 역할 담당입니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;controllers&lt;/code&gt; : 컨트롤러 관련 파일들입니다. 기능별로 파일 분리하였고, 컨트롤러는 요청과 응답을 조작하는 역할 담당입니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;services&lt;/code&gt; : 서비스 관련 파일들입니다. 기능별로 파일을 분리하였고, 서비스는 컨트롤러에서 전달받은 매개변수로 필요한 서비스를 수행하고, 해당 결과를 컨트롤러로 전달하는 역할을 담당합니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;model&lt;/code&gt; : 모델 관련 파일들을 관리하고 있습니다. 개발 시 필요한 객체등을 정의해뒀습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;queries&lt;/code&gt; : 개발 시 필요했던 raw query들을 관리하고 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;frontend&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/79ae740f2ea2af34fdf30e5e3deed328/56caf/frontend.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.42028985507246%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA5UlEQVR42q2Taw7CIBCEPUkfCEXTAtLWVpHEau9/pnHBGBOjNUF/bALZ8GVnZ1jleY7XyrIMggu4scPkB2w3G3C6SympX+Ddm0etPjUYYxiGEc65CAslhEBRJAGzCLS2I6CHUhp1XYOnAoPk9Zqj7yy0UlCNhtEmSl+CLUouS4bWWuyMQUHnu+QqVfIdGKRO04XkNv8BagLO8/xHIO3tdPKoKhlhPN3l54TuMESDAjTkMBkYYtOPBpezhzG7OKGsZGpscpqKXO4UmXKlPLZ0p3D/skPGSrRtA087PB4d+n4fod++3g0sQVEHbB0tOwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;frontend&quot;
+        title=&quot;&quot;
+        src=&quot;/static/79ae740f2ea2af34fdf30e5e3deed328/dd45a/frontend.png&quot;
+        srcset=&quot;/static/79ae740f2ea2af34fdf30e5e3deed328/948cf/frontend.png 138w,
+/static/79ae740f2ea2af34fdf30e5e3deed328/6b2ea/frontend.png 275w,
+/static/79ae740f2ea2af34fdf30e5e3deed328/dd45a/frontend.png 550w,
+/static/79ae740f2ea2af34fdf30e5e3deed328/d4c13/frontend.png 825w,
+/static/79ae740f2ea2af34fdf30e5e3deed328/99f37/frontend.png 1100w,
+/static/79ae740f2ea2af34fdf30e5e3deed328/56caf/frontend.png 1712w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;config&lt;/code&gt; : 설정 관련 파일들입니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;api&lt;/code&gt; : api 호출 관련 파일들입니다. 기능의 대상을 기준으로 파일을 분리했습니다. (ex) 수선집 api, 사용자 api 등을 별도 파일로 관리)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;assets&lt;/code&gt; : css, image 등 asset 관련 파일들을 담고 있습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;router&lt;/code&gt; : 라우팅 관련한 함수들을 담은 파일입니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;store&lt;/code&gt; : vuex 관련한 함수들을 담은 파일입니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;utils&lt;/code&gt; : 공통 유틸 관련 함수들을 담은 파일입니다. (ex) formatter 등)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;view&lt;/code&gt; : 화면 및 컴포넌트 관련 파일들입니다. 메인화면, 로그인 화면 등 화면을 기준으로 폴더를 구분하고 각 폴더에 해당 화면에서 사용하는 하위 컴포넌트 폴더 및 파일을 추가하여 관리하였습니다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;permission.js&lt;/code&gt; : 권한 확인 관련 파일입니다. 라우터 이동 시 로그인 여부 확인하는 함수 등이 존재합니다.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;개발 내용&lt;/h3&gt;
 &lt;p&gt;개발한 기능은 회원 가입 및 로그인, 수선집 조회(지도 및 리스트), 수선집 리뷰 작성, 수선집 즐겨찾기 이렇게가 끝입니다.&lt;/p&gt;
 &lt;p&gt;지도와 주소 변환 관련해서는 네이버 api를 사용하였습니다. 주소 검색시에는 공공 api를 사용하였고, 세탁소 데이터 또한 공공데이터에서 가져온 데이터를 가공하여 사용했습니다. 회원가입시 이메일 인증 과정은 nodemailer라는 패키지를 사용하였습니다. nodemailer는 쉽게 이메일을 보낼 수 있도록 하는 Node.js 애플리케이션용 모듈입니다.&lt;/p&gt;
