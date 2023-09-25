@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 22 Sep 2023 09:20:14 GMT</lastBuildDate><item><title><![CDATA[Next.js에서 스타일 파일 분리하기]]></title><description><![CDATA[저는 리액트로 개발을 할 때 주로 Emotion을 사용하여 스타일 관리를 하고 있었고  이렇게 컴포넌트 디렉터리 안에서 스타일 파일을 분리해서 사용했었습니다. Next.js…]]></description><link>https://klloo.github.io/next-page/</link><guid isPermaLink="false">https://klloo.github.io/next-page/</guid><pubDate>Fri, 22 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;저는 리액트로 개발을 할 때 주로 Emotion을 사용하여 스타일 관리를 하고 있었고&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 25 Sep 2023 04:19:34 GMT</lastBuildDate><item><title><![CDATA[Webpack과 Babel]]></title><description><![CDATA[프론트 개발을 하다보면 '웹팩(Webpack)'이라는 용어를 자주 접하게 되는데요. 리액트 같은 경우 create-react-app…]]></description><link>https://klloo.github.io/webpack-babel/</link><guid isPermaLink="false">https://klloo.github.io/webpack-babel/</guid><pubDate>Mon, 25 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프론트 개발을 하다보면 &apos;웹팩(Webpack)&apos;이라는 용어를 자주 접하게 되는데요. 리액트 같은 경우 create-react-app으로 프로젝트를 생성하면 웹팩 설정을 자동으로 해주고, 그 설정을 또 숨겨놓기 때문에... 경시하기 쉬운 기술 중 하나인 것 같습니다. 하지만 이게 뭔지는 알고는 써야할 것 같아 대략적으로나마 정리해보려고 합니다!&lt;/p&gt;
+&lt;h2&gt;웹팩 (Webpack)&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4e3ed1bf7c4aa87d9757c77fb70b4a20/21b4d/webpack.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.7536231884058%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVR42n1SS1LCUBDMdUCUX/6QEEIICSRE3QqyknKhVZa69LvQ0luIZ4BLsFMP1M6MYlF8XEzN1Jv3erpfj6J6EfbsJnY5LE/q5SjWfDnnvNrbFErFDVGlMIIe1GaEYr311yyYDeSqNip1HznV3jhQhi4D6q0u9FYPZjtFPd6HFabSKDsB1EaI0fUjbt+mGFzeofQ7jLOwpqx6HSISCxkOxQgSAdTosNbpC1OWl9dqyEaneJ594Wwyx+vsA+lwjILhQvdjVNw23WPACJrfpYgFWLHCPmpRBoOZBsw0ERZ5rY7+8RhP00+cv8/xQoDJ4AQ7ukPDI1SJPTPlWmt2USWmXCuMzHKZrkXZ7R2KHJHshRhe3eNhMsXRxc2a5D3bh01fZIrKrtSK2uiQ1AxOfIAymbPspphCZhRtT8zZtgUafZlOoFyT5AQlpy1rUzBduuStrw3nJfdXHebegj25/GOKEaTkcEYs21vX479YvPkGCOU+gOFzdoQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;webpack&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4e3ed1bf7c4aa87d9757c77fb70b4a20/dd45a/webpack.png&quot;
+        srcset=&quot;/static/4e3ed1bf7c4aa87d9757c77fb70b4a20/948cf/webpack.png 138w,
+/static/4e3ed1bf7c4aa87d9757c77fb70b4a20/6b2ea/webpack.png 275w,
+/static/4e3ed1bf7c4aa87d9757c77fb70b4a20/dd45a/webpack.png 550w,
+/static/4e3ed1bf7c4aa87d9757c77fb70b4a20/d4c13/webpack.png 825w,
+/static/4e3ed1bf7c4aa87d9757c77fb70b4a20/99f37/webpack.png 1100w,
+/static/4e3ed1bf7c4aa87d9757c77fb70b4a20/21b4d/webpack.png 1280w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;웹팩은 &apos;모듈 번들러&apos;라고 정의할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;여기서 &apos;모듈&apos;이란 프로그램에서 기능적 단위, 즉 쪼개진 것을 의미하고 &apos;번들&apos;이란 묶음을 의미합니다. 그러니까 모듈 번들러는 쪼개진 것을 다시 묶어주는 것이라고 해석할 수 있을 것 같습니다.&lt;/p&gt;
+&lt;p&gt;기껏 파일들을 쪼개놓고는 왜 다시 묶어주는 방식이 필요한 걸까요? 이것을 알려면 먼저 모듈에 대해 알아야 할 것 같습니다.&lt;/p&gt;
+&lt;h3&gt;모듈 (Module)&lt;/h3&gt;
+&lt;p&gt;모듈이란 프로그램을 구성하는 구성요소의 일부입니다.&lt;/p&gt;
+&lt;p&gt;모듈 단위로 파일을 분리하여 개발을 진행하면 프로그램의 성능, 생산성, 유지보수 등 다양한 측면에서 장점이 있습니다.
+사실 더 구구절절 설명하기가 머쓱할 정도로 당연한 개념인 것 같습니다.&lt;/p&gt;
+&lt;p&gt;하지만 자바스크립트에서는 모듈 기능이 없었습니다. (그래서 AMD, CommonJS, UMD 방식의 모듈 시스템을 사용했었다고 합니다.)&lt;/p&gt;
+&lt;p&gt;모듈 기능이 없었을 때는&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;DOCTYPE&lt;/span&gt; html&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;html&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;body&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;script src&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;foo.js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;script src&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;bar.js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;script&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;body&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;html&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런식으로 단순히 스크립트 파일을 분리하고 필요한 시점에 스크립트 파일을 로드하여 사용하였습니다.&lt;/p&gt;
+&lt;p&gt;하지만 이렇게 하면 두 스크립트 파일은 같은 전역을 공유하게 되어 변수가 중복으로 선언될 수 있는 위험이 있습니다. 또 foo.js에서는 a변수만 사용하고 싶은데 의도치 않게 foo.js에 존재하는 b변수까지 선언되어 버리는 경우도 있을 수 있습니다.&lt;/p&gt;
+&lt;p&gt;그러다 ES6에서 모듈에 대한 표준을 도입했습니다. ES6 모듈 시스템은 다음과 같은 특징을 가지고 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;독자적인 모듈 스코프를 갖습니다. 따라서 모듈 별로 변수가 중복될 일이 없어졌습니다.&lt;/li&gt;
+&lt;li&gt;export와 import 등 간단한 키워드로 모듈을 가져오고 내보낼 수 있게 되었습니다.&lt;/li&gt;
+&lt;li&gt;따라서 script 태그로 파일을 가져오지 않고 필요한 함수나 변수만 가져올 수 있게 되었습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 모듈 시스템이 도입이 되었는데도 여전히 문제가 남아있었습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;먼저 import/export는 일부 구형 브라우저에서는 동작하지 않습니다.&lt;/li&gt;
+&lt;li&gt;그리고 프로젝트 규모가 커질 수록 많은 모듈들을 가지게 되는데 이 파일들을 일일이 요청하기는 비효율적이므로 이 파일들을 합쳐서 요청 수를 줄일 수 있다면 효율적일 것 같습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 때 웹팩은 이러한 모듈들을 하나의 js파일로 합쳐주는 역할을 합니다. (웹팩에서의 모듈은 js파일 이외에도 CSS, 이미지 등 웹 개발에 필요한 모든 정적 자원을 의미합니다.)&lt;/p&gt;
+&lt;p&gt;웹팩을 사용하면 자원의 요청수를 줄여 네트워크 비용을 감소시킬 수 있고 압축을 통해 로딩 속도를 개선시킬 수도 있으며 이 외에도 여러 플러그인이나 트리 쉐이킹같은 기능을 사용해 코드를 압축, 최적화 할 수도 있습니다. (하여튼 최적화에 있어 다양한 기능을 제공하는 것 같습니다.)&lt;/p&gt;
+&lt;h3&gt;Webpack Dev Server&lt;/h3&gt;
+&lt;p&gt;Webpack Dev Server는 웹팩 관련 기능 중 제가 가장 많이 실감(?)하는 부분인 것 같습니다.&lt;/p&gt;
+&lt;p&gt;Webpack Dev Server는 이름 그대로 개발용 서버입니다. 웹팩으로 빌드를 실행하면 번들링된 파일을 생성하기 때문에 규모가 큰 프로젝트라면 빌드에 시간이 걸립니다.&lt;/p&gt;
+&lt;p&gt;하지만 Webpack Dev Server는 실제 번들링된 파일을 생성하지 않고 번들링된 결과를 메모리에 저장하기 때문에 빌드 속도가 빨라 개발 시에는 매번 빌드를 실행하지 않고 Webpack Dev Server를 사용하는 편이 좋다고 합니다!&lt;/p&gt;
+&lt;p&gt;라이브 리로드 기능이나 프록시를 설정 하여 CORS 문제를 해결해주는 등 개발 환경에 있어 편리한 기능도 제공해주고 있습니다. (하지만 어디까지나 개발용 서버이므로 배포시에는 nginx나 아파치 등 다른 웹서버를 구축하여 사용하는 것이 좋을 것 같습니다.)&lt;/p&gt;
+&lt;h2&gt;바벨 (Babel)&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f770fb73e6519c6832aabe712884b79b/e17e5/babel.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.56521739130434%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAABxklEQVR42mP4fC2RbMRAHc2friZ+uJwAQlcSINyPVxIgIh+vAsn4z1cTv1zHphmo9OuNpP+P0/88SP17PxWi6MedlL9g7vdbyX8fpgFFgAYh62eA63x5NnZOp11Zhv7CPgegyNuL8Rd3BG9f6LllnsedwxE9NRa91RZTW2yenor5djMJqABhM9C81dNdPOxlD63yDfRQfHIqujbPqCBZNy9Rp7PCPMJPuSRN7+aB8K5K8xdnYoA2ITQD/fbnXurupd6B7gqxQaoNBcZTm60dLCXn9TpkxGglh2ukRWlune+xaa77mllu/19kfrqagHA2UPO/B2kNhSZLJjjmxGu728k0Fhm3lJhWZBnM63GI8lfJiNY8vz14cqPV5CbrZZOcbh0Ih7icAajz773UQ6t9E0PVp7faTG22WT/L7czWoI4Ks1XTXO4fjTy5MWDzPPdTmwJv7g8Hkld2h7y/FA8JNrDm+6krpjjP6bIDGvn9dvK3W8mnNwU+PB71/1Haj1vJwKD+/zDtz93UH7eTgb77dSflC3pUXUsExsrP28kfwf4BBsnX60nACAe6DRLhH0FsKIklkQDjEBKGkMiDswmnMGKUUjltAwB7VybXe2r4YwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;babel&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f770fb73e6519c6832aabe712884b79b/e17e5/babel.png&quot;
+        srcset=&quot;/static/f770fb73e6519c6832aabe712884b79b/948cf/babel.png 138w,
+/static/f770fb73e6519c6832aabe712884b79b/6b2ea/babel.png 275w,
+/static/f770fb73e6519c6832aabe712884b79b/e17e5/babel.png 400w&quot;
+        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;웹팩과 함께 자주 등장하는 용어가 바로 바벨입니다.
+바벨은 &quot;자바스크립트 트랜스파일러&quot;라고 할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;트랜스파일러란 소스 코드를 한 프로그래밍 언어에서 다른 프로그래밍 언어로 변환해주는 도구입니다. 주로 최신 버전의 언어를 구형 버전의 언어로 변환하거나, 다른 언어로 변환하는 데 사용됩니다.&lt;/p&gt;
+&lt;p&gt;바벨은 자바스크립트의 최신 문법을 구버전 자바스크립트 문법으로 변환해주는 역할을 합니다.&lt;/p&gt;
+&lt;p&gt;저는 이게 너무 신기하고도 이상하다고 생각했습니다. 기껏 최신 문법 만들어놓고 구버전으로 만들어주는 도구가 있다는게... 그럼 이 하루가 다르게 변화하는 프론트 세상에서 바벨이 이해못하는 최신 문법이 또 생기면 바벨바벨도 생기는 건가 ...그럼 바벨바벨바벨도.. 그럼 바벨바벨바벨바벨...등의 생각이 들었습니다...&lt;/p&gt;
+&lt;p&gt;아무튼 이런...저같이 잘 모르는 사람이 보면 허튼 짓 처럼 보일수 있는 행동을 왜 하냐면 자바스크립트가 실행되는 환경 때문입니다.&lt;/p&gt;
+&lt;p&gt;다른 언어와 달리 자바스크립트는 다양한 환경에서 실행됩니다. 웹 브라우저, NodeJS 등에서 실행되는데 웹 브라우저만 해도 다양한 자바스크립트 엔진을 사용하고 있습니다. 이 때 자바스크립트는 개복치마냥... 이렇게 다양한 환경의 영향을 그대로 받습니다. 특정 버전 이상에서만 실행되는 코드가 있고 특정 브라우저에서는 실행되지 않는 코드가 있기도 합니다.
+그렇기 때문에 모든 자바스크립트 실행 환경에서 정상적으로 동작할 수 있도록 하려면 바벨이 필요하게 되는겁니다!&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게 웹팩과 바벨을 알아봤습니다.&lt;/p&gt;
+&lt;p&gt;웹팩은 모듈 번들러고, 바벨은 자바스크립트를 실행 환경에 구애받지 않고 실행시키기 위한 트랜스파일러입니다.
+이 때 웹팩 설정을 통해 바벨을 웹팩으로 모듈을 합칠때도 실행될 수 있도록 할 수 있습니다. 그래서 이 둘이 자주 같이 등장하는 것 같습니다!&lt;/p&gt;
+&lt;p&gt;지금은 웹팩에 대한 내용을 간단하게만 알아봤는데 다음에는 웹팩 설정 파일도 좀 살펴보고 ... 직접 실행 환경을 구성해보고 싶기도 합니다 언제가 될 진 모르지만 언젠가 꼭 ...도전해보도록 하겠습니다&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://seogeurim.tistory.com/13&quot;&gt;https://seogeurim.tistory.com/13&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&quot;https://junghyeonsu.tistory.com/277&quot;&gt;https://junghyeonsu.tistory.com/277&lt;/a&gt;&lt;br/&gt;
+&lt;a href=&quot;https://webpack.js.org/concepts/why-webpack/&quot;&gt;https://webpack.js.org/concepts/why-webpack/&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Next.js에서 스타일 파일 분리하기]]></title><description><![CDATA[저는 리액트로 개발을 할 때 주로 Emotion을 사용하여 스타일 관리를 하고 있었고  이렇게 컴포넌트 디렉터리 안에서 스타일 파일을 분리해서 사용했었습니다. Next.js…]]></description><link>https://klloo.github.io/next-page/</link><guid isPermaLink="false">https://klloo.github.io/next-page/</guid><pubDate>Fri, 22 Sep 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;저는 리액트로 개발을 할 때 주로 Emotion을 사용하여 스타일 관리를 하고 있었고&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 378px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
