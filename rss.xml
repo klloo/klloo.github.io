@@ -1,10 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 Nov 2023 07:42:09 GMT</lastBuildDate><item><title><![CDATA[react에서 api요청 보내는 훅 만들어보기]]></title><description><![CDATA[프로젝트를 진행하다보면 서버로 api 요청을 보내는 로직을 많이 사용하게 됩니다. 그래서 이 부분을 편리하게 사용할 수 있도록 커스텀 훅을 만들어봤습니다. 이름은 useRequest…]]></description><link>https://klloo.github.io/request-hook/</link><guid isPermaLink="false">https://klloo.github.io/request-hook/</guid><pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프로젝트를 진행하다보면 서버로 api 요청을 보내는 로직을 많이 사용하게 됩니다. 그래서 이 부분을 편리하게 사용할 수 있도록 커스텀 훅을 만들어봤습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 Nov 2023 12:07:13 GMT</lastBuildDate><item><title><![CDATA[react에서 api 요청 보내는 훅 만들어보기]]></title><description><![CDATA[프로젝트를 진행하다보면 서버로 api 요청을 보내는 로직을 많이 사용하게 됩니다. 그래서 이 부분을 편리하게 사용할 수 있도록 커스텀 훅을 만들어봤습니다. 이름은 useRequest…]]></description><link>https://klloo.github.io/request-hook/</link><guid isPermaLink="false">https://klloo.github.io/request-hook/</guid><pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;프로젝트를 진행하다보면 서버로 api 요청을 보내는 로직을 많이 사용하게 됩니다. 그래서 이 부분을 편리하게 사용할 수 있도록 커스텀 훅을 만들어봤습니다.&lt;/p&gt;
 &lt;p&gt;이름은 useRequest라고 지어봤습니다.&lt;/p&gt;
 &lt;h2&gt;내 프로젝트의 구조 설명&lt;/h2&gt;
 &lt;p&gt;먼저 저는 통신 라이브러리로 axios를 사용했습니다. 그리고 axios 요청을 보내는 Promise들을 따로 파일로 관리하고 있습니다.&lt;/p&gt;
-&lt;p&gt;[사진]&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 383px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cb63fc37eda638fba79a861a0129e26d/d0c94/ex1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49.275362318840585%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7UlEQVR42p2SyW6EMBBE+QhWgQ1jEkyCWcIMiE0IDpn//6MK3YfJ2XMoteRDdVU/O1mWoTYGv88nwjCE53nwfZ8VBAG/2cgRMoUqNLq2hcpzKKVAS0hJklibOvKmILRB2zTY9x3btmGeZ57mSk6JoyiyMMwUpK5Qao2+71l1XUNK+WblNEWiPjnhMAxY1xXjOEIIAdd1rdK9KqdlDVNVbDZNE09Scy0hOHYJsxvEh4YuCrRdxyak6lpAgOyh8A0NHo87juPAeZ4vOG9RpoRJXuCrLBkGkSXFcWwN5L9y8Y2fq+6yLPxl6I7vpCPDP5YwD7IDqfAnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ex1&quot;
+        title=&quot;&quot;
+        src=&quot;/static/cb63fc37eda638fba79a861a0129e26d/d0c94/ex1.png&quot;
+        srcset=&quot;/static/cb63fc37eda638fba79a861a0129e26d/948cf/ex1.png 138w,
+/static/cb63fc37eda638fba79a861a0129e26d/6b2ea/ex1.png 275w,
+/static/cb63fc37eda638fba79a861a0129e26d/d0c94/ex1.png 383w&quot;
+        sizes=&quot;(max-width: 383px) 100vw, 383px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;대충 이런 구조로 저장해뒀고 각 파일에는 이런식으로 axios 요청을 보내는 Promise를 반환하는 함수들이 선언되어 있습니다.&lt;/p&gt;
-&lt;p&gt;[사진]&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0a441e8b851c95b5a7f4afd757661057/799f3/ex2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.92753623188406%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABb0lEQVR42p1SSXLcMAzUOzzivksiKU00sj1zSC7+/5PaIGW77BxyyKELTRQJohsYrNfQRkF9gxDivzHYaGCThpsMfCJOZ84Z2HgBZwyCczACJ3w9bPxvUJ63gjll1FRh0gq77Ni2gttxxfF4xXb8QqkJsSwIW8U8z0hlg80zzFpgaoYuBX6lfHKITmGIziGHhToscPWKtU6Iy4q43+HWG8JSsE4R3gdIRZYo3aPUFLU6eYOUHYNUAiNrEkewywXjhThr/AmcZDc+/pDM/+2hI9/8bBEIfrHdS8ZaAfKEyy/P+pk+boV7/ID4zPX7VDB4D2cdNElXFH1wSJGiMwhW0NRJGuWMNXBhgvZ0L3io2BA6d7QpjrZDa46hThnP+YZYnxGO33jcdxz3B65/3pBfXjHvB/aXK7aSMeWNhhdg2lDmBE1D0tMERwPxVsNo6lCps2XZpMnTB0atMyFpDchsirKvhuh+dqkj+yH7tOKU/A41w/6xnMVfxgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ex2&quot;
+        title=&quot;&quot;
+        src=&quot;/static/0a441e8b851c95b5a7f4afd757661057/dd45a/ex2.png&quot;
+        srcset=&quot;/static/0a441e8b851c95b5a7f4afd757661057/948cf/ex2.png 138w,
+/static/0a441e8b851c95b5a7f4afd757661057/6b2ea/ex2.png 275w,
+/static/0a441e8b851c95b5a7f4afd757661057/dd45a/ex2.png 550w,
+/static/0a441e8b851c95b5a7f4afd757661057/d4c13/ex2.png 825w,
+/static/0a441e8b851c95b5a7f4afd757661057/99f37/ex2.png 1100w,
+/static/0a441e8b851c95b5a7f4afd757661057/799f3/ex2.png 1642w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;그리고 api의 응답 형태는 아래와 같습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ResponseType&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
  &lt;span class=&quot;token literal-property property&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; boolean&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -137,7 +198,7 @@ axios 요청 Promise를 매개변수로 전달하면, 해당 함수로 요청을
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;응답 상태를 확인하지 않아도 바로 data가 반환되기 때문에 위와 같이 사용할 수 있게 됩니다!&lt;/p&gt;
 &lt;p&gt;완전히 간단하지는 않지만 ... 그래도 모든 요청마다 상태값을 확인하고, 공통된 에러를 매번 처리하는 방식보다는 한결 편리해진 것 같습니다!&lt;/p&gt;
-&lt;p&gt;사실 이게 ... 잘 한 방법인지는 판단이 안서지만... 여러번 고민을 거쳤고 일단 저는 잘 사용했으니 된 것 아닐까요 하하^_^... 추후에 수정을 한다면 여기에 로딩 중을 나타낼 수 있는 변수나.. 이런걸 추가해도 좋겠다는 생각도 듭니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react에서 라우터 접근 제한 구현하기]]></title><description><![CDATA[로그인 기능을 구현하다보면 반드시 인증을 해야만 접근할 수 있는 페이지와 반드시 인증을 하지 않아야만 접근할 수 있는 페이지가 나뉘게 됩니다. 이런 부분들을 react-router-dom(v…]]></description><link>https://klloo.github.io/router-access/</link><guid isPermaLink="false">https://klloo.github.io/router-access/</guid><pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;로그인 기능을 구현하다보면 반드시 인증을 해야만 접근할 수 있는 페이지와 반드시 인증을 하지 않아야만 접근할 수 있는 페이지가 나뉘게 됩니다.&lt;/p&gt;
+&lt;p&gt;이 부분을 진행하며 레퍼런스를 찾아보니&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react에서 라우터 접근 제한 구현하기]]></title><description><![CDATA[로그인 기능을 구현하다보면 반드시 인증을 해야만 접근할 수 있는 페이지와 반드시 인증을 하지 않아야만 접근할 수 있는 페이지가 나뉘게 됩니다. 이런 부분들을 react-router-dom(v…]]></description><link>https://klloo.github.io/router-access/</link><guid isPermaLink="false">https://klloo.github.io/router-access/</guid><pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;로그인 기능을 구현하다보면 반드시 인증을 해야만 접근할 수 있는 페이지와 반드시 인증을 하지 않아야만 접근할 수 있는 페이지가 나뉘게 됩니다.&lt;/p&gt;
 &lt;p&gt;이런 부분들을 &lt;strong&gt;react-router-dom(v6)&lt;/strong&gt; 에서 어떻게 구현했는지 적어보려합니다!&lt;/p&gt;
 &lt;h2&gt;PrivateRoute 구현&lt;/h2&gt;
 &lt;p&gt;먼저 PrivateRoute라는 컴포넌트를 생성했습니다.
