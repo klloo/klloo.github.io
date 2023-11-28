@@ -1,4 +1,265 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 22 Nov 2023 07:33:01 GMT</lastBuildDate><item><title><![CDATA[SWR 사용해보기]]></title><description><![CDATA[SWR이란 SWR은 데이터 가져오기를 위한 React Hooks입니다. 공식문서에서는 "SWR은 먼저 캐시(stale)로부터 데이터를 반환한 후, fetch 요청(revalidate…]]></description><link>https://klloo.github.io/swr/</link><guid isPermaLink="false">https://klloo.github.io/swr/</guid><pubDate>Tue, 21 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;SWR이란&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 28 Nov 2023 07:46:23 GMT</lastBuildDate><item><title><![CDATA[날백수인 내가 SWR로 무한 스크롤(Infinite scroll)을 구현한 방법]]></title><description><![CDATA[무한 스크롤 ? 무한 스크롤이란 사용자가 페이지 하단에 도달했을 때, 콘텐츠가 계속 로드되는 사용자 경험 방식입니다. 페이지를 클릭하면 다음 페이지 주소로 이동하는 페이지네이션(Pagination…]]></description><link>https://klloo.github.io/swr-pagination/</link><guid isPermaLink="false">https://klloo.github.io/swr-pagination/</guid><pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;무한 스크롤 ?&lt;/h3&gt;
+&lt;p&gt;무한 스크롤이란 사용자가 페이지 하단에 도달했을 때, 콘텐츠가 계속 로드되는 사용자 경험 방식입니다. 페이지를 클릭하면 다음 페이지 주소로 이동하는 페이지네이션(Pagination)과 달리, 한 페이지에서 스크롤만으로 새로운 콘텐츠를 보여주게 되므로 많은 양의 콘텐츠를 스크롤하여 볼 수 있는 장점이 있습니다.&lt;/p&gt;
+&lt;p&gt;하지만 스크롤을 내릴때 마다 네트워크 요청이 이루어지므로 페이지 성능이 느려질 수 있다는 단점도 있습니다. 그럼에도 개발중인 내용 중 로그를 보여주는 페이지가 있는데, 이 경우에는 페이지네이션 기능보다는 계속 스크롤하며 로그를 확인하는 무한 스크롤 방식이 더 사용자들이 더 쉽게 사용할 수 있을 것 같아 이 방식을 구현해보기로 했습니다!&lt;/p&gt;
+&lt;h3&gt;useSWRInfinite&lt;/h3&gt;
+&lt;p&gt;useSWRInfinite은 SWR에서 제공하는 훅으로, 하나의 훅을 사용해서 많은 요청을 트리거 할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; useSWRInfinite &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;swr/infinite&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// ...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; error&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; isLoading&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; isValidating&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; mutate&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; size&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setSize &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useSWRInfinite&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  getKey&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fetcher&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; options&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;useSWR과 유사하게 생겼으며 파라미터와 반환값에 대한 설명은 아래와 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;파라미터&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;getKey&lt;/code&gt;: 인덱스와 이전 페이지 데이터를 받고 페이지의 키를 반환하는 함수&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fetcher&lt;/code&gt;: useSWR의 fetcher 함수와 동일&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;options&lt;/code&gt;: useSWR이 지원하는 모든 옵션을 받음. 네 개의 추가 옵션을 포함:&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;initialSize = 1&lt;/code&gt;: 초기에 로드해야 하는 페이지의 수&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;revalidateAll = false&lt;/code&gt;: 항상 모든 페이지의 갱신 시도&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;revalidateFirstPage = true&lt;/code&gt;: always try to revalidate the first page&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;persistSize = false&lt;/code&gt;: 첫 페이지의 키가 변경될 때, 페이지 크기를 1(initialSize가 설정된 경우 initialSize)로 초기화하지 않음&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;parallel = false&lt;/code&gt;: 여러 페이지를 병렬적으로 동시에 불러옴&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;반환 값&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt;: 각 페이지의 응답 값의 배열&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;error&lt;/code&gt;: useSWR의 error와 동일&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;isLoading&lt;/code&gt;: useSWR의 isLoading과 동일&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;isValidating&lt;/code&gt;: useSWR의 isValidating과 동일&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;mutate&lt;/code&gt;: useSWR의 바인딩 된 뮤테이트 함수와 동일하지만 데이터 배열을 다룸&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;size&lt;/code&gt;: 가져올 페이지 및 반환될 페이지의 수&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;setSize&lt;/code&gt;: 가져와야 하는 페이지의 수를 설정&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;사용 방법&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;getKey&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;pageIndex&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; previousPageData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;previousPageData &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;previousPageData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 끝에 도달&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/users?page=&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;pageIndex&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&amp;amp;limit=10&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// SWR 키&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; size&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setSize &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useSWRInfinite&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;getKey&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fetcher&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 사용할 수 있으며 useSWR과의 가장 큰 차이점은 &lt;code class=&quot;language-text&quot;&gt;getKey&lt;/code&gt;함수인 것 같습니다. 이 함수는 현재페이지의 인덱스와 이전 페이지의 데이터를 받아서 새로운 키를 반환함으로써 인덱스 기반 및 커서 기반 페이지네이션 API를 지원할 수 있게 됩니다.&lt;/p&gt;
+&lt;p&gt;useSWRInfinite를 사용해봤을 때, &lt;code class=&quot;language-text&quot;&gt;setSize&lt;/code&gt;를 이용해서 size를 변경시켜주면, &lt;code class=&quot;language-text&quot;&gt;getKey&lt;/code&gt;함수가 호출되어 다음 페이지의 데이터를 로딩해주고 있는 것 같았습니다.&lt;/p&gt;
+&lt;p&gt;예를들어 &lt;code class=&quot;language-text&quot;&gt;setSize(3)&lt;/code&gt;을 호출하여 총 3페이지에 해당하는 데이터를 가져와야 한다면 &lt;code class=&quot;language-text&quot;&gt;pageIndex&lt;/code&gt;를 0, 1, 2로 받는 &lt;code class=&quot;language-text&quot;&gt;getKey&lt;/code&gt;함수가 총 3번 호출되어 세 개의 키를 가져오고 있습니다. 그래서 이전에 0, 1 페이지에 해당하는 내용을 이미 가져왔다면, 해당 데이터는 더 이상 요청하지 않고 새롭게 2 페이지의 내용만 호출해서 이전 데이터에 덧붙여 주는 방식인 것 같습니다. (SWR은 같은 키값을 가진 데이터를 전역으로 공유하며 불필요한 네트워크 요청을 줄여주기 때문입니다.)&lt;/p&gt;
+&lt;p&gt;그러니까 그냥 각 페이지의 데이터는 각기 다른 키를 가진 데이터라고 보면 될 것 같습니다! 반환되는 데이터 또한 &lt;code class=&quot;language-text&quot;&gt;getKey&lt;/code&gt;에서 얻어온 key를 가지는 데이터의 배열로 반환되고 있습니다.&lt;/p&gt;
+&lt;p&gt;만약 한 페이지의 데이터가&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;John&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Paul&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;George&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같다면, useSWRInfinite로 가져온 데이터는 아래와 같이 각 페이지 별 API 응답의 배열로 제공되고 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Alice&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Bob&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Cathy&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;John&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Paul&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;George&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;적용&lt;/h3&gt;
+&lt;p&gt;이제 코드에 적용해보겠습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; getKey &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;pageIndex&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; previousPageData&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;previousPageData &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;previousPageData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 끝에 도달&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;.../page?page=&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;pageIndex&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&amp;amp;size=&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;size&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// SWR 키&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;먼저 &lt;code class=&quot;language-text&quot;&gt;getKey&lt;/code&gt;함수를 위와 같이 작성해줬습니다.
+끝에 도달한 경우(이전 페이지가 있긴 있는데, length가 0인 경우, 공식문서를 참고했습니다.)에는 아무런 키를 반환하지 않고, 그렇지 않은 경우에만 매개변수로 전달된 pageIndex에 해당하는 페이지의 내용을 불러오도록 키를 반환하게 했습니다.&lt;/p&gt;
+&lt;p&gt;그리고 &apos;더 보기&apos; 와 같은 버튼을 만들어서, 더 보기 버튼에&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;changePage&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isLoadingLog &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isEndPage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;setSize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;prev&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; prev &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같은 함수를 핸들러에 등록하여 로딩중이 아니면서, 끝페이지에 도달하지 않은 경우 size를 하나 늘리도록 setSize를 호출해주도록 했습니다.
+물론 끝에 도달한 경우를 &lt;code class=&quot;language-text&quot;&gt;getKey&lt;/code&gt;에서도 한번 거르긴 하지만... 그래도 이렇게 해줬습니다.&lt;/p&gt;
+&lt;p&gt;로딩 여부와 끝 페이지에 도달했는지 여부는 다음과 같이 구할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token comment&quot;&gt;// 로딩 중 여부&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isLoadingMore &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; isLoading &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;size &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; data &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;size &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;undefined&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token comment&quot;&gt;// 페이지 끝에 도달했는지 여부&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; isReachingEnd &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;PAGE_SIZE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token function&quot;&gt;setIsLoadingLog&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;isLoadingMore&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token function&quot;&gt;setIsEndPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;isReachingEnd&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; size&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;둘 다 공식문서를 참고해서 작성했습니다.&lt;/p&gt;
+&lt;p&gt;로딩 중이거나, 데이터가 있긴 있지만, 현재 불러온 페이지 중 마지막 페이지의 데이터가 undefined 경우를 로딩중이라고 보고 있고, 페이지에 끝에 도달했는지 여부는 첫번째 데이터의 길이가 0이거나(아예 첫 페이지부터 데이터가 없는경우) 데이터가 있긴 한데, 제일 마지막에 불러온 데이터의 길이가 한 페이지당 불러오는 데이터의 크기가 작을때를 끝페이지라고 보고 있습니다.&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게하니 더 보기 버튼을 클릭했을때 다음 페이지의 데이터가 주르륵 호출되는 것을 확인할 수 있었습니다! 이제 이 이벤트를 스크롤 이벤트에 적용해주기만 하면 됩니다.&lt;/p&gt;
+&lt;h3&gt;Intersection Observer API&lt;/h3&gt;
+&lt;p&gt;스크롤 이벤트에 적용하려니... 스크롤 이벤트로 무한 스크롤을 구현하면 리플로우에 의해 렌더링 성능이 떨어질 수 있고, 원하는대로 동작하지 않을 수 있다고 합니다. 실제로 스크롤 이벤트로 적용했을 경우 생각대로 동작하지 않아 구글링을 다시 해봤습니다.&lt;/p&gt;
+&lt;p&gt;이를 해결하기 위해서는 Intersection Obeserver API를 사용할 수 있습니다! Intersection Observer API는 기본적으로 상위 요소 혹은 최상위 도큐먼트인 뷰포트와 타겟으로 설정한 요소의 교차점을 관찰하여 그 타겟이 뷰포트에 포함되는지 구별하는 기능을 제공하고 있습니다. 쉽게 말해 타켓 요소가, 화면에 노출되어 있는지 여부를 간단하게 구독할 수 있는 API 입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8ab63e8cc26c523a6b0dc213aa70a4ff/e7aec/observer.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.36231884057972%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAABeElEQVR42q1UyU7DMBDl/z8AiUMFP4CExA2JW28cEHABKlrRRZQutEm8jh0/xk7LUtI2CCyN7NieN2/Gb3KAfx4HdZvWemjjYAzP2kEIA6UofVd7Ht6XzQBDCJDsIKSHlIScwbq9AV7Gc0jF4LxXCAuihoC+DMhnC0zmE7xlGlmmsGRbLGWaq7WC0nY3YGQWypJZKJBkBytgXQm3MtowY2zyqQVcH5QMKIRI875BRNsBsyxDr9fDcDhEURSJKYepmK8u5jbguahsZhjQWmbu6gEjoxjR8qXIMIRPhuUK8XoOtJ6Aky5wOQaM1lxHvftRYgqKaxjrYy0l04YAR7gaE1r3hOMHwkWfz4zBdDrFaDRiGekP/1rZCGmTNKJlBUuEX7Tdtzi8IRzdEs47HJADxWzyPP+W+k9hc4qKxRw1V+nOgVjkd68Op48eZx2P9iAKvCrR/k7ZAKw1Fvda2Jsv3RhQfF1HQFc272WTenm7KW5N538B+Je/zTsCU5ihguALpwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;observer&quot;
+        title=&quot;&quot;
+        src=&quot;/static/8ab63e8cc26c523a6b0dc213aa70a4ff/dd45a/observer.png&quot;
+        srcset=&quot;/static/8ab63e8cc26c523a6b0dc213aa70a4ff/948cf/observer.png 138w,
+/static/8ab63e8cc26c523a6b0dc213aa70a4ff/6b2ea/observer.png 275w,
+/static/8ab63e8cc26c523a6b0dc213aa70a4ff/dd45a/observer.png 550w,
+/static/8ab63e8cc26c523a6b0dc213aa70a4ff/d4c13/observer.png 825w,
+/static/8ab63e8cc26c523a6b0dc213aa70a4ff/99f37/observer.png 1100w,
+/static/8ab63e8cc26c523a6b0dc213aa70a4ff/e7aec/observer.png 1726w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;다음과 같은 경우, target을 관찰하며, target이 Viewport에 포함되는지를 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;무한 스크롤을 구현하기 위해서는 가장 맨 밑의 요소가 화면에 노출되어 있는지를 알아내기만 하면 되기 때문에 자세한 내용은 생략하고 해당 부분만 적어보도록 하겠습니다.&lt;/p&gt;
+&lt;p&gt;먼저 Intersection Observer API를 사용하는 부분을 커스텀 훅으로 만들었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useCallback&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useEffect&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useRef &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;useIntersect&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;onIntersect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; ref &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useRef&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; callback &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;entries&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   entries&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;entry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;entry&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;isIntersecting&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;token function&quot;&gt;onIntersect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;onIntersect&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+ &lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;ref&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; observer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;IntersectionObserver&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;callback&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  observer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;observe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ref&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; observer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;disconnect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;ref&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; callback&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; onIntersect&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+ &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; ref&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; useIntersect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 커스텀 훅에서는 target요소가 화면에 노출되었을 경우 실행할 함수 onIntersect를 파라미터로 받고, target 요소를 저장하기 위한 ref를 선언하여 리턴하고 있습니다.&lt;/p&gt;
+&lt;p&gt;useEffect에서는 IntersectionObserver 객체를 생성하고 observe 호출을 통해 target 요소의 관찰을 시작합니다.&lt;/p&gt;
+&lt;p&gt;IntersectionObserver 생성자는&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;IntersectionObserver&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;callback&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;IntersectionObserver&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;callback&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같은 형태로 callback과 options 값을 파라미터로 받습니다. options 값은 선택 값으로 몇가지 옵션을 지정할 수 있는데 저는 사용하지 않았습니다.&lt;/p&gt;
+&lt;p&gt;여기서 callback은 타겟 요소의 관찰이 시작되거나, 가시성에 변화가 감지되면 실행되는 함수로 entries와 observer를 파라미터로 받습니다. 이 때 entries는 교차 상태가 변화한 target들의 배열이고 observer는 이 콜백 함수를 호출한 IntersectionObserver를 의미합니다.&lt;/p&gt;
+&lt;p&gt;저는 root와 target이 교차 상태인지 확인하는 isIntersecting 값이 true이면 onIntersect를 실행하는 함수를 callback으로 작성하여 IntersectionObserver객체를 생성해줬습니다.&lt;/p&gt;
+&lt;p&gt;마지막으로 useEffect에서 &lt;code class=&quot;language-text&quot;&gt;() =&gt; observer.disconnect();&lt;/code&gt;를 반환함으로써 컴포넌트가 언마운트될 때 cleanup을 통해 disconnect를 호출하여 모든 요소의 관찰을 중지하도록 했습니다.&lt;/p&gt;
+&lt;p&gt;요약하자면 target요소가 화면에 노출되는 순간 onIntersect가 호출되는 커스텀훅을 만든것입니다.&lt;/p&gt;
+&lt;p&gt;이 훅은 다음과 같이 사용하였습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;changePage&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isLoadingLog &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;isEndPage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;setSize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;prev&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; prev &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; bottomRef &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useIntersect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;changePage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 다음 페이지를 호출할 수 있도록 하는 함수를 onIntersect로 전달하여 bottomRef가 화면에 노출될 경우 다음 페이지를 불러올 수 있도록 해줬고,&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;LogWrapper&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;pointLogs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;flat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Log key&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;Log&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Log ref&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;bottomRef&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;LogWrapper&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;bottomRef는 스크롤 맨 아래 위치하는 요소에 붙여주는 방식으로 사용을 했습니다.&lt;/p&gt;
+&lt;h3&gt;revalidateFirstPage&lt;/h3&gt;
+&lt;p&gt;오호 이렇게 하니 스크롤 했을때 페이지 별로 요청이 잘 가고 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 372px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/77875ec3ef4c3e104bc0f42e04f1788f/98b6e/page0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 71.01449275362319%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABe0lEQVR42qWTW0/CQBCF+09EoIAaW6wQFGy39wtF4v+RRGiRAoGE6+89zq5vEFoSHk52ns5+M2dG6r4+YTz+wWq1wmKxwHK5FOL1er3G92gE0/FgMAu266OnG1CaTdyXy6hUq2eS9I6C+TzD4XDAdrvFbrcT4vXxeEQ6nSKMP+H4Ib1DWGSqtduo1mqoNRpnkrraI7LZDPv9HpvNRhhx8Zp/MklSOF4I03bhkqnOTChqE6VSCWWiPJVkdFRk2WXDJE3hRzFsz0cQD2C6HrRWDmHvCkLbC8BsB14QQTcKCPUCQtEytWpRMC4ZGpaNl1brlhkmZOZDNy0xS5GyquYRKoWEnIyvDJ8ls5z8Gb5rD0T4e9lwkoh2dcYJA3SJ8JkI74iQ7+KprkrZC/u03K54Ga0PJ5SJsE5Ep7pqhrxdw7QF4Qdjt6XMCYP+QMwx4pfiFOxhIeHkn5CH4fhEqJt4VnJSZm/5KYtbHgzhRX3Ewy+x5PyWK7IMuV4/0x9NxzJF7v+8gQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;page0&quot;
+        title=&quot;&quot;
+        src=&quot;/static/77875ec3ef4c3e104bc0f42e04f1788f/98b6e/page0.png&quot;
+        srcset=&quot;/static/77875ec3ef4c3e104bc0f42e04f1788f/948cf/page0.png 138w,
+/static/77875ec3ef4c3e104bc0f42e04f1788f/6b2ea/page0.png 275w,
+/static/77875ec3ef4c3e104bc0f42e04f1788f/98b6e/page0.png 372w&quot;
+        sizes=&quot;(max-width: 372px) 100vw, 372px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어라? 그런데 이렇게 중간 중간 0번 페이지의 요청이 끼어서 가고 있습니다.&lt;/p&gt;
+&lt;p&gt;왜 이러는지 좀 찾아보니 &lt;br/&gt;
+&lt;a href=&quot;https://github.com/vercel/swr/issues/1638&quot;&gt;https://github.com/vercel/swr/issues/1638&lt;/a&gt; &lt;br/&gt;
+오호 버그가 아니라 기능이라네요?&lt;/p&gt;
+&lt;p&gt;위의 useSWRInfinite 설명에도 나와있었듯 &lt;br/&gt;
+&lt;code class=&quot;language-text&quot;&gt;revalidateFirstPage = true: always try to revalidate the first page&lt;/code&gt;&lt;br/&gt;
+이 옵션을 &lt;code class=&quot;language-text&quot;&gt;useSWRInfinite(getKey, fetcher, { revalidateFirstPage: false })&lt;/code&gt; 이런식으로 false로 주면 해결이 됩니다! 저게 옵션 이름 그대로 첫 페이지를 revalidate하는 옵션인데 기본값이 true였기 때문에 ... 저런 현상이 있었습니다. 옵션은 후루룩 읽고 넘어간 부분이라 몰랐네요&lt;/p&gt;
+&lt;p&gt;아무튼 이렇게 하니 페이지 별로 호출이 잘 되고있는 것을 확인할 수 있었습니다!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 431px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5a28d298e90dc01bb29e11bbfefbd592/9cb4e/page.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.05797101449276%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVR42nWRy3KCQBRE+RVg0EUANVuVp2g0X5FFUshD8w9QRVz5BPRrO3duspBKXJyqW9PQ031Hid/f8LXboSgKlGXJyLmqKnzEa/jhHPPlK2aLJYajZxiGgV6/30HQmT+LWFc+8wTX2w2n0wnn85mR87VtkeY5xo5HH88xdT08WRY0XYcuRAd5Np66rCubLEZdN9jv9zgcDoycL5cLkjTDxPXZ0PECmIMBdEojer0OuiEwcVzWlW2+RtO0bHQ8Hhk513WNJMspmY8wWsD1A9j0g6BEsvY9ghI6Lum2NMzIsP1r2DQ11klKN3sIfyubtv2gskZNSLdsucPHCbPNFl4YIXpZIaCU9nDEFQ16iHvkGhw/ZF3ZpPG/CaVhSpXl7n4qh7x0VdM45T2qpmIiH8W08A09WhMm3abEBwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;page&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5a28d298e90dc01bb29e11bbfefbd592/9cb4e/page.png&quot;
+        srcset=&quot;/static/5a28d298e90dc01bb29e11bbfefbd592/948cf/page.png 138w,
+/static/5a28d298e90dc01bb29e11bbfefbd592/6b2ea/page.png 275w,
+/static/5a28d298e90dc01bb29e11bbfefbd592/9cb4e/page.png 431w&quot;
+        sizes=&quot;(max-width: 431px) 100vw, 431px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;무한 스크롤 ... swr을 사용하니 생각보다는 간단했지만 스크롤 이벤트에 적용하는 과정이 꽤나 어려웠던 것 같습니다. 정리하고보니 그렇게 복잡한 내용은 없는 것 같지만 생각보다 많이 해맨 부분이라 기록해두고 싶었습니다 읽어주셔서 감사합니다~!&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt; &lt;br/&gt;
+&lt;a href=&quot;https://swr.vercel.app/ko/docs/pagination#useswrinfinite&quot;&gt;https://swr.vercel.app/ko/docs/pagination#useswrinfinite&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&quot;https://tech.kakaoenterprise.com/149&quot;&gt;https://tech.kakaoenterprise.com/149&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SWR 사용해보기]]></title><description><![CDATA[SWR이란 SWR은 데이터 가져오기를 위한 React Hooks입니다. 공식문서에서는 "SWR은 먼저 캐시(stale)로부터 데이터를 반환한 후, fetch 요청(revalidate…]]></description><link>https://klloo.github.io/swr/</link><guid isPermaLink="false">https://klloo.github.io/swr/</guid><pubDate>Tue, 21 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;SWR이란&lt;/h3&gt;
 &lt;p&gt;SWR은 데이터 가져오기를 위한 React Hooks입니다. 공식문서에서는 &quot;SWR은 먼저 캐시(stale)로부터 데이터를 반환한 후, fetch 요청(revalidate)을 하고, 최종적으로 최신화된 데이터를 가져오는 전략입니다.&quot; 라고 소개하고 있습니다.&lt;/p&gt;
 &lt;p&gt;저는 그냥 주로 서버의 데이터를 가져와서 상태를 관리하는데 사용하는 라이브러리라고 이해를 했습니다.&lt;/p&gt;
 &lt;p&gt;예를들어 /api 경로로 데이터를 요청해와서, 해당 데이터를 렌더링해야하는 상황에서 SWR을 사용하지 않는다면&lt;/p&gt;
