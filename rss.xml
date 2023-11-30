@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 28 Nov 2023 07:48:48 GMT</lastBuildDate><item><title><![CDATA[날백수인 내가 SWR로 무한 스크롤(Infinite scroll)을 구현한 방법]]></title><description><![CDATA[무한 스크롤 ? 무한 스크롤이란 사용자가 페이지 하단에 도달했을 때, 콘텐츠가 계속 로드되는 사용자 경험 방식입니다. 페이지를 클릭하면 다음 페이지 주소로 이동하는 페이지네이션(Pagination…]]></description><link>https://klloo.github.io/swr-pagination/</link><guid isPermaLink="false">https://klloo.github.io/swr-pagination/</guid><pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;무한 스크롤 ?&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Nov 2023 11:19:11 GMT</lastBuildDate><item><title><![CDATA[날백수인 내가 SWR로 무한 스크롤(Infinite scroll)을 구현한 방법]]></title><description><![CDATA[무한 스크롤 ? 무한 스크롤이란 사용자가 페이지 하단에 도달했을 때, 콘텐츠가 계속 로드되는 사용자 경험 방식입니다. 페이지를 클릭하면 다음 페이지 주소로 이동하는 페이지네이션(Pagination…]]></description><link>https://klloo.github.io/swr-pagination/</link><guid isPermaLink="false">https://klloo.github.io/swr-pagination/</guid><pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;무한 스크롤 ?&lt;/h3&gt;
 &lt;p&gt;무한 스크롤이란 사용자가 페이지 하단에 도달했을 때, 콘텐츠가 계속 로드되는 사용자 경험 방식입니다. 페이지를 클릭하면 다음 페이지 주소로 이동하는 페이지네이션(Pagination)과 달리, 한 페이지에서 스크롤만으로 새로운 콘텐츠를 보여주게 되므로 많은 양의 콘텐츠를 스크롤하여 볼 수 있는 장점이 있습니다.&lt;/p&gt;
 &lt;p&gt;하지만 스크롤을 내릴때 마다 네트워크 요청이 이루어지므로 페이지 성능이 느려질 수 있다는 단점도 있습니다. 그럼에도 개발중인 내용 중 로그를 보여주는 페이지가 있는데, 이 경우에는 페이지네이션 기능보다는 계속 스크롤하며 로그를 확인하는 무한 스크롤 방식이 더 사용자들이 더 쉽게 사용할 수 있을 것 같아 이 방식을 구현해보기로 했습니다!&lt;/p&gt;
 &lt;h3&gt;useSWRInfinite&lt;/h3&gt;
@@ -1074,7 +1074,7 @@ certbot certonly --nginx -d &amp;lt;도메인 주소&gt;&lt;/code&gt;&lt;/pre&gt
 &lt;p&gt;&apos;react-app&apos;이라는 이름으로 컨테이너를 띄웁니다.
 이 서비스는 docker hub에서 frontend-image라는 이미지를 가져와서 실행 시키고 컨테이너를 3000포트로 노출합니다.&lt;/p&gt;
 &lt;h4&gt;nginx&lt;/h4&gt;
-&lt;p&gt;&apos;react-app&apos;이라는 이름으로 컨테이너를 띄웁니다.
+&lt;p&gt;&apos;nginx&apos;라는 이름으로 컨테이너를 띄웁니다.
 이 서비스는 nginx 이미지로 실행을 시키는데 호스트 시스템의 디렉토리를 컨테이너 내부 디렉토리와 공유하여 nginx 설정, 로그 및 SSL 인증서를 관리합니다.
 또 호스트의 80번 포트와 443번 포트를 각각 컨테이너의 80번 포트와 443번 포트로 연결합니다.&lt;/p&gt;
 &lt;p&gt;./conf 경로에 있는 설정 파일들을 nginx설정에 사용하도록 하였는데 해당 설정파일은 아래와 같습니다.&lt;/p&gt;
