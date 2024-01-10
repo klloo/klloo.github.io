@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 Jan 2024 15:27:04 GMT</lastBuildDate><item><title><![CDATA[리액트에서 jwt 기반 로그인 구현하기]]></title><description><![CDATA[지난 번에 세션 기반 인증과 토큰 기반 인증에 대해 글을 썼었는데요. 그 이후로 로그인을 구현한 과정에 대해서는 포스팅하지 않았어서 ... 이제라도 포스팅 해보려 합니다! 일단 저번글의 요약 내용은 아래와 같습니다. : 쿠키에 저장할 경우 CSRF…]]></description><link>https://klloo.github.io/react-login-jwt/</link><guid isPermaLink="false">https://klloo.github.io/react-login-jwt/</guid><pubDate>Fri, 05 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;지난 번에 &lt;a href=&quot;https://klloo.github.io/session-jwt/&quot;&gt;세션 기반 인증과 토큰 기반 인증&lt;/a&gt;에 대해 글을 썼었는데요. 그 이후로 로그인을 구현한 과정에 대해서는 포스팅하지 않았어서 ... 이제라도 포스팅 해보려 합니다!&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jan 2024 12:25:36 GMT</lastBuildDate><item><title><![CDATA[API 중복호출 해결하기]]></title><description><![CDATA[문제 상황 지난번에 로그인을 이렇게 구현을 했는데요 
+요약하자면 요청마다 헤더에 엑세스 토큰을 넣어서 보내주고, 토큰이 만료되어 40…]]></description><link>https://klloo.github.io/memoization-api/</link><guid isPermaLink="false">https://klloo.github.io/memoization-api/</guid><pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;문제 상황&lt;/h3&gt;
+&lt;p&gt;지난번에 로그인을 &lt;a href=&quot;https://klloo.github.io/react-login-jwt/&quot;&gt;이렇게&lt;/a&gt; 구현을 했는데요 &lt;br/&gt;
+요약하자면 요청마다 헤더에 엑세스 토큰을 넣어서 보내주고, 토큰이 만료되어 401에러가 발생하면 토큰 재발급을 요청하여 새로 받은 토큰으로 다시 요청을 보내는 방식으로 구현을 했습니다.&lt;/p&gt;
+&lt;p&gt;그런데 이렇게 구현을 하니... 한 페이지에서 동시에 여러 요청을 보냈는데 토큰이 만료됐을 경우 그 여러 요청만큼 재요청이 갑니다. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6fc187dcaf47a0c1e15a7fa90e6ce75a/fe720/before.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.985507246376812%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABIklEQVR42jVQ2W7DMAzLn6w5XCBpDsfxlaNoVxQbumJ93/9/CEd5y4NgSRZFUtnntiGEyAjwzsF7n/I5RmzLgqpSMMMApY4Y+x6PywWmH1CyX/33vDGpXonPtnHEwmS2FpPWqOs6RdM00BwuyhJD1xFQQfP9vr1jIkHOvvS604kEfao98dmHs6gJVoqMHJAF8lmxjtOEslRJgSi1JP95PhFY5wUXlhWsHpMyqW/rimz1DmaybBSJUYAiXyx6H1JvIHNSQyX3+x2ntv0jJmaiMzmT5DHOyJbg4QiUAVm2hzoeYcksuaaK/X18PdHKCahOwtCFcx4FFQbePbuuM2Ye/5DnaekeYlkGJDe0KK+m5dfrhbbtkiLBOKqLnHs7HLCdz/gF7QK33GlJCdgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;before&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6fc187dcaf47a0c1e15a7fa90e6ce75a/dd45a/before.png&quot;
+        srcset=&quot;/static/6fc187dcaf47a0c1e15a7fa90e6ce75a/948cf/before.png 138w,
+/static/6fc187dcaf47a0c1e15a7fa90e6ce75a/6b2ea/before.png 275w,
+/static/6fc187dcaf47a0c1e15a7fa90e6ce75a/dd45a/before.png 550w,
+/static/6fc187dcaf47a0c1e15a7fa90e6ce75a/d4c13/before.png 825w,
+/static/6fc187dcaf47a0c1e15a7fa90e6ce75a/99f37/before.png 1100w,
+/static/6fc187dcaf47a0c1e15a7fa90e6ce75a/fe720/before.png 1448w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;바로 이렇게... 이렇게 되면 불필요한 네트워크 요청이 많아지게 됩니다. 그래서 이 부분을 개선해보려고 합니다.&lt;/p&gt;
+&lt;h3&gt;해결&lt;/h3&gt;
+&lt;p&gt;저는 &lt;a href=&quot;https://gusrb3164.github.io/web/2022/08/07/refresh-with-axios-for-client/&quot;&gt;이 포스팅&lt;/a&gt;을 보고 memoization을 사용하여 이 문제를 해결했습니다. &lt;br/&gt;
+먼저 처음 요청된 재발급 요청을 메모이제이션 하게 되면, 이후 메모이제이션된 시간동안은 동일한 요청들을 재사용하게 되어 중복된 요청이 더 이상 호출되지 않게 됩니다.&lt;/p&gt;
+&lt;p&gt;코드는 간단합니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ts&quot;&gt;&lt;pre class=&quot;language-ts&quot;&gt;&lt;code class=&quot;language-ts&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; mem &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;mem&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// access token 재발급&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; getRefreshToken &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;refresh&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; accessToken &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;accessToken&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; accessToken&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token comment&quot;&gt;// 로그아웃 처리&lt;/span&gt;
+   &lt;span class=&quot;token function&quot;&gt;logout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; maxAge&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.npmjs.com/package/mem&quot;&gt;mem 라이브러리&lt;/a&gt;를 사용하여 토큰 재발급 함수를 감싸줬습니다. maxAge는 메모이제이션 되는 시간으로 ms 단위입니다. 1초로 설정을 해줬고 이렇게 하면 해당 함수는 메모이제이션 됩니다.&lt;/p&gt;
+&lt;p&gt;다시 실행시켜보면 중복 요청 문제가 해결된 것을 확인할 수 있습니다!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ce984ff0f55ebeaa4e758214795175f9/0d390/after.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 23.18840579710145%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA7UlEQVR42j1QW5KDMAzjKA0QyjsJCYHttvSTE7T3v4lW9s7w4bEka2QnRZodTG1RN3fYe4uGZYmHfkD0QXXpogXncb7fFxfvNE7Y06o8LxHFkSIW7xGdQ9e2KKtKqyUO8wxDLDPRFvbPeSKHoHpV11zcYY9R54k5xSN4pjcaZm1Dk+WwRt/13LjgVlbY2EWLvFADyQ15Se88jji2TX3PNaPITDXcJEG1lLW6WS50vFCwm6arn8cBN/5z8Q59j8SLhXv6i9/HD/+pgSnL67mC245P2XfcjEFaV9VCWPD9fLHmrLpoE0Oer5fyvG34A/J1lxXu2ggBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;after&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ce984ff0f55ebeaa4e758214795175f9/dd45a/after.png&quot;
+        srcset=&quot;/static/ce984ff0f55ebeaa4e758214795175f9/948cf/after.png 138w,
+/static/ce984ff0f55ebeaa4e758214795175f9/6b2ea/after.png 275w,
+/static/ce984ff0f55ebeaa4e758214795175f9/dd45a/after.png 550w,
+/static/ce984ff0f55ebeaa4e758214795175f9/d4c13/after.png 825w,
+/static/ce984ff0f55ebeaa4e758214795175f9/99f37/after.png 1100w,
+/static/ce984ff0f55ebeaa4e758214795175f9/0d390/after.png 1472w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[리액트에서 jwt 기반 로그인 구현하기]]></title><description><![CDATA[지난 번에 세션 기반 인증과 토큰 기반 인증에 대해 글을 썼었는데요. 그 이후로 로그인을 구현한 과정에 대해서는 포스팅하지 않았어서 ... 이제라도 포스팅 해보려 합니다! 일단 저번글의 요약 내용은 아래와 같습니다. : 쿠키에 저장할 경우 CSRF…]]></description><link>https://klloo.github.io/react-login-jwt/</link><guid isPermaLink="false">https://klloo.github.io/react-login-jwt/</guid><pubDate>Fri, 05 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;지난 번에 &lt;a href=&quot;https://klloo.github.io/session-jwt/&quot;&gt;세션 기반 인증과 토큰 기반 인증&lt;/a&gt;에 대해 글을 썼었는데요. 그 이후로 로그인을 구현한 과정에 대해서는 포스팅하지 않았어서 ... 이제라도 포스팅 해보려 합니다!&lt;/p&gt;
 &lt;p&gt;일단 저번글의 요약 내용은 아래와 같습니다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Access Token&lt;/code&gt;: 쿠키에 저장할 경우 CSRF 공격에 취약하고, localStorage에 저장할 경우 자바스크립트로 접근이 가능하기 때문에 XSS 취약점이 있을 경우 탈취 위험이 있다. 웹 애플리케이션 내의 로컬 변수에 저장하는 것이 최선이다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Refresh Token&lt;/code&gt;: Access Token과 취약점은 같다. 하지만 Refresh Token의 용도는 Access Token의 재발급을 위한 것으로 용도가 한정되어 있으며, CSRF 공격으로는 발급받은 엑세스 토큰을 수령할 방법이 없다. 따라서 httpOnly 쿠키로 저장하는 것이 최선이다.&lt;/p&gt;
