@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jan 2024 12:25:36 GMT</lastBuildDate><item><title><![CDATA[API 중복호출 해결하기]]></title><description><![CDATA[문제 상황 지난번에 로그인을 이렇게 구현을 했는데요 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jan 2024 14:19:06 GMT</lastBuildDate><item><title><![CDATA[Gatsby 블로그에 태그 만들기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/blog-tag/</link><guid isPermaLink="false">https://klloo.github.io/blog-tag/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;제 블로그는 원래 ... 카테고리를 하나로 두고 포스팅을 작성했었습니다. 그런데 카테고리를 하나로 두다보니...글의 분류를 딱 하나로 단정짓기가 은근 어려워서 태그의 개념으로 여러개의 분류를 달아두고 싶었습니다. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;그래서 먼저 포스팅이 되는 마크다운 문서의 frontmatter를 아래와 같이 수정했습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;md&quot;&gt;&lt;pre class=&quot;language-md&quot;&gt;&lt;code class=&quot;language-md&quot;&gt;&lt;span class=&quot;token front-matter-block&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;token front-matter yaml language-yaml&quot;&gt;title: Gatsby 블로그에 태그 만들기
+date: &apos;2024-01-11&apos;
+icon: 🏷️
+description: &apos;블로그에 태그를 추가했습니다.&apos;
+tags:
+ - Gatsby
+ - Blog
+ - JavaScript&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런식으로 category를 제거하고, tags를 새로 추가했습니다. 여러 항목을 추가하기 위해서는 -로 구분하여 작성해주면 됩니다.&lt;/p&gt;
+&lt;p&gt;이제 아래의 일들이 남았습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;포스팅마다 태그 불러오기&lt;/li&gt;
+&lt;li&gt;태그만 모아둔 페이지 만들기&lt;/li&gt;
+&lt;li&gt;태그 별 페이지 만들기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;포스팅마다 태그 불러오기&lt;/h3&gt;
+&lt;p&gt;이건 그냥 GraphQL로 포스팅 관련 정보를 불러 올 때&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;  &lt;span class=&quot;token property-query&quot;&gt;allMarkdownRemark&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;frontmatter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;DESC&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token object&quot;&gt;nodes&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property-query&quot;&gt;excerpt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;pruneLength&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;truncate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token object&quot;&gt;fields&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;token property&quot;&gt;slug&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token object&quot;&gt;frontmatter&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;token property-query&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;formatString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;MMMM DD, YYYY&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;token property&quot;&gt;title&lt;/span&gt;
+     &lt;span class=&quot;token property&quot;&gt;description&lt;/span&gt;
+     &lt;span class=&quot;token property&quot;&gt;category&lt;/span&gt;
+     &lt;span class=&quot;token property&quot;&gt;icon&lt;/span&gt;
+     &lt;span class=&quot;token property&quot;&gt;tags&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 tags 필드만 추가해서 필요한 곳에서 배열의 형태로 사용하면 됩니다!&lt;/p&gt;
+&lt;h3&gt;태그만 모아둔 페이지 만들기&lt;/h3&gt;
+&lt;p&gt;이것도?! 별 거 아니었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; pageQuery &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; graphql&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+ {
+  tags: allMarkdownRemark(limit: 2000) {
+   group(field: frontmatter___tags) {
+    fieldValue
+    totalCount
+   }
+  }
+ }
+&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;GraphQL로 태그 정보들을 가져와서 그냥... 페이지를 만들고 태그들을 보여주면 됩니다!&lt;/p&gt;
+&lt;h3&gt;태그 별 페이지 만들기&lt;/h3&gt;
+&lt;p&gt;마지막으로 각 태그 별로 어떤 포스팅이 있는지 보여주는 페이지들을 만들었습니다. 이 부분은 조금 별거였는데요..&lt;/p&gt;
+&lt;p&gt;Gatsby는 정적 웹사이트 생성기이기 때문에 빌드 시점에 이미 모든 페이지들이 만들어져있어야 합니다. 하지만 태그 별로 페이지를 만들려면... 어떤 태그가 있는지도 알아야하고 그 태그마다 다른 페이지들이 있어야합니다.&lt;/p&gt;
+&lt;p&gt;이 부분에 대해서는 &apos;Gatsby 동적 라우팅&apos; 키워드로 구글링을 해보니 참고할만한 내용들이 많았습니다. 각 태그별 페이지는 내용물은 다르지만 구조는 같기 때문에 하나의 템플릿을 만들고, 각 태그마다 다른 내용을 채워넣어주면 됩니다. 즉 태그 페이지 템플릿을 만들고 이 템플릿을 사용하여 동적 페이지를 만들어주면 됩니다. 이것을 createPages 메소드를 통해 구현을 했습니다.&lt;/p&gt;
+&lt;p&gt;createPages는 gatsby-node.js파일에 작성해주면 됩니다. createPages는 동적 페이지를 생성하거나 데이터를 가져와 페이지를 만들 때 사용됩니다. 이 메소드 내에서 GraphQL을 사용하여 데이터를 쿼리하고, 가져온 데이터를 기반으로 동적 페이지를 생성할 수 있습니다. 이제보니 태그 뿐 아니라 포스팅 상세 페이지도 이런 방식으로 구현이 되어있었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;	&lt;span class=&quot;token comment&quot;&gt;// 태그를 쿼리하여 각 태그별 페이지를 생성&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tagResult &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;graphql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              tags
+            }
+          }
+        }
+      }
+    }
+  &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+
+  &lt;span class=&quot;token comment&quot;&gt;// 태그에 따라 페이지 생성&lt;/span&gt;
+  tagResult&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;allMarkdownRemark&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;edges&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; node &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;tags&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;tag&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;createPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/tags/&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;tag&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;component&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; tagTemplate&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token literal-property property&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; tag&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 태그를 먼저 쿼리해서 가져오고, 이 태그 별로 태그 템플릿을 사용해 페이지를 생성해줬습니다.
+createPage 함수의 context 매개변수는 페이지에 데이터를 전달하는 데 사용됩니다.&lt;/p&gt;
+&lt;p&gt;태그 템플릿에서&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;TagTemplate&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; location&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pageContext &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tag &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; pageContext&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;tag&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 pageContext를 props로 받아와 해당 태그를 받아올 수 있습니다! 저 태그로 이제 게시물을 불러와서 보여주기만하면 됩니다!&lt;/p&gt;
+&lt;p&gt;이 부분 말고도 디자인...같은 부분들을 꽤나 많이 바꿨는데 이전보다 맘에 드는 것 같아 뿌듯합니다! 하하&lt;/p&gt;</content:encoded></item><item><title><![CDATA[API 중복호출 해결하기]]></title><description><![CDATA[문제 상황 지난번에 로그인을 이렇게 구현을 했는데요 
 요약하자면 요청마다 헤더에 엑세스 토큰을 넣어서 보내주고, 토큰이 만료되어 40…]]></description><link>https://klloo.github.io/memoization-api/</link><guid isPermaLink="false">https://klloo.github.io/memoization-api/</guid><pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;문제 상황&lt;/h3&gt;
 &lt;p&gt;지난번에 로그인을 &lt;a href=&quot;https://klloo.github.io/react-login-jwt/&quot;&gt;이렇게&lt;/a&gt; 구현을 했는데요 &lt;br/&gt;
 요약하자면 요청마다 헤더에 엑세스 토큰을 넣어서 보내주고, 토큰이 만료되어 401에러가 발생하면 토큰 재발급을 요청하여 새로 받은 토큰으로 다시 요청을 보내는 방식으로 구현을 했습니다.&lt;/p&gt;
