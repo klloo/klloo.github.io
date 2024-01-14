@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 10 Jan 2024 14:19:06 GMT</lastBuildDate><item><title><![CDATA[Gatsby 블로그에 태그 만들기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/blog-tag/</link><guid isPermaLink="false">https://klloo.github.io/blog-tag/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;제 블로그는 원래 ... 카테고리를 하나로 두고 포스팅을 작성했었습니다. 그런데 카테고리를 하나로 두다보니...글의 분류를 딱 하나로 단정짓기가 은근 어려워서 태그의 개념으로 여러개의 분류를 달아두고 싶었습니다. &lt;br/&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 14 Jan 2024 15:58:01 GMT</lastBuildDate><item><title><![CDATA[React가 XSS 공격을 방지하는 방법]]></title><description><![CDATA[얼마전 로그인을 구현하면서 찾아본 내용중에 React 환경에서는 기본적으로 XSS 공격이 방지된다는 문장을 봤습니다. 
+처음 들어본 사실이기도 하고 어떻게 XSS 공격을 방지하는지 궁금해서 찾아봤습니다. 먼저 XSS…]]></description><link>https://klloo.github.io/react-xss/</link><guid isPermaLink="false">https://klloo.github.io/react-xss/</guid><pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마전 로그인을 구현하면서 찾아본 내용중에 React 환경에서는 기본적으로 XSS 공격이 방지된다는 문장을 봤습니다. &lt;br/&gt;
+처음 들어본 사실이기도 하고 어떻게 XSS 공격을 방지하는지 궁금해서 찾아봤습니다.&lt;/p&gt;
+&lt;p&gt;먼저 XSS 공격이란 공격자가 웹 페이지 내에 스크립트를 삽입하고 삽입한 코드를 실행시켜 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취하는 공격 기법을 말합니다.&lt;/p&gt;
+&lt;p&gt;예를 들어 게시글의 내용을 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&gt;alert(&quot;hi&quot;)&amp;lt;/script&gt;&lt;/code&gt; 와 같이 작성한다면, 해당 게시글을 보는 사용자의 브라우저에는 공격자가 삽입한 스크립트가 실행되어 알림창이 뜨게 될 것입니다.&lt;br/&gt;
+만약 스크립트 내부에 위험한 코드가 들어있다면...흠 아찔합니다&lt;/p&gt;
+&lt;p&gt;그렇다면 리액트 환경에서는 어떻게 XSS 공격을 방지하고 있을까요?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/24204eb9213c3109fcc9092abe99e1a4/91f10/docs.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.23188405797102%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABUUlEQVR42pWSyUoDQRCG5wU8RNBD0ExAMIR48iJ49BU1ZncDD3oIMZNx4gJq8C0yCbO4MFvPQhIIWX6rh4AGPGjB111VXVXQVSWAZDAYQNM0mKaJXr8PVVXR7XZhWTbm8zmm0+mf4LECLzgej8GYB58x2LYN13UIF77v478izGYzPD13UG9IaDRl3Ei3aMltyMo9JFmB0n5A++4RzZbyK9KCJuW5HoMwGo2wt3+ATTGLTG4X6a0diDE5bKSzSKYySIrbSKyLRAqJtdRCX0D2Kt0riSReOq8Q+N+vrusolms4u7hEqVRDpXaOcuUU+UIFR/kSDgmu54ucKo6J2CaK5ZOYAuW9f3x+95D3i1EPwyBAQPzUg8BHGIZgYQQvjvPgOA75gngQSz3kRxRFMA0Dmq6jZ5jom28xqm5AJ5/B32gLLMuKN4IX5wyHQ0wmk6UpfwH4T810xjCpQQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;docs&quot;
+        title=&quot;&quot;
+        src=&quot;/static/24204eb9213c3109fcc9092abe99e1a4/dd45a/docs.png&quot;
+        srcset=&quot;/static/24204eb9213c3109fcc9092abe99e1a4/948cf/docs.png 138w,
+/static/24204eb9213c3109fcc9092abe99e1a4/6b2ea/docs.png 275w,
+/static/24204eb9213c3109fcc9092abe99e1a4/dd45a/docs.png 550w,
+/static/24204eb9213c3109fcc9092abe99e1a4/d4c13/docs.png 825w,
+/static/24204eb9213c3109fcc9092abe99e1a4/91f10/docs.png 992w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ko.legacy.reactjs.org/docs/introducing-jsx.html#jsx-prevents-injection-attacks&quot;&gt;공식문서&lt;/a&gt;에는 위와 같이 나와있습니다.&lt;/p&gt;
+&lt;p&gt;여기서 이스케이프란 컴퓨터 과학에서 특정 문자가 가진 원래의 의미를 잠시 무시하고 다른 목적으로 사용하게 하는 방법을 의미합니다. 예를 들어 따옴표(&quot;)는 문자열을 나타낼 때 사용합니다. 그러나 이 따옴표(&quot;)를 문자 그대로 출력하고 싶다면 &quot; 이렇게 역슬래시를 앞에 붙여서 이스케이프하면 됩니다. 또 다른 익숙한 이스케이프의 예시로는 \n(개행)이 있을 것 같습니다.&lt;/p&gt;
+&lt;p&gt;아무튼 React DOM은 JSX에 삽입된 값을 렌더링하기전에 이스케이프 한다고 되어있습니다. 그러니까 XSS 공격은 기본적으로 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&gt;&lt;/code&gt; 태그를 사용하기 때문에 이러한 태그 문자(&amp;#x3C;, &gt;) 등 위험한 문자를 &lt;code class=&quot;language-text&quot;&gt;&amp;amp;lt;&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;&amp;amp;gt;&lt;/code&gt;와 같이 바꿔서 렌더링해준다는 의미입니다. 이 문자들은 다른 의미 없이 단순한 문자로 처리됩니다. 이렇게 하면 사용자는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&gt;&lt;/code&gt;가 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&gt;&lt;/code&gt;로 보이지만 HTML 문서에서는 &lt;code class=&quot;language-text&quot;&gt;&amp;amp;lt;script&amp;amp;gt;&lt;/code&gt;로 나타나서 일반 문자로 인식하지 스크립트 태그로 해석되지 않습니다.&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt; &lt;br/&gt;
+&lt;a href=&quot;http://blog.plura.io/?p=7614&quot;&gt;http://blog.plura.io/?p=7614&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gatsby 블로그에 태그 만들기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/blog-tag/</link><guid isPermaLink="false">https://klloo.github.io/blog-tag/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;제 블로그는 원래 ... 카테고리를 하나로 두고 포스팅을 작성했었습니다. 그런데 카테고리를 하나로 두다보니...글의 분류를 딱 하나로 단정짓기가 은근 어려워서 태그의 개념으로 여러개의 분류를 달아두고 싶었습니다. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;그래서 먼저 포스팅이 되는 마크다운 문서의 frontmatter를 아래와 같이 수정했습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;md&quot;&gt;&lt;pre class=&quot;language-md&quot;&gt;&lt;code class=&quot;language-md&quot;&gt;&lt;span class=&quot;token front-matter-block&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;
 &lt;span class=&quot;token front-matter yaml language-yaml&quot;&gt;title: Gatsby 블로그에 태그 만들기
