@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 14 Jan 2024 15:58:01 GMT</lastBuildDate><item><title><![CDATA[React가 XSS 공격을 방지하는 방법]]></title><description><![CDATA[얼마전 로그인을 구현하면서 찾아본 내용중에 React 환경에서는 기본적으로 XSS 공격이 방지된다는 문장을 봤습니다. 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 17 Jan 2024 10:08:30 GMT</lastBuildDate><item><title><![CDATA[Nginx 413 Request Entity Too Large 에러 해결]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/nginx-request-error/</link><guid isPermaLink="false">https://klloo.github.io/nginx-request-error/</guid><pubDate>Wed, 17 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;최근에 배포해뒀던 프로젝트에 파일 업로드가 가능한 게시판 기능을 추가하였습니다. 로컬에서 테스트를 마치고 배포 후 다시 테스트를 진행해봤는데요...파일 업로드를 하려니&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6fd1cbadc9875506dc88688b1c9a0a4f/47ff6/error.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.82608695652174%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1ElEQVR42tVTSQqDQBDM/28iiMtF8A2C4jNERD0IIqK4HVRwr8QOnUhyE3JIQTHdM9VFwczcbNuGaZrEozYMA4IgQBRFKIoCTdOolmUZqqpC13VIkkSrZVmvWcdxSHvDA/u+Ew90XYeiKJBlGdI0RV3X1Od5jrZt0TQNkiRBWZbg2W3bqPZ9/2k4TRPmeSau60oCFvV9j6qqMAzDa59NeGYcR9K6rvtOyOC0zLPJJxlfCc+HV/CHhueLuMJlWcjQ87wfJIzjGGEYIoqiywyCgN7m8THuHAT23azAwmMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;error&quot;
+        title=&quot;&quot;
+        src=&quot;/static/6fd1cbadc9875506dc88688b1c9a0a4f/dd45a/error.png&quot;
+        srcset=&quot;/static/6fd1cbadc9875506dc88688b1c9a0a4f/948cf/error.png 138w,
+/static/6fd1cbadc9875506dc88688b1c9a0a4f/6b2ea/error.png 275w,
+/static/6fd1cbadc9875506dc88688b1c9a0a4f/dd45a/error.png 550w,
+/static/6fd1cbadc9875506dc88688b1c9a0a4f/d4c13/error.png 825w,
+/static/6fd1cbadc9875506dc88688b1c9a0a4f/47ff6/error.png 852w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이런 에러가 떴습니다.&lt;/p&gt;
+&lt;p&gt;지금 제 프로젝트의 구조가&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/5a6dd/structure.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.79710144927537%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeklEQVR42o1Sy27CMBDMl/dveuPWD+ipUoW4UKQeWlSkFlAeBNvBxolf07VRIkihwtLKyXp3dnZ3Mlw7wZOF4VeZgJ0MMA7wYRQaLh0Z/jl9qNABP8yjEhpSGzjnbuZko3LpkssZzO47AQbvE3RkIgSHlAe0bZviPNGtm/a8mRPgQJvu+FVPn2DXC/jkc6ilxXxroNUR1joCSi/YC4mHxyk0zSJ4l3D+tkwPG2GwKFyapXcWedPhdc1gvIKxhpiKwZhooFsNY+wJMFZbLpdQSkFrje6oaF5HzAuaVyOQ5wX5JT52L/jav0O1CozxBHZoGnClwVkB0+nUXWatxWQyQVmW4Jyj4Q3WbE2AczgTGRpUxPAtp5aIraeFxJyYHRnFBUXrx5CNV++dB5MMpaxSgboqsdpxPK82sBRWWA/bdQlgLJkLwN5i9XFgcSgw206xl0d87gW11yLcJZskBWJArUXr2+lMR8sgH92WJGPv1uGZ+q/ZIPYQbgL+AjGYW6WgXw4JAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;structure&quot;
+        title=&quot;&quot;
+        src=&quot;/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/dd45a/structure.png&quot;
+        srcset=&quot;/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/948cf/structure.png 138w,
+/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/6b2ea/structure.png 275w,
+/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/dd45a/structure.png 550w,
+/static/3efdfd7a8f6f0f8275dd63d5ab91acf5/5a6dd/structure.png 802w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 되어있는데 에러메시지를 보니... reverse proxy로 사용한 nginx에서 큰 사이즈의 요청을 제한하고 있었던 것 같았습니다.&lt;/p&gt;
+&lt;p&gt;찾아보니 nginx의 &lt;code class=&quot;language-text&quot;&gt;client_max_body_size&lt;/code&gt; 설정 때문이었습니다. nginx에서는 해당 설정으로 요청의 사이즈를 제한할 수 있고 기본값은 1MB이며, 제한을 두지 않으려면 0으로 설정하면 된다고 합니다.&lt;/p&gt;
+&lt;p&gt;이 설정은 nginx 설정 파일(default.conf)의 http, server, location 블록에 설정이 가능합니다. 저는 server에 설정을 해뒀습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;server &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    client_max_body_size 50M&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 nginx 설정 파일을 수정하고 재시작을 해주니 파일 업로드 요청이 잘 전송되는 것을 확인할 수 있었습니다!&lt;/p&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;
+&lt;br/&gt;
+&lt;a href=&quot;https://determination.tistory.com/entry/Nginx-clientmaxbodysize-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0&quot;&gt;https://determination.tistory.com/entry/Nginx-clientmaxbodysize-수정하기&lt;/a&gt;
+&lt;br/&gt;
+&lt;a href=&quot;https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size&quot;&gt;https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React가 XSS 공격을 방지하는 방법]]></title><description><![CDATA[얼마전 로그인을 구현하면서 찾아본 내용중에 React 환경에서는 기본적으로 XSS 공격이 방지된다는 문장을 봤습니다. 
 처음 들어본 사실이기도 하고 어떻게 XSS 공격을 방지하는지 궁금해서 찾아봤습니다. 먼저 XSS…]]></description><link>https://klloo.github.io/react-xss/</link><guid isPermaLink="false">https://klloo.github.io/react-xss/</guid><pubDate>Mon, 15 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;얼마전 로그인을 구현하면서 찾아본 내용중에 React 환경에서는 기본적으로 XSS 공격이 방지된다는 문장을 봤습니다. &lt;br/&gt;
 처음 들어본 사실이기도 하고 어떻게 XSS 공격을 방지하는지 궁금해서 찾아봤습니다.&lt;/p&gt;
 &lt;p&gt;먼저 XSS 공격이란 공격자가 웹 페이지 내에 스크립트를 삽입하고 삽입한 코드를 실행시켜 의도치 않은 행동을 수행시키거나 쿠키나 세션 토큰 등의 민감한 정보를 탈취하는 공격 기법을 말합니다.&lt;/p&gt;
