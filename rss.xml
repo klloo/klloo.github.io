@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[klloo blog]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 28 Jan 2024 05:00:30 GMT</lastBuildDate><item><title><![CDATA[EC2에서 Docker Container 로그 정리하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/docker-log/</link><guid isPermaLink="false">https://klloo.github.io/docker-log/</guid><pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;문제 상황&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 28 Jan 2024 05:23:19 GMT</lastBuildDate><item><title><![CDATA[EC2에서 Docker Container 로그 정리하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/docker-log/</link><guid isPermaLink="false">https://klloo.github.io/docker-log/</guid><pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;문제 상황&lt;/h3&gt;
 &lt;p&gt;제가 친구들과 운영하고 있는 웹 사이트가 하나 있는데요 ... 이 웹사이트는 제 친구들이 함께 사용하고 있습니다. 그런데 오늘 ...&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -244,14 +244,14 @@
 &lt;a href=&quot;http://blog.plura.io/?p=7614&quot;&gt;http://blog.plura.io/?p=7614&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gatsby 블로그에 태그 만들기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/blog-tag/</link><guid isPermaLink="false">https://klloo.github.io/blog-tag/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;제 블로그는 원래 ... 카테고리를 하나로 두고 포스팅을 작성했었습니다. 그런데 카테고리를 하나로 두다보니...글의 분류를 딱 하나로 단정짓기가 은근 어려워서 태그의 개념으로 여러개의 분류를 달아두고 싶었습니다. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;그래서 먼저 포스팅이 되는 마크다운 문서의 frontmatter를 아래와 같이 수정했습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;md&quot;&gt;&lt;pre class=&quot;language-md&quot;&gt;&lt;code class=&quot;language-md&quot;&gt;&lt;span class=&quot;token front-matter-block&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;token front-matter yaml language-yaml&quot;&gt;title: Gatsby 블로그에 태그 만들기
-date: &apos;2024-01-11&apos;
-icon: 🏷️
-description: &apos;블로그에 태그를 추가했습니다.&apos;
-tags:
- - Gatsby
- - Blog
- - JavaScript&lt;/span&gt;
+&lt;span class=&quot;token front-matter yaml language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Gatsby 블로그에 태그 만들기
+&lt;span class=&quot;token key atrule&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;2024-01-11&apos;&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 🏷️
+&lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;블로그에 태그를 추가했습니다.&apos;&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; Gatsby
+ &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; Blog
+ &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; JavaScript&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;이런식으로 category를 제거하고, tags를 새로 추가했습니다. 여러 항목을 추가하기 위해서는 -로 구분하여 작성해주면 됩니다.&lt;/p&gt;
 &lt;p&gt;이제 아래의 일들이 남았습니다.&lt;/p&gt;
