@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_blog=self.webpackChunkgatsby_starter_blog||[]).push([[682],{5465:function(t,e,a){a.r(e);var l=a(7294),i=a(5744);e.default=function(t){var e;let{data:a,location:n}=t;const s=(null===(e=a.site.siteMetadata)||void 0===e?void 0:e.title)||"Title";return l.createElement(i.Z,{location:n,title:s},"준비 중 입니다.")}}}]);
+//# sourceMappingURL=component---src-pages-about-js-f6827532b71b9707eeda.js.map
