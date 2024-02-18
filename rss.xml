@@ -1,4 +1,241 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Feb 2024 14:04:04 GMT</lastBuildDate><item><title><![CDATA[EC2에서 Docker Container 로그 정리하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/docker-log/</link><guid isPermaLink="false">https://klloo.github.io/docker-log/</guid><pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;문제 상황&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Feb 2024 14:57:40 GMT</lastBuildDate><item><title><![CDATA[HTTP와 HTTPS]]></title><description><![CDATA[HTTP (Hyper Text Transfer Protocol) 서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약이다.  애플리케이션 계층의 프로토콜로 80번 포트를 사용한다. Method, Path, Version, Headers…]]></description><link>https://klloo.github.io/http-vs-https/</link><guid isPermaLink="false">https://klloo.github.io/http-vs-https/</guid><pubDate>Sun, 18 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;HTTP (Hyper Text Transfer Protocol)&lt;/h2&gt;
+&lt;p&gt;서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 511px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cb1dd5b158e810f191f93b032c3f7bfe/92e00/http.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.608695652173914%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVR42o1Ry07DMBDs/38PEheOFQhuBULaRpyIUiBxHnbjV5wdNglJKQfoWCOvZuSRdrzCN4joxB/nNxaHJq+n0zxghT/gO4eqyVEyaynQaoX/MAY657FPXrHdJfjIc3jqob2FNApCCeTNJ7IihZAF6270Ds07AgVsHiPE/G7ecgyUSmF9e4/13QPifQKnM6hjjmPLAbqEtg2sk9CmZG3SRZPC2BabpxdE8e48sAsBz9EWV9c3eEszdhQoWC7Ig1wNajOQPoA6NWro2UNA13UQZTVy7nHp0GgNJSUb/fkn8FoUzESeZ1R1jaIokHNFwy2EgOJNl0DvPdpWj792Cay1XIeGMWbhkPEF76kfy8Lh/FUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;http&quot;
+        title=&quot;&quot;
+        src=&quot;/static/cb1dd5b158e810f191f93b032c3f7bfe/92e00/http.png&quot;
+        srcset=&quot;/static/cb1dd5b158e810f191f93b032c3f7bfe/948cf/http.png 138w,
+/static/cb1dd5b158e810f191f93b032c3f7bfe/6b2ea/http.png 275w,
+/static/cb1dd5b158e810f191f93b032c3f7bfe/92e00/http.png 511w&quot;
+        sizes=&quot;(max-width: 511px) 100vw, 511px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;애플리케이션 계층의 프로토콜로 80번 포트를 사용한다.&lt;/li&gt;
+&lt;li&gt;Method, Path, Version, Headers, Body 등으로 구성된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;가장 큰 특징은 무상태성, 비연결성 프로토콜이라는 것이다.&lt;/h4&gt;
+&lt;h5&gt;&lt;strong&gt;무상태성&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 334px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ba849f6a99d63befa99413ef054b5b2b/86d36/stateless.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.623188405797094%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAADH0lEQVR42g2R20/TBxiG+49wYZbNZG7ECw1ZNrLzxVxkGSMMnRmrGayTOFTmoCh10Q4mw6ECxapIhY5qC4VShJYCthwK9LTSlJZyaqm2pSITGWcZz34Xz92XvM/3vqJa7Q2kV+V8cquEPGUJdpuBEbuaDnMdGmMt3TYVNk8rY5Md9A3cxzvWiS80iNVuxOHpFehhyK4jONPHmLcbUa9Hh1Gv4pGzQ6CFgF/D2oKKkFuJP2QiGh9kYdHK4sooscQg8dgwU1O9jI5oMFkaaNJU0tJWi954F4O5EdGccOydNtA/0kIwYmV3a5xXcS1b8Va2Nywkk308GLhNq6OB2Sc2mvU30XUpmA3qkV/KofrKV7jG7jDu1NKsrkb0z5YPZVs9Ot0fWEx1JJfd+AXT6EQj26udWIbqeDjWRN+sHrVJQcDXxMxMOz2GamwaKSGrnBUhdGNzkkjYhmh7b4lEYpLtZT/bSR/qx4+p6rbhnA/xaifK87UwqzuLwL8k15+wujJFOOyhy2KEuIOgq4drqmbkirs4fHZEsEkkEcHnd/EyGUHj9PIwOM2jaJTIi2c83VpnbW8X9uDZ7ia7ey+ZW4rR4Z1g3OumtauHKmUTV2ru8cvvwss7/4X57d51csvOUNFUwc+1MorqL3PuVjnXdHUEhI6DCSfPX8xidvYyMTfOgyENkprznJYXMG2tEUQbGOi+g6TwJKLA/DC50kKOnTlJ9jkx2UViJOU/0dh2lb8DamJPdcIwnWys91J1+xLSylIKKk7zza/fIynOYdWjhKV2krNa5gNGRN7pQXKLC8n6QczR774m49QxSm8W43arGOw30XBdi0lrYMrZT4uynZKzVXzw5WekffEh6VnpDJgVQr0uJsfbcbgMiGLLASrqK8k8JSFDIianVMJxAbH0R/JOyCnIVKAo03JD1khR1l98e6ScI0ffJy39MClvv87Bjw9xsVLGhctl3NfUIFpY8hMKWyn+U0b22Xw+zc3kPcEgO/84efkn+Dwrg+FRK1LZeQ6+e5h3PkrnrUOppLyxj5T9+3gtdT8H0lJ5M+0AerOK/wFBuo7KhsiN+QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;stateless&quot;
+        title=&quot;&quot;
+        src=&quot;/static/ba849f6a99d63befa99413ef054b5b2b/86d36/stateless.png&quot;
+        srcset=&quot;/static/ba849f6a99d63befa99413ef054b5b2b/948cf/stateless.png 138w,
+/static/ba849f6a99d63befa99413ef054b5b2b/6b2ea/stateless.png 275w,
+/static/ba849f6a99d63befa99413ef054b5b2b/86d36/stateless.png 334w&quot;
+        sizes=&quot;(max-width: 334px) 100vw, 334px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;클라이언트와 서버 사이의 상태를 유지하지 않는다.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;서버 확장성이 높지만 클라이언트가 추가 데이터를 전송해야 한다는 단점이 있다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;strong&gt;비연결성&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 232px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/feb2f8d7e86573f4aeed0ad601805656/6a451/hs.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 107.24637681159419%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;hs&quot;
+        title=&quot;&quot;
+        src=&quot;/static/feb2f8d7e86573f4aeed0ad601805656/6a451/hs.png&quot;
+        srcset=&quot;/static/feb2f8d7e86573f4aeed0ad601805656/948cf/hs.png 138w,
+/static/feb2f8d7e86573f4aeed0ad601805656/6a451/hs.png 232w&quot;
+        sizes=&quot;(max-width: 232px) 100vw, 232px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;연결을 유지하지 않는 모델이다. 즉 서버와 클라이언트의 연결을 지속하지 않는다.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;HTTP 요청과 응답이 이루어진 후 연결을 유지하지 않으므로 서버의 자원을 효율적으로 사용할 수 있다.&lt;/li&gt;
+&lt;li&gt;하지만 연결을 계속 끊는다는 것은 요청마다 매번 연결을 새롭게 맺어야 한다는 것이다.&lt;/li&gt;
+&lt;li&gt;즉 매번 TCP 3 way handshake를 해야하고 이는 시간이 걸린다.&lt;/li&gt;
+&lt;li&gt;이러한 문제는 HTTP 지속 연결로 해결하고 있고, 이후 더 많은 최적화가 이루어졌다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;⚠️ HTTP는 암호화가 되지 않은 평문 데이터를 전송하는 프로콜이기 때문에 주고 받는 정보를 제 3자가 조회할 수 있다. 이러한 문제를 해결하기 위해 HTTPS가 등장했다.&lt;/p&gt;
+&lt;h2&gt;HTTPS (Hyper Text Transfer Protocol Secure)&lt;/h2&gt;
+&lt;p&gt;인터넷 상에서 정보를 암호화하는 SSL 프로토콜을 사용하여 서버와 클라이언트가 데이터를 주고 받는 통신 규약&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 481px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/60cb58ed4640db04b7bcc39667c1da8b/d024a/https.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.347826086956516%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACIUlEQVR42oWSi26bQBBF+f9vyB+0H9E2kZK2CU6MHTvhDbZ5GVjAPGKMTxfcRJUqtSNd7c5d6e7M3FEykSIKQVVW1HXNcB5ID5JrJNdVFE0x3fNafPBj+IHP3csti63Gk/eItplzb/xECfcBos5p31pELijKAjtwcCTW/gsrb4W+0bF3NtbOwo98mrphqS8wtwZZmRHnMWmR4iYOStM0bMWWrM4QQgoWBf2xp21anr1nlt4S1VTZJBuG4zDx47vu6miWhhu7WIGFE8oCtmuUPM+pm5pROEkSyrKkbVuZ13RdJ/HGm8SFayac+hOGb8gOViRFTJgHxCLCCk2UUUzf6vixz/F45M8Y59kPPafh9MGdz+fpdHYOqvvAV+MLVzdX3Nm3LMMFCv+I7tix2q2IiuhvQTlj1bsIflY/cWNes4qeUeI0kkYIDtVharfve/IqJz8Imq5BDwwi2Y6QedVUZPLtLCs3NyaPzgw7sSYYkS4/l4KBdDkUAWmZTi5nRcbc1piZj3ItvvNgqBNUY8a9fs+35TVxFrO21ui+zr7YE2YhiUiwIxulOlREVURYhpRFiRd6LKSzKznwJ+eJuauhWjNZzeX+Xf9BXCS4O5eFu8BPfZzYwUs89PD14rKQLVf1gTRNpwUfXe3ajuNvh9/z93PoB16dVxaOxjbdyNVx2Ox9Xsa16d463MhllwYMp4H/xbspRVWgmdq0iyPm1pylveQXEtg3YyJZeVsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;https&quot;
+        title=&quot;&quot;
+        src=&quot;/static/60cb58ed4640db04b7bcc39667c1da8b/d024a/https.png&quot;
+        srcset=&quot;/static/60cb58ed4640db04b7bcc39667c1da8b/948cf/https.png 138w,
+/static/60cb58ed4640db04b7bcc39667c1da8b/6b2ea/https.png 275w,
+/static/60cb58ed4640db04b7bcc39667c1da8b/d024a/https.png 481w&quot;
+        sizes=&quot;(max-width: 481px) 100vw, 481px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;즉 HTTP에 데이터 암호화가 추가된 프로토콜이다.&lt;/li&gt;
+&lt;li&gt;443번 포트를 사용하며 네트워크 상에서 중간에 제 3자가 정보를 볼 수 없도록 공개키 암호화를 지원하고 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;HTTPS는 대칭키 암호화와 비대칭키 암호화를 모두 사용하여 빠른 연산 속도와 안정성을 모두 얻고 있다.&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;연결 과정에서는 먼저 서버와 클라이언트 간에 주고 받는 데이터를 암호화하기 위해 사용하는 세션키를 교환한다.&lt;/li&gt;
+&lt;li&gt;데이터간의 교환에는 빠른 연산 속도가 필요하므로 세션키는 대칭키로 만들어진다.&lt;/li&gt;
+&lt;li&gt;이 세션키를 교환하는 과정에서 비대칭키가 사용된다.&lt;/li&gt;
+&lt;li&gt;즉 처음 연결을 성립하여 안전하게 세션키를 공유하는 과정에서 비대칭키가 사용되고 이후 데이터를 교환하는 과정에서는 빠른 연산 속도를 위해 대칭키가 사용된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;🔐 &lt;strong&gt;대칭키와 비대칭키&lt;/strong&gt;&lt;/h4&gt;
+&lt;h5&gt;&lt;strong&gt;대칭키&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;클라이언트와 서버가 동일한 키를 사용하여 암호화/복호화를 진행한다.&lt;/li&gt;
+&lt;li&gt;키가 노출되면 매우 위험하지만 연산 속도가 빠르다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;strong&gt;비대칭키&lt;/strong&gt;&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;1개의 쌍으로 구성된 공개키와 개인키를 암호화/복호화 하는데 사용한다.
+&lt;ul&gt;
+&lt;li&gt;공개키: 모두에게 공개 가능한 키&lt;/li&gt;
+&lt;li&gt;개인키: 나만 가지고 있어야하는 키&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;키가 노출되어도 비교작 안전하지만 연산 속도가 느리다.&lt;/li&gt;
+&lt;li&gt;공개키와 개인키로 암호화하면 각각 다음과 같은 효과를 얻을 수 있다.&lt;/li&gt;
+&lt;li&gt;공개키로 암호화 → 🥷 개인키로만 복호화할 수 있다. 즉 정보를 나만 볼 수 있다.&lt;/li&gt;
+&lt;li&gt;개인키로 암호화 → 🌎 공개키로만 복호화할 수 있다. 즉 내가(개인키 소유자) 인증한 정보임을 알려 신뢰를 보장할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;HTTPS 동작 과정&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;서버는 클라이언트가 요청을 보낼 때 암호화를 하기 위한 공개키를 생성해야 하는데, 일반적으로 인증된 기관(Certificate Authority, CA)에 공개키를 전송하여 인증서를 발급받고 있다.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A기업은 HTTPS를 적용하기 위해 공개키/개인키를 발급한다.&lt;/li&gt;
+&lt;li&gt;CA기업에게 돈을 지불하고 공개키를 저장하는 인증서 발급을 요청한다.&lt;/li&gt;
+&lt;li&gt;CA기업은 인증서를 생성하고, CA기업의 개인키로 암호화하여 A기업에 이를 제공한다.&lt;/li&gt;
+&lt;li&gt;A기업은 암호화된 인증서를 브라우저에게 제공한다.&lt;/li&gt;
+&lt;li&gt;브라우저는 CA기업의 공개키를 미리 다운받아 가지고 있어서 암호화된 인증서를 복호화한다.
+&lt;ul&gt;
+&lt;li&gt;브라우저가 가진 공개키를 활용하여 인증서의 복호화가 가능하다면, 접속한 사이트가 CA에 의해 인증되었다는 것을 의미하므로 A기업이 신용이 있다고 판단한다.&lt;/li&gt;
+&lt;li&gt;이렇게 공개키가 데이터를 제공한 사람의 신원을 보장해주는 것을 전자서명이라고 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;암호화된 인증서를 복호화하여 얻은 A기업의 공개키로 세션키를 암호화하여 요청을 전송한다.
+&lt;ul&gt;
+&lt;li&gt;인증서는 CA의 개인키로 암호화되었기 때문에 신뢰성을 확보할 수 있고 클라이언트는 A기업의 공개키로 데이터를 암호화하였기 때문에 A기업만 복호화하여 원본 데이터를 확인할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f32ccd44b92f78333825b56385ed1e7d/d2cbc/https-desc.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.072463768115945%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQ0lEQVR42p1TbWuDMBj0//+mjW4wO/phg2IrDtuNWbVGjVoxMb7ekoC0hba0C1wkic9xd09i4B9jHMerZ8adFHoWQmD5aaLI6dn+w4STIs455m/PSGJyVelDhH3fIwhC1LXQe8MwYFS4RKhqrmVTlhUI8ZAme/hBgDzPEceJXhc0RNN0lxXeCntSGEWR/qp/J5xZnpYLy8L8w0LbCDDOQGmGnfeN3W6Lw6GUKhpUrMLMfAfNMlQVQ04DkMiH67pgjJ0qHPEyX8JcLFEeCmkn1lBqSBQiSYiEtJimeJq96hwJIbBtG6uVBXu9Rtd1R0IhGplHCJruwWXgdV1js9nAcb7ws3UQBr8YpBXVBHWmilXHi6KQSiuNtm2PhFmWw/M87H0XGU11RsqCKlId5bzWZPcMY7qwqqgRTGYl7n4tU0NOG/MHqahYLXU+gCwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;https desc&quot;
+        title=&quot;&quot;
+        src=&quot;/static/f32ccd44b92f78333825b56385ed1e7d/dd45a/https-desc.png&quot;
+        srcset=&quot;/static/f32ccd44b92f78333825b56385ed1e7d/948cf/https-desc.png 138w,
+/static/f32ccd44b92f78333825b56385ed1e7d/6b2ea/https-desc.png 275w,
+/static/f32ccd44b92f78333825b56385ed1e7d/dd45a/https-desc.png 550w,
+/static/f32ccd44b92f78333825b56385ed1e7d/d2cbc/https-desc.png 705w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🏢 A기업&lt;/strong&gt;: (CA에게) 내 공개키 저장할 인증서 하나만 발급해줘 돈줄게&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🏛️ CA 기업&lt;/strong&gt;:  알겠엉 이거🎫  줄게. 너 공개키 담아서 내 개인키로 암호화한거야&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🏢 A기업&lt;/strong&gt; : (브라우저에게) 인증서🎫  줄게. 이거 믿을만한 CA가 개인키로 암호화해준거야&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🌏 브라우저&lt;/strong&gt;: 아 진짜? 나 그 CA 공개키 있는데 한 번 풀어본다?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🌏 브라우저&lt;/strong&gt;: 진짜 풀리네? 이거 CA가 인증한거 맞구나 너 인정 (전자 서명)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🌏 브라우저&lt;/strong&gt;: 풀어보니까 여기 너네 공개키있는데 이걸로 우리 둘이 쓸 세션키 암호화해서 전달하면 되지?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🏢 A기업&lt;/strong&gt;: ㅇㅇ그럼 그거 내 개인키로만 풀 수 있으니까 나만 볼게&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🌏 브라우저&lt;/strong&gt;: 세션키 암호화해서 보냈어. 우리 이제 그걸로 데이터 암호화해서 주고 받자!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🏢 A기업&lt;/strong&gt;: 좋&lt;del&gt;아&lt;/del&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;⚠️ HTTPS를 지원한다고 해서 무조건 안전하진 않다. 이 경우 브라우저에서 https지만 “주의 요함”, “안전하지 않은 사이트”등의 알림을 주게 된다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;  &lt;br/&gt;
+&lt;a href=&quot;https://hstory0208.tistory.com/entry/HTTP%EB%9E%80-%EB%AC%B4%EC%83%81%ED%83%9C%EC%84%B1%EA%B3%BC-%EB%B9%84%EC%97%B0%EA%B2%B0%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90&quot;&gt;https://hstory0208.tistory.com/entry/HTTP란-무상태성과-비연결성에-대해-알아보자&lt;/a&gt; &lt;br/&gt;
+&lt;a href=&quot;https://mangkyu.tistory.com/98&quot;&gt;https://mangkyu.tistory.com/98&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[EC2에서 Docker Container 로그 정리하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/docker-log/</link><guid isPermaLink="false">https://klloo.github.io/docker-log/</guid><pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;문제 상황&lt;/h3&gt;
 &lt;p&gt;제가 친구들과 운영하고 있는 웹 사이트가 하나 있는데요 ... 이 웹사이트는 제 친구들이 함께 사용하고 있습니다. 그런데 오늘 ...&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
