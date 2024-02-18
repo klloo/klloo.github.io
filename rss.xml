@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Feb 2024 14:57:40 GMT</lastBuildDate><item><title><![CDATA[HTTP와 HTTPS]]></title><description><![CDATA[HTTP (Hyper Text Transfer Protocol) 서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약이다.  애플리케이션 계층의 프로토콜로 80번 포트를 사용한다. Method, Path, Version, Headers…]]></description><link>https://klloo.github.io/http-vs-https/</link><guid isPermaLink="false">https://klloo.github.io/http-vs-https/</guid><pubDate>Sun, 18 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;HTTP (Hyper Text Transfer Protocol)&lt;/h2&gt;
-&lt;p&gt;서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약이다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Feb 2024 15:03:28 GMT</lastBuildDate><item><title><![CDATA[HTTP와 HTTPS]]></title><description><![CDATA[HTTP (Hyper Text Transfer Protocol) 서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약  애플리케이션 계층의 프로토콜로 80번 포트를 사용한다. Method, Path, Version, Headers…]]></description><link>https://klloo.github.io/http-vs-https/</link><guid isPermaLink="false">https://klloo.github.io/http-vs-https/</guid><pubDate>Sun, 18 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;HTTP (Hyper Text Transfer Protocol)&lt;/h2&gt;
+&lt;p&gt;서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 511px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
@@ -165,13 +165,16 @@
 &lt;li&gt;개인키: 나만 가지고 있어야하는 키&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;키가 노출되어도 비교작 안전하지만 연산 속도가 느리다.&lt;/li&gt;
-&lt;li&gt;공개키와 개인키로 암호화하면 각각 다음과 같은 효과를 얻을 수 있다.&lt;/li&gt;
+&lt;li&gt;키가 노출되어도 비교적 안전하지만 연산 속도가 느리다.&lt;/li&gt;
+&lt;li&gt;공개키와 개인키로 암호화하면 각각 다음과 같은 효과를 얻을 수 있다.
+&lt;ul&gt;
 &lt;li&gt;공개키로 암호화 → 🥷 개인키로만 복호화할 수 있다. 즉 정보를 나만 볼 수 있다.&lt;/li&gt;
 &lt;li&gt;개인키로 암호화 → 🌎 공개키로만 복호화할 수 있다. 즉 내가(개인키 소유자) 인증한 정보임을 알려 신뢰를 보장할 수 있다.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3&gt;HTTPS 동작 과정&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;서버는 클라이언트가 요청을 보낼 때 암호화를 하기 위한 공개키를 생성해야 하는데, 일반적으로 인증된 기관(Certificate Authority, CA)에 공개키를 전송하여 인증서를 발급받고 있다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;서버는 클라이언트가 요청을 보낼 때 암호화를 하기 위한 공개키를 생성해야 하는데, 일반적으로 인증된 기관(Certificate Authority, CA)에 공개키를 전송하여 인증서를 발급받고 있다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;A기업은 HTTPS를 적용하기 위해 공개키/개인키를 발급한다.&lt;/li&gt;
 &lt;li&gt;CA기업에게 돈을 지불하고 공개키를 저장하는 인증서 발급을 요청한다.&lt;/li&gt;
@@ -180,7 +183,7 @@
 &lt;li&gt;브라우저는 CA기업의 공개키를 미리 다운받아 가지고 있어서 암호화된 인증서를 복호화한다.
 &lt;ul&gt;
 &lt;li&gt;브라우저가 가진 공개키를 활용하여 인증서의 복호화가 가능하다면, 접속한 사이트가 CA에 의해 인증되었다는 것을 의미하므로 A기업이 신용이 있다고 판단한다.&lt;/li&gt;
-&lt;li&gt;이렇게 공개키가 데이터를 제공한 사람의 신원을 보장해주는 것을 전자서명이라고 한다.&lt;/li&gt;
+&lt;li&gt;이렇게 공개키가 데이터를 제공한 사람의 신원을 보장해주는 것을 &lt;strong&gt;전자서명&lt;/strong&gt;이라고 한다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;암호화된 인증서를 복호화하여 얻은 A기업의 공개키로 세션키를 암호화하여 요청을 전송한다.
