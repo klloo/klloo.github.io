@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Feb 2024 15:03:45 GMT</lastBuildDate><item><title><![CDATA[HTTP와 HTTPS]]></title><description><![CDATA[HTTP (Hyper Text Transfer Protocol) 서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약  애플리케이션 계층의 프로토콜로 80번 포트를 사용한다. Method, Path, Version, Headers…]]></description><link>https://klloo.github.io/http-vs-https/</link><guid isPermaLink="false">https://klloo.github.io/http-vs-https/</guid><pubDate>Sun, 18 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;HTTP (Hyper Text Transfer Protocol)&lt;/h2&gt;
-&lt;p&gt;서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Feb 2024 15:46:39 GMT</lastBuildDate><item><title><![CDATA[HTTP와 HTTPS]]></title><description><![CDATA[요즘 운영체제와 네트워크를 주제로 CS 스터디를 진행하고 있는데요, HTTPS와 관련된 주제가 잘 정리된 것 같아서 블로그에 은근슬쩍 올려봅니다.. HTTP (Hyper Text Transfer Protocol)  HTTP…]]></description><link>https://klloo.github.io/http-vs-https/</link><guid isPermaLink="false">https://klloo.github.io/http-vs-https/</guid><pubDate>Sun, 18 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;요즘 운영체제와 네트워크를 주제로 CS 스터디를 진행하고 있는데요, HTTPS와 관련된 주제가 잘 정리된 것 같아서 블로그에 은근슬쩍 올려봅니다..&lt;/p&gt;
+&lt;h2&gt;HTTP (Hyper Text Transfer Protocol)&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 511px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
@@ -30,12 +30,10 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;애플리케이션 계층의 프로토콜로 80번 포트를 사용한다.&lt;/li&gt;
-&lt;li&gt;Method, Path, Version, Headers, Body 등으로 구성된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;가장 큰 특징은 무상태성, 비연결성 프로토콜이라는 것이다.&lt;/h4&gt;
-&lt;h5&gt;&lt;strong&gt;무상태성&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;HTTP란 서버와 클라이언트가 서로 데이터를 주고 받기 위해 사용되는 통신규약입니다. &lt;br/&gt;
+애플리케이션 계층의 프로토콜로 80번 포트를 사용하고 있습니다.&lt;/p&gt;
+&lt;p&gt;HTTP의 가장 큰 특징은 &lt;strong&gt;무상태성, 비연결성&lt;/strong&gt; 프로토콜이라는 것입니다!&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;무상태성&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 334px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
@@ -66,11 +64,9 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;클라이언트와 서버 사이의 상태를 유지하지 않는다.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;서버 확장성이 높지만 클라이언트가 추가 데이터를 전송해야 한다는 단점이 있다&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5&gt;&lt;strong&gt;비연결성&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;먼저 무상태성은 말 그대로 &lt;strong&gt;클라이언트와 서버 사이의 상태를 유지하지 않는다&lt;/strong&gt;는 것입니다. 그래서 서버는 요청을 보낸 클라이언트가 이전에 어떤 요청을 보냈는지, 애초에 요청을 보낸 적이 있기나 한지 등 클라이언트에 대한 상태를 유지하고 있지 않습니다.&lt;/p&gt;
+&lt;p&gt;상태를 유지하지 않으므로 클라이언트는 서버에 종속적이지 않아 서버 확장성이 높다는 장점이 있지만, 로그인 등 상태를 유지해야 하는 기능을 사용하기 위해서는 쿠키와 같이 클라이언트의 상태를 기억하기 위한 추가적인 데이터를 주고 받아야 한다는 단점이 있습니다.&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;비연결성&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 232px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
@@ -100,16 +96,13 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;연결을 유지하지 않는 모델이다. 즉 서버와 클라이언트의 연결을 지속하지 않는다.&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;HTTP 요청과 응답이 이루어진 후 연결을 유지하지 않으므로 서버의 자원을 효율적으로 사용할 수 있다.&lt;/li&gt;
-&lt;li&gt;하지만 연결을 계속 끊는다는 것은 요청마다 매번 연결을 새롭게 맺어야 한다는 것이다.&lt;/li&gt;
-&lt;li&gt;즉 매번 TCP 3 way handshake를 해야하고 이는 시간이 걸린다.&lt;/li&gt;
-&lt;li&gt;이러한 문제는 HTTP 지속 연결로 해결하고 있고, 이후 더 많은 최적화가 이루어졌다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;⚠️ HTTP는 암호화가 되지 않은 평문 데이터를 전송하는 프로콜이기 때문에 주고 받는 정보를 제 3자가 조회할 수 있다. 이러한 문제를 해결하기 위해 HTTPS가 등장했다.&lt;/p&gt;
+&lt;p&gt;비연결성은 HTTP가 연결을 유지하지 않는 모델이라는 것입니다. 즉 &lt;strong&gt;서버와 클라이언트의 연결을 지속하지 않습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;HTTP 요청과 응답이 이루어진 후에는 이 연결을 더이상 유지하지 않으므로 서버의 자원을 효율적으로 사용할 수 있다는 장점이 있습니다.&lt;/p&gt;
+&lt;p&gt;하지만 연결을 계속 끊어버린다는 것은 클라이언트가 요청을 보낼 때 마다 매번 새롭게 연결을 맺어야 한다는 말인데, 이는 매번 TCP 3 way handshake를 해야한다는 것이므로 시간이 걸리게 됩니다. &lt;br/&gt;
+(이러한 문제는 HTTP 지속 연결로 해결하고 있고, 이후 더 많은 최적화가 이루어졌다고 합니다.)&lt;/p&gt;
+&lt;h3&gt;HTTP의 문제점&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;HTTP는 암호화가 되지 않은 평문 데이터를 전송하는 프로토콜&lt;/strong&gt;입니다. 때문에 주고 받는 정보를 제 3자가 조회할 수 있습니다. 만약 HTTP로 민감한 정보를 주고 받는다면, 이는 치명적인 문제가 될 수 있습니다. 이러한 문제를 해결하기 위해서 등장한 것이 HTTPS 입니다.&lt;/p&gt;
 &lt;h2&gt;HTTPS (Hyper Text Transfer Protocol Secure)&lt;/h2&gt;
-&lt;p&gt;인터넷 상에서 정보를 암호화하는 SSL 프로토콜을 사용하여 서버와 클라이언트가 데이터를 주고 받는 통신 규약&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 481px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
@@ -140,41 +133,35 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;인터넷 상에서 정보를 암호화하는 SSL 프로토콜을 사용하여 서버와 클라이언트가 데이터를 주고 받는 통신 규약입니다. 즉 &lt;strong&gt;HTTP에 데이터 암호화가 추가된 프로토콜&lt;/strong&gt;이라고 볼 수 있습니다.&lt;/p&gt;
+&lt;p&gt;HTTPS는 443번 포트를 사용하며, &lt;strong&gt;대칭키 암호화와 비대칭키 암호화를 모두 사용하여 빠른 연산 속도와 안정성을 모두 얻고 있습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;일단 설명부터 늘어놓자면,&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;즉 HTTP에 데이터 암호화가 추가된 프로토콜이다.&lt;/li&gt;
-&lt;li&gt;443번 포트를 사용하며 네트워크 상에서 중간에 제 3자가 정보를 볼 수 없도록 공개키 암호화를 지원하고 있다.&lt;/li&gt;
+&lt;li&gt;먼저 서버와 클라이언트는 주고 받는 데이터를 암호화하기 위해 사용하는 세션키를 교환합니다.&lt;/li&gt;
+&lt;li&gt;데이터간의 교환에는 빠른 연산 속도가 필요하므로 세션키는 대칭키로 만들어집니다.&lt;/li&gt;
+&lt;li&gt;이 세션키를 교환하는 과정에서 비대칭키가 사용됩니다.&lt;/li&gt;
+&lt;li&gt;즉 처음 연결을 성립하여 안전하게 세션키를 공유하는 과정에서 비대칭키를 사용하고 이후 데이터를 교환하는 과정에서는 빠른 연산 속도를 위해 대칭키를 사용합니다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;HTTPS는 대칭키 암호화와 비대칭키 암호화를 모두 사용하여 빠른 연산 속도와 안정성을 모두 얻고 있다.&lt;/h4&gt;
+&lt;p&gt;이 설명을 이해하려면 먼저 대칭키와 비대칭키에 대해 알아야합니다.&lt;/p&gt;
+&lt;h4&gt;대칭키&lt;/h4&gt;
+&lt;p&gt;대칭키는 동일한 키를 사용하여 암호화/복호화를 진행하는 암호화 알고리즘입니다. 동일한 키를 사용하므로 키가 노출되면 매우 위험하지만, 연산속도가 빠르다는 장점이 있습니다.&lt;/p&gt;
+&lt;h4&gt;비대칭키&lt;/h4&gt;
+&lt;p&gt;1개의 쌍으로 구성된 공개키와 개인키를 암호화/복호화 하는데 사용하는 암호화 알고리즘 입니다.
+&lt;br/&gt;여기서 공개키는 이름 그대로 모두에게 공개 가능한 키이고, 개인키는 나만 가지고 있는 키를 의미합니다.&lt;/p&gt;
+&lt;p&gt;키가 노출되어도 비교적 안전하지만, 연산 속도가 느리다는 단점이 있습니다.&lt;/p&gt;
+&lt;p&gt;또 공개키와 개인키로 암호화하는것에 각각 다른 효과를 기대할 수 있는데요,&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;연결 과정에서는 먼저 서버와 클라이언트 간에 주고 받는 데이터를 암호화하기 위해 사용하는 세션키를 교환한다.&lt;/li&gt;
-&lt;li&gt;데이터간의 교환에는 빠른 연산 속도가 필요하므로 세션키는 대칭키로 만들어진다.&lt;/li&gt;
-&lt;li&gt;이 세션키를 교환하는 과정에서 비대칭키가 사용된다.&lt;/li&gt;
-&lt;li&gt;즉 처음 연결을 성립하여 안전하게 세션키를 공유하는 과정에서 비대칭키가 사용되고 이후 데이터를 교환하는 과정에서는 빠른 연산 속도를 위해 대칭키가 사용된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;🔐 &lt;strong&gt;대칭키와 비대칭키&lt;/strong&gt;&lt;/h4&gt;
-&lt;h5&gt;&lt;strong&gt;대칭키&lt;/strong&gt;&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;클라이언트와 서버가 동일한 키를 사용하여 암호화/복호화를 진행한다.&lt;/li&gt;
-&lt;li&gt;키가 노출되면 매우 위험하지만 연산 속도가 빠르다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5&gt;&lt;strong&gt;비대칭키&lt;/strong&gt;&lt;/h5&gt;
-&lt;ul&gt;
-&lt;li&gt;1개의 쌍으로 구성된 공개키와 개인키를 암호화/복호화 하는데 사용한다.
-&lt;ul&gt;
-&lt;li&gt;공개키: 모두에게 공개 가능한 키&lt;/li&gt;
-&lt;li&gt;개인키: 나만 가지고 있어야하는 키&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;공개키로 암호화하는 경우, 🥷 개인키로만 복호화할 수 있으므로 &lt;strong&gt;정보를 나(개인키 소유자)만 볼 수 있게 됩니다.&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;키가 노출되어도 비교적 안전하지만 연산 속도가 느리다.&lt;/li&gt;
-&lt;li&gt;공개키와 개인키로 암호화하면 각각 다음과 같은 효과를 얻을 수 있다.
-&lt;ul&gt;
-&lt;li&gt;공개키로 암호화 → 🥷 개인키로만 복호화할 수 있다. 즉 정보를 나만 볼 수 있다.&lt;/li&gt;
-&lt;li&gt;개인키로 암호화 → 🌎 공개키로만 복호화할 수 있다. 즉 내가(개인키 소유자) 인증한 정보임을 알려 신뢰를 보장할 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;개인키로 암호화하는 경우, 🌎 공개키로만 복호화할 수 있으므로 &lt;strong&gt;내가(개인키 소유자) 인증한 정보임을 알려 신뢰를 보장할 수 있습니다.&lt;/strong&gt; 주로 전자서명할 때 사용됩니다.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;그래서 한줄로 요약해보자면... &lt;strong&gt;대칭키는 빠르지만 위험하고, 비대칭키는 느리지만 안전합니다.&lt;/strong&gt; 이것만 알아도 위의 설명을 다시 읽어보면 이해가 될 것 같습니다!&lt;/p&gt;
 &lt;h3&gt;HTTPS 동작 과정&lt;/h3&gt;
-&lt;p&gt;서버는 클라이언트가 요청을 보낼 때 암호화를 하기 위한 공개키를 생성해야 하는데, 일반적으로 인증된 기관(Certificate Authority, CA)에 공개키를 전송하여 인증서를 발급받고 있다.&lt;/p&gt;
+&lt;p&gt;서버는 클라이언트가 요청을 보낼 때 암호화를 하기 위한 공개키를 생성해야 하는데, 일반적으로 인증된 기관(Certificate Authority, CA)에 공개키를 전송하여 인증서를 발급받고 있습니다.&lt;/p&gt;
+&lt;p&gt;인증서 발급부터 서버와 클라이언트가 요청을 주고받기 전까지의 HTTPS 동작 과정을 살펴보자면,&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;A기업은 HTTPS를 적용하기 위해 공개키/개인키를 발급한다.&lt;/li&gt;
 &lt;li&gt;CA기업에게 돈을 지불하고 공개키를 저장하는 인증서 발급을 요청한다.&lt;/li&gt;
@@ -192,6 +179,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;대충 이런 설명들이 구글링에 많이 나오는데요... 저는 이 설명을 아래 그림과 대화로 이해를 했습니다.
+A기업은 웹사이트를 제공하는 업체정도로 이해하면 더 쉬울 것 같습니다!&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
@@ -234,7 +223,7 @@
 &lt;li&gt;&lt;strong&gt;🌏 브라우저&lt;/strong&gt;: 세션키 암호화해서 보냈어. 우리 이제 그걸로 데이터 암호화해서 주고 받자!&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;🏢 A기업&lt;/strong&gt;: 좋아~~&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;⚠️ HTTPS를 지원한다고 해서 무조건 안전하진 않다. 이 경우 브라우저에서 https지만 “주의 요함”, “안전하지 않은 사이트”등의 알림을 주게 된다.&lt;/p&gt;
+&lt;p&gt;그런데 자체적으로 인증서를 발급하거나, 신뢰할 수 없는 CA 기업을 통해 인증서를 발급받는 경우도 있어서 HTTPS를 지원한다고 해서 무조건 안전하진 않다고 합니다. 하지만 이 경우에는 브라우저에서 https지만 “주의 요함”, “안전하지 않은 사이트”등의 알림을 주게 된다고 합니다~&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;Reference&lt;/strong&gt;  &lt;br/&gt;
 &lt;a href=&quot;https://hstory0208.tistory.com/entry/HTTP%EB%9E%80-%EB%AC%B4%EC%83%81%ED%83%9C%EC%84%B1%EA%B3%BC-%EB%B9%84%EC%97%B0%EA%B2%B0%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90&quot;&gt;https://hstory0208.tistory.com/entry/HTTP란-무상태성과-비연결성에-대해-알아보자&lt;/a&gt; &lt;br/&gt;
