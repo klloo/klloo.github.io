@@ -1,4 +1,228 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 May 2024 05:49:53 GMT</lastBuildDate><item><title><![CDATA[React Router의 loader 사용해보기 (feat. React Query)]]></title><description><![CDATA[백만년만에 블로그를 쓰는데요… 흠흠 최근에 React Router의 loader…]]></description><link>https://klloo.github.io/react-loader/</link><guid isPermaLink="false">https://klloo.github.io/react-loader/</guid><pubDate>Sun, 21 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;백만년만에 블로그를 쓰는데요… 흠흠 최근에 React Router의 loader를 사용해봤는데 이번에 처음 알게된 기능이라 한 번 기록해보려고 합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 May 2024 06:18:39 GMT</lastBuildDate><item><title><![CDATA[Lint 자동화 설정하기 (feat. Husky,  lint-staged)]]></title><description><![CDATA[JS로 개발을 하다보면 Lint 도구를 거의 필수로 사용하는데요, Lint…]]></description><link>https://klloo.github.io/auto-lint/</link><guid isPermaLink="false">https://klloo.github.io/auto-lint/</guid><pubDate>Thu, 02 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/97e7ffe17852d464fa5ae312c7c4bf69/511f0/seho.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.4927536231884%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAADoklEQVR42m2RaUyUVxSGv9ZEFqVQEMomhFWBClQJRXBakUVGiMPOAFoWWYRhMkxG63SUTZCtDjSQsCilCf4gRpSumlSlkdCFPW2iojUkAk0gWkNFWpaZefrZ373Jk3tylvfcc4+wvvaKl8tLGI2rIpsiBoyGTQwiRtMGmxsrov0KWBPvNUwm439+o3Fd9G2w9PgxI+29DJ3XM9ndh/DH0wUW5xf4v2MSxZdnJjCsr7BhWMW0vsra0iym1zGMoviGaBlZX/uH5aUl/lpaRHg28wvPH/3Mi9kpVhYe8uLpfX6fGOLR2PcsTg9x6/M2SopLSEtO4bRKyfy9ftb+fILh5TzGldcsYPp7URxgEdPKHEJnWSodIp3qLLrUmXSr0mg5IaVbIWO6t5YDgXtxsHPH09UbL1sHbnfVMDvQRLcylR5VOpeUafSKNX1qOVc0WQiVqTGoj0goPRpNYZyE4sgQkvzdxCZZ3OusJSF0PxF7QpB/ICEpLJTreh1zg3rygn1I3O3LYR9fkvw8SX/Xm+xAH4SOIhnNx47QnCfj05x4tBlxjN++ycqvd/lSm89w0ynG9FpGW87QL05wuUyOYW6csW+uozoUhkZ6EG2CSLwEXYIE4ZIikY6Co7SeTCctLoqA4PcZn5xk6KtrtBbLuVWtYqRZw6C2UNykgpbjMp7MPOBMVT37gt5DlxJLY1Y85zOkXMiOR+jXpHJWfpjgvaG84xGA9Y6dODm6s83KllD/3cx01TH1WRU/NWuZ0H/CufhIvL0DsHP0wMUnkIjwcCqTD9KQKaUxNxGhNleKu7c/9q6+ODp7YWPrhLmlLW+8acFb2+3oUWQydFbJTW0xA0o5UV4ebLG0x0nM99gVxE7fIPz8/DkRFUKN+HVCVMgettq4YOvgioWNPVu2WmJu7YDl284IghWZcdH8eFHLd7piTidLsdhmj2Bmh5mVI/buu3D09MPdJwh1bCrliREI9R+lUBuZz8VDRdRLckXyqIsqQHMgE320+KqcakbVbVzNKedCigLlfnExslLqY7JojCmiVJJBdWw+19LPcV/XjvBbaxt3TjbwdV4Nd9TN3CitpeLDHFThclGsgocNfUxV9zLdcJmO7FOkBcdzI1/BF6kl9EhV6CKO83FYDg2yAu421SIM6I7xbV0hw+0aJq9U0N+owGaHG65ufrRoNcyP/cDzB6M8mx6mskyJmbUzLk7eSPeFs93cjqgwf6rKZFxtKmdksJd/AS2zhm7PvP29AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;seho&quot;
+        title=&quot;&quot;
+        src=&quot;/static/97e7ffe17852d464fa5ae312c7c4bf69/dd45a/seho.png&quot;
+        srcset=&quot;/static/97e7ffe17852d464fa5ae312c7c4bf69/948cf/seho.png 138w,
+/static/97e7ffe17852d464fa5ae312c7c4bf69/6b2ea/seho.png 275w,
+/static/97e7ffe17852d464fa5ae312c7c4bf69/dd45a/seho.png 550w,
+/static/97e7ffe17852d464fa5ae312c7c4bf69/d4c13/seho.png 825w,
+/static/97e7ffe17852d464fa5ae312c7c4bf69/99f37/seho.png 1100w,
+/static/97e7ffe17852d464fa5ae312c7c4bf69/511f0/seho.png 1172w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;JS로 개발을 하다보면 Lint 도구를 거의 필수로 사용하는데요, Lint 도구를 사용하면 소스코드를 분석하여 문법적인 오류나 스타일적인 오류, 적절하지 않은 구조 등을 알려주게 됩니다. 이를 통해 협업 시 일관된 코드 스타일을 유지할 수 있게 해주고, 잠재적인 오류를 방지할 수 있게 됩니다.&lt;/p&gt;
+&lt;p&gt;하지만 이렇게 Lint나 Formatter와 관련된 설정을 해두더라도, 이 설정을 적용하지 않는 작업자가 있을 수도 있습니다. 물론 친절하게 알려주는게 맞지만 그래도 커밋할 때 마다 자동으로 적용되도록 설정할 수 있으면 여러모로 편해질 것 같으니 한 번 적용을 해보려고 합니다.&lt;/p&gt;
+&lt;h2&gt;Husky 🐶&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5aa976b78363338f4a82c86f9a237026/0a867/husky.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 29.71014492753623%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA7klEQVR42o2QS07EMBBEcwsmcT6OJ3b8IR87ZGAHm9mMOMRchnMXbScKICTE4qnLbXd1ydnl+QW36zte7yvePjSWe4f8oULBahTFBmMNSoL9g6xtJZyboR8tTDBQg4ZoFWJfCJVgjON0qg7zPw057yClgeyIs00oZdH37qDreupvS8qSb4n3+stQKUNDFto4aE1GdJZS72bR3MDS3Ro8eu2SUZ5XBzH1d53FdMMwETOmKcD7hbRHCCvpp1SX5ULfMtG9pzqmfiTOGDNgHD3mOaTlmbUDDawpVV23aJozIX7A+VcvvtkQiapq97lNfwLIjKszWxpeJQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;husky&quot;
+        title=&quot;&quot;
+        src=&quot;/static/5aa976b78363338f4a82c86f9a237026/dd45a/husky.png&quot;
+        srcset=&quot;/static/5aa976b78363338f4a82c86f9a237026/948cf/husky.png 138w,
+/static/5aa976b78363338f4a82c86f9a237026/6b2ea/husky.png 275w,
+/static/5aa976b78363338f4a82c86f9a237026/dd45a/husky.png 550w,
+/static/5aa976b78363338f4a82c86f9a237026/d4c13/husky.png 825w,
+/static/5aa976b78363338f4a82c86f9a237026/0a867/husky.png 986w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Husky의 공식문서에 나와있는 소개인데요. Husky는 git hooks을 쉽게 사용할 수 있게 해주는 라이브러리입니다.&lt;/p&gt;
+&lt;p&gt;git은 특정 상황에 특정 스크립트를 실행할 수 있도록 해주는 기능을 지원하고 있습니다. 모든 레포지토리에서 이미 지원이 되고 있는데, 이 기능을 &lt;strong&gt;git hooks&lt;/strong&gt;라고 합니다. 여기서 ‘특정 상황’이라고 하는 것은 커밋 전, 푸시 전, 머지 전 등등의 상황이 있습니다. 그렇게 많지는 않고요, 한 10개 조금 넘는 정도인 것 같네요. 자세한 내용은 &lt;a href=&quot;https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks&quot;&gt;여기&lt;/a&gt;서 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c1fc62dc5739c9edeb3c9d296f9b6486/97cfc/hook.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 71.73913043478261%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABlOVOUqxsH//EABoQAQEAAgMAAAAAAAAAAAAAAAIBAAMSFCL/2gAIAQEAAQUCtqanC+s6oB2gwxTP/8QAFhEAAwAAAAAAAAAAAAAAAAAAEBEh/9oACAEDAQE/AVB//8QAFhEBAQEAAAAAAAAAAAAAAAAAIRAS/9oACAECAQE/AdJP/8QAHBAAAgEFAQAAAAAAAAAAAAAAAAERAiExMlFB/9oACAEBAAY/AhcZrIn70VcYZY//xAAbEAEAAQUBAAAAAAAAAAAAAAABABEhMVFhof/aAAgBAQABPyHQuEzlQiDFDcB6qYel3hEFk//aAAwDAQACAAMAAAAQq9//xAAWEQEBAQAAAAAAAAAAAAAAAAABACH/2gAIAQMBAT8QA6IW/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAh/9oACAECAQE/EFGkm3//xAAcEAEBAAICAwAAAAAAAAAAAAABEQAhMUFxgZH/2gAIAQEAAT8QeqCXQw9GT89RYN7xkCkIPGWCMVd3knRmoAbG1an0ubQga3n/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;hook&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c1fc62dc5739c9edeb3c9d296f9b6486/d7854/hook.jpg&quot;
+        srcset=&quot;/static/c1fc62dc5739c9edeb3c9d296f9b6486/a81b0/hook.jpg 138w,
+/static/c1fc62dc5739c9edeb3c9d296f9b6486/35f54/hook.jpg 275w,
+/static/c1fc62dc5739c9edeb3c9d296f9b6486/d7854/hook.jpg 550w,
+/static/c1fc62dc5739c9edeb3c9d296f9b6486/97cfc/hook.jpg 736w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;즉, git hooks는 git을 사용하는 특정 상황에 대해 &apos;이 시점에서는 이런 일을 해줘&apos; 하고 명령을 내릴 수 있는 기능입니다. 이렇게 git hooks만으로도 커밋 전에 특정 작업을 수행하도록 설정할 수 있지만, git hooks는 원격으로 저장하고 관리할 수 없기 때문에 해당 설정을 공유하기가 힘듭니다.&lt;/p&gt;
+&lt;p&gt;하지만 Husky를 사용하면 이 문제를 해결하면서도 git hooks를 보다 간단하게 사용할 수 있습니다.&lt;/p&gt;
+&lt;h3&gt;설정&lt;/h3&gt;
+&lt;p&gt;먼저 설치를 해줍니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; --save-dev husky&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 초기화를 해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;npx husky init&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게하면 .husky/에 커밋하기 전에 동작할 스크립트가 생성되고(생성된 스크립트는 언제든지 워크플로에 맞게 수정하면 됩니다! ) package.json에 prepare 스크립트가 업데이트 됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 484px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0219d1372b3a8b3073a5271722bd4a2d/ff42b/prepare.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21.73913043478261%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA9klEQVR42jWQ7VKCUBCGvY4SDtAhAgEBFYWIkxpKZt8fNmM/mu7/Hp4ONP14d9/d2XlmdwfCNPHjBPV0oNo9M1/fUt+/0xy+Wb0cWTR7posCX3qoSCEsgWVZ2Pa/7F5dr9PA0oUwDcJsRr7c4noXpGVNUlzpXo4jXVzHQp65hHKE081r6MnQ6HVqGAwNE1vDhBAMuiCl7KFpUVO2j0zVDerhg2Kz1xvvqPZvlNp7vsfIc7mrcurJmE0x6b2aJcyTENtx/oCONl0+90cs9Znp5TXN5w/L1y8NbMlXLUE0JooiTP2iLPRZ5ynNPGOroXUWEwQBcRzzC33GfWl2GiJsAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;prepare&quot;
+        title=&quot;&quot;
+        src=&quot;/static/0219d1372b3a8b3073a5271722bd4a2d/ff42b/prepare.png&quot;
+        srcset=&quot;/static/0219d1372b3a8b3073a5271722bd4a2d/948cf/prepare.png 138w,
+/static/0219d1372b3a8b3073a5271722bd4a2d/6b2ea/prepare.png 275w,
+/static/0219d1372b3a8b3073a5271722bd4a2d/ff42b/prepare.png 484w&quot;
+        sizes=&quot;(max-width: 484px) 100vw, 484px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;prepare 스크립트는 패키지가 패킹 되기전에 실행되는 스크립트로, npm install 스크립트가 실행될 때 호출됩니다. 그래서 이렇게 업데이트가 된 package.json을 가지고 npm install을 한다면, prepare 스크립트가 호출되어 husky 명령어가 실행되고, 자동적으로 git hooks를 사용할 수 있도록 설정이 된다고 합니다.&lt;/p&gt;
+&lt;p&gt;즉 번거로운 설정 필요없이, npm install만으로 git hooks를 사용할 모든 준비가 끝나게 됩니다.&lt;/p&gt;
+&lt;p&gt;그럼 이제, 커밋 전에 특정 스크립트가 동작하도록 hook을 추가해봅시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;npx lint-staged&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; .husky/pre-commit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저는 &lt;code class=&quot;language-text&quot;&gt;npx lint-staged&lt;/code&gt; 명령어가 커밋 전에 동작하도록 추가를 해줬습니다.&lt;/p&gt;
+&lt;h2&gt;lint-staged&lt;/h2&gt;
+&lt;p&gt;lint-staged란 git에서 stage단계에 있는 파일들만 검사해주는 라이브러리 입니다.&lt;/p&gt;
+&lt;p&gt;만약 위와 같이 설정을 해주고, 커밋전에 실행할 명령어로 바로 lint를 검사하는 명령어를 넣어준다면 한 파일만 수정하더라도 모든 파일들을 전부 검사하기 때문에 굉장히 비효율적일 수 있습니다. 따라서 lint-staged를 통해 작업한 파일만을 대상으로 lint 검사를 진행할 수 있도록 해줬습니다.&lt;/p&gt;
+&lt;h3&gt;설정&lt;/h3&gt;
+&lt;p&gt;먼저 설치를 해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; --save-dev lint-staged&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 package.json 파일에 stage된 파일에 어떤 명령어를 실행할 지 적어주면 끝입니다! 별도의 파일로 구성해서 설정을 하는 방법도 있지만, 저는 그냥 package.json에 적어줬습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token property&quot;&gt;&quot;lint-staged&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;src/**/*.{js,ts}&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;biome check --apply --no-errors-on-unmatched --files-ignore-unknown=true&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저는 lint 도구로 biome을 사용했기 때문에 이렇게 적어줬고요…. 이전에는 ESLint와 Prettier를 사용했는데, biome을 사용하니 각각 따로 설정해주지 않아도 돼서 편리한 것 같습니다.&lt;/p&gt;
+&lt;p&gt;아무튼~ 이전 단계에서 커밋되기 전, &lt;code class=&quot;language-text&quot;&gt;npx lint-staged&lt;/code&gt; 명령어가 수행되도록 설정을 해뒀기 때문에 이제 커밋을 해보면&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9f6a982ef5bfddc2b67b570bb308b3f5/75609/commit.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 26.08695652173913%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA40lEQVR42mWQSYqEUBBEvYQ4lLTYWl9xIc5TqziBuvL+p4mqSOimoRZBQv4g8sXXHk8PXddh33f0fY+6rmUWRYGmaWQ/DAPCMITruvB9H7ZtwzRNGIYh87+0R+BhnmcsyyIqyxLnecps2xZVVeE4DozjKDt6uWOwZVmfgcb3F/qfHtu2YZomISQZKdd1Fbosy5DnubxHUYQkSaCUguM4H5RakqU43wS8TDKGkfS+byEjDUmDIIDneVJb13URw371F6ieCmmaShApWO26LqGK41gC+cesSx93rEsvD/Gv6eFBBr4ASViZXNfsFK0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;commit&quot;
+        title=&quot;&quot;
+        src=&quot;/static/9f6a982ef5bfddc2b67b570bb308b3f5/dd45a/commit.png&quot;
+        srcset=&quot;/static/9f6a982ef5bfddc2b67b570bb308b3f5/948cf/commit.png 138w,
+/static/9f6a982ef5bfddc2b67b570bb308b3f5/6b2ea/commit.png 275w,
+/static/9f6a982ef5bfddc2b67b570bb308b3f5/dd45a/commit.png 550w,
+/static/9f6a982ef5bfddc2b67b570bb308b3f5/d4c13/commit.png 825w,
+/static/9f6a982ef5bfddc2b67b570bb308b3f5/75609/commit.png 994w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 커밋하기 전 검사를 하고 고칠 부분이 있다면 고쳐서 커밋을 해줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2869d197beeed61578252fbc85ad5366/d0c2f/commit-error.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 19.565217391304348%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAvklEQVR42k2P6QqDMACDfYlVq/W+531QFN3A93+oLIoDf3ykDWlJjG5ocRwH1m3DOE1Y1hXTPCNOEvi+D9OyLsStT8TTN80LQ0mJue/xWRaMbYuqKJBHEeIggGLQFgKutOAx50obZ957Ytv0JZTjwCFGlqfQw4jvMGDjx7ppsNQ1JrLT09Q3m7ZhiIwPIlIodeOgpCb0QhbwiVF1DfZ9x8iZs9bQbNrxo/NelCWSNEXAxh7D/4kvTrv0cRb35B81S3Cq+nXRwQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;commit error&quot;
+        title=&quot;&quot;
+        src=&quot;/static/2869d197beeed61578252fbc85ad5366/dd45a/commit-error.png&quot;
+        srcset=&quot;/static/2869d197beeed61578252fbc85ad5366/948cf/commit-error.png 138w,
+/static/2869d197beeed61578252fbc85ad5366/6b2ea/commit-error.png 275w,
+/static/2869d197beeed61578252fbc85ad5366/dd45a/commit-error.png 550w,
+/static/2869d197beeed61578252fbc85ad5366/d4c13/commit-error.png 825w,
+/static/2869d197beeed61578252fbc85ad5366/99f37/commit-error.png 1100w,
+/static/2869d197beeed61578252fbc85ad5366/d0c2f/commit-error.png 1362w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;만약 에러가 발생하면 커밋이 실패하고요!&lt;/p&gt;
+&lt;p&gt;이렇게 설정을 끝내봤는데요… 사실 아직 본격적으로 사용해보진 않았지만 ..ㅎ... 코드의 일관성을 유지하는데 꽤나 편리해질 것 같습니다!&lt;/p&gt;
+&lt;p&gt;그리고 git hook은 이번에 처음 알게된 기능인데 다른 용도로도 유용하게 쓸 수 있을 것 같아서 오호 알아두면 굉장히 좋을 것 같네용 감사합니다!!!!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React Router의 loader 사용해보기 (feat. React Query)]]></title><description><![CDATA[백만년만에 블로그를 쓰는데요… 흠흠 최근에 React Router의 loader…]]></description><link>https://klloo.github.io/react-loader/</link><guid isPermaLink="false">https://klloo.github.io/react-loader/</guid><pubDate>Sun, 21 Apr 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;백만년만에 블로그를 쓰는데요… 흠흠 최근에 React Router의 loader를 사용해봤는데 이번에 처음 알게된 기능이라 한 번 기록해보려고 합니다.&lt;/p&gt;
 &lt;h2&gt;문제 상황&lt;/h2&gt;
 &lt;p&gt;개발하려했던 기능은 레이아웃 헤더에 셀렉트 박스가 존재하고, 선택한 메뉴에 따라 해당 셀렉트 박스의 활성화 여부가 결정되는 그런 기능이었습니다. 이 때 셀렉트 박스가 활성화 된다면, 기본 값으로 첫번째 값을 설정해주어야 합니다.&lt;/p&gt;
 &lt;p&gt;처음에는 단순하게&lt;/p&gt;
