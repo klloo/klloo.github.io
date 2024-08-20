@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 20 Aug 2024 12:08:28 GMT</lastBuildDate><item><title><![CDATA[Biome - 차세대 JS Linter와 Formatter]]></title><description><![CDATA[이 글에서는 JavaScript에서 Code Formatter와 Linter 역할을 동시에 수행하는 Biome이라는 도구를 소개해보려고 합니다. 저는 Biome을 '비옴'이라고 발음을 해왔기 때문에, 제목도 <Biome…]]></description><link>https://klloo.github.io/biome/</link><guid isPermaLink="false">https://klloo.github.io/biome/</guid><pubDate>Thu, 13 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이 글에서는 JavaScript에서 Code Formatter와 Linter 역할을 동시에 수행하는 Biome이라는 도구를 소개해보려고 합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 20 Aug 2024 15:13:40 GMT</lastBuildDate><item><title><![CDATA[Biome - 차세대 JS Linter와 Formatter]]></title><description><![CDATA[이 글에서는 JavaScript에서 Code Formatter와 Linter 역할을 동시에 수행하는 Biome이라는 도구를 소개해보려고 합니다. 저는 Biome을 '비옴'이라고 발음을 해왔기 때문에, 제목도 <Biome…]]></description><link>https://klloo.github.io/biome/</link><guid isPermaLink="false">https://klloo.github.io/biome/</guid><pubDate>Thu, 13 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이 글에서는 JavaScript에서 Code Formatter와 Linter 역할을 동시에 수행하는 Biome이라는 도구를 소개해보려고 합니다.&lt;/p&gt;
 &lt;p&gt;저는 Biome을 &apos;비옴&apos;이라고 발음을 해왔기 때문에, 제목도 &amp;#x3C;Biome뒤 코드 맑음&gt; 이라고 지으려고 했습니다. 코드 포맷터의 역할을 은유적이고 함축적으로 잘 담았다고 생각하고 뿌듯해했는데...Biome은 &apos;바이옴&apos;이라고 발음하는 것이 맞는 것 같습니다. 흠 ... 근데 그냥 저는 &apos;비옴&apos; 이라고 읽을랍니다.&lt;/p&gt;
 &lt;h2 id=&quot;들어가기-전에&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EC%A0%84%EC%97%90&quot; aria-label=&quot;들어가기 전에 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가기 전에…&lt;/h2&gt;
 &lt;p&gt;혹시 Prettier라는 Code Formatter를 들어본 적이 있으신가요? 아마 프론트엔드 개발자라면 모를 수가 없을 것으로 생각합니다.&lt;/p&gt;
@@ -1125,14 +1125,14 @@ ReactDOM&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;a href=&quot;http://blog.plura.io/?p=7614&quot;&gt;http://blog.plura.io/?p=7614&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gatsby 블로그에 태그 만들기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/blog-tag/</link><guid isPermaLink="false">https://klloo.github.io/blog-tag/</guid><pubDate>Thu, 11 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;제 블로그는 원래 ... 카테고리를 하나로 두고 포스팅을 작성했었습니다. 그런데 카테고리를 하나로 두다보니...글의 분류를 딱 하나로 단정짓기가 은근 어려워서 태그의 개념으로 여러개의 분류를 달아두고 싶었습니다. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;그래서 먼저 포스팅이 되는 마크다운 문서의 frontmatter를 아래와 같이 수정했습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;md&quot;&gt;&lt;pre class=&quot;language-md&quot;&gt;&lt;code class=&quot;language-md&quot;&gt;&lt;span class=&quot;token front-matter-block&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;token front-matter yaml language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Gatsby 블로그에 태그 만들기
-&lt;span class=&quot;token key atrule&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;2024-01-11&apos;&lt;/span&gt;
-&lt;span class=&quot;token key atrule&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 🏷️
-&lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;블로그에 태그를 추가했습니다.&apos;&lt;/span&gt;
-&lt;span class=&quot;token key atrule&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; Gatsby
- &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; Blog
- &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; JavaScript&lt;/span&gt;
+&lt;span class=&quot;token front-matter yaml language-yaml&quot;&gt;title: Gatsby 블로그에 태그 만들기
+date: &apos;2024-01-11&apos;
+icon: 🏷️
+description: &apos;블로그에 태그를 추가했습니다.&apos;
+tags:
+ - Gatsby
+ - Blog
+ - JavaScript&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;이런식으로 category를 제거하고, tags를 새로 추가했습니다. 여러 항목을 추가하기 위해서는 -로 구분하여 작성해주면 됩니다.&lt;/p&gt;
 &lt;p&gt;이제 아래의 일들이 남았습니다.&lt;/p&gt;
