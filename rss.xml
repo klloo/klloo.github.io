@@ -1,4 +1,189 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 22 Aug 2024 14:09:41 GMT</lastBuildDate><item><title><![CDATA[Biome - 차세대 JS Linter와 Formatter]]></title><description><![CDATA[이 글에서는 JavaScript에서 Code Formatter와 Linter 역할을 동시에 수행하는 Biome이라는 도구를 소개해보려고 합니다. 저는 Biome을 '비옴'이라고 발음을 해왔기 때문에, 제목도 <Biome…]]></description><link>https://klloo.github.io/biome/</link><guid isPermaLink="false">https://klloo.github.io/biome/</guid><pubDate>Thu, 13 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이 글에서는 JavaScript에서 Code Formatter와 Linter 역할을 동시에 수행하는 Biome이라는 도구를 소개해보려고 합니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[Gatsby Starter Blog RSS Feed]]></description><link>https://klloo.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Aug 2024 03:23:57 GMT</lastBuildDate><item><title><![CDATA[JS로 한글 파싱하기]]></title><description><![CDATA[…]]></description><link>https://klloo.github.io/js-hangul/</link><guid isPermaLink="false">https://klloo.github.io/js-hangul/</guid><pubDate>Thu, 22 Aug 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;안녕하세요. 굉장히 오랜만에 블로그를 작성하는데요 …&lt;/p&gt;
+&lt;p&gt;백만년만에 가지고 온 주제는 자바스크립트로 한글 파싱하기 입니다!&lt;/p&gt;
+&lt;p&gt;개인적으로 진행하던 프로젝트에서&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/750843c97a959b80b81f94dcefbb0732/0f79a/project.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10.144927536231883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAaklEQVR42j2KUQ7DIAxDe/97jCahdJAEUHc5LzBpH9Z7ln3M54NmA+odOhStt+gW6X+34UGFdtup1oIe1L0vX/Q5cfg0SGHIlcFSQJLxogTKhMSCUxLK+w4/wZfs39ql/JiYwDl+zLhrxRfRDXm7be/AfwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;project.png&quot;
+        title=&quot;&quot;
+        src=&quot;/static/750843c97a959b80b81f94dcefbb0732/dd45a/project.png&quot;
+        srcset=&quot;/static/750843c97a959b80b81f94dcefbb0732/948cf/project.png 138w,
+/static/750843c97a959b80b81f94dcefbb0732/6b2ea/project.png 275w,
+/static/750843c97a959b80b81f94dcefbb0732/dd45a/project.png 550w,
+/static/750843c97a959b80b81f94dcefbb0732/0f79a/project.png 689w&quot;
+        sizes=&quot;(max-width: 550px) 100vw, 550px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 자음 버튼이 있고, 해당 버튼을 누르면 해당 자음으로 시작하는 이름을 가진 사람들만 목록에 보여줘야 합니다. 만약 영어였다면, 그냥 맨 앞글자와 비교만 하면 됐을텐데요. 순간 한글은 어떻게 처리해야하지? 멈칫했습니다.&lt;/p&gt;
+&lt;p&gt;하지만 이내 생각을 다잡고… 일단 이름의 맨 앞글자를 초성, 중성, 종성으로 쪼갠다음 초성과 선택한 자음을 비교해서 걸러주면 되겠다…!!! 싶었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 334px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c061247b7885c8e61acd2046017ae616/86d36/hangul.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 96.37681159420289%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEw0lEQVR42iWU6VOTVxTG37+mM51+67QfdOp02jpOrV1EXKg66DhFVgkhhISEgAmEhOzLa/aNQICwBsEFZDEsBQIC6mgdP/Rf+fUk/XDnvu+95zz3Oc99zlWMrc04LRZCo06cA/3YentwWMyoHjeq10fE52NrY4v54iJmnQGDRltb7276i7a7f6KXfPeQDfuAGaPmEUoiFObzh8/8++kz+VgEe7+RoMtBMhIiEfaxufaK9dUNxjNjzEzOCZgbQ3sL9d99y60fz3HzwjfYdJ1YDT3UnfsapZBMcLKzx0l5m9XSAgtzs6y+eMbycolSaZ7t7TL7+wesPF1iaanEzNQ4qmuE1rpLaG//xqNrF8kERslEIrT8/hPK4uwsC8UiS4sLlLe3qBxVODl9w9FxhYPD/do4OXvD6ekJG+trtcPGElE0N65gbLyO9sbPzOViFAsTaG/+glJ+XaZcLrOzu0ulcsi79+/5+M8nPnz8wNt3Z5y9PeH45IjtvR1KL1aYLM0xZLdy49L3PLh6mTsXz5OPh8mnUzRf+QHl4O8Kh4cVjo+PhcUpZ+/fciQMdyr7vNzbZGHzBTNry2SXZnCP2nCHnGgHDTxsb6J/ZJDU9BjTz0rEcylMhi6U3d19NkWnF6/Xebq1xvzWS2a3njO5tlQDiRSyuFQ/liEL9xvuUX/tLg0362m6fwdtVzujARehZITUzAQz689QxqWE/PI8+ZUFASiSKOZrAR6/h2GbFavZiM3ch0fYXBWw8xf+IOQPU0glsRp7sZoMDBj16Do70HVpUNRcEm80zLBzhBHxk1U86Hg8iF/+4yG/2CdIXA2QT8XQaTTU/1rHWDopayph9yhROTghcRGZqzlKR1MTfZouhvvNBJyOGkgqpjImAGPJKLlEhEwsRlpsEZT9e7du89UXX2ISNnG/VyzkJBH0E/V5CDrsKDajoRYYlc6ISlek1CdMpFJMZDLkEzFS4TCxYJCEGsY/MsKAXo+mXUNPxyNsRiNh6bCkAD4RtgH7EEo1KOAQ6k+iZNM5ctlxYuFIjdFEMiXdkyArDKssM5Eo3qFhjJ0ahkxmwk7JkzZMh1XiAT+qgAvgKOmxSVZfbXBYORZjHzM+M088lRW2qpSclNKTZONxktKmcX+AdEgV5jJkrn7n5KCMGpHy3Sg+uwOv3NrcTJF98ePe/iETU0XisSSZaIzJXF4A0zXGGQGpskkEgiRlVEGmMlmm8hIjlUQ8XhTXoFVeiYfcv1vHg8YGmpsbxQItxLwBlmbnWXu+yvR4gaRomxUmhUyO8ZoU8ZocK4uLbKyusyRVJYMhFMfAY4YM3RjaWrDouxnu60Xf0VrTtQq4u7XNdH4S1RcQawREywS5eIqQx0c8HBI7ZVgprQjLAjHZV2wibiaelqRpgsLKYuzD2K2jT9eDSd+L2WDC57Rj6mnGqG1G1/GQaMCDXnMPQ3cbXe2N2Ae1PDZ14h0ergL2i/BZns4v43W6xPkWWsSbvV1a+sUifd09+OT2LNpWzJpWeStH8dsGMLdcx6Rpp63hMoPSw/2aB2I/F0qfVidBfjZfvqaQmxAvBgmJHQIjDjGqk5CUHpShurzMjk9zsHMoei0SC/x/40G51IDDjWvQRnDUw3/FsgZu6Vxg2AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;hangul.png&quot;
+        title=&quot;&quot;
+        src=&quot;/static/c061247b7885c8e61acd2046017ae616/86d36/hangul.png&quot;
+        srcset=&quot;/static/c061247b7885c8e61acd2046017ae616/948cf/hangul.png 138w,
+/static/c061247b7885c8e61acd2046017ae616/6b2ea/hangul.png 275w,
+/static/c061247b7885c8e61acd2046017ae616/86d36/hangul.png 334w&quot;
+        sizes=&quot;(max-width: 334px) 100vw, 334px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그런데 또 … 한글을 어떻게 쪼개지..?&lt;/p&gt;
+&lt;h3 id=&quot;유니코드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C&quot; aria-label=&quot;유니코드 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;유니코드&lt;/h3&gt;
+&lt;p&gt;유니코드란 전 세계의 모든 문자를 다룰 수 있는 통일된 문자 집합을 말합니다. 대부분 나라의 문자 및 특수문자, 화살표, 이모티콘 까지 코드로 표현할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;당연히 한글 인코딩도 지원하며, 한글에서 조합이 가능한 11,172자를 모두 표현할 수 있습니다.&lt;/p&gt;
+&lt;h3 id=&quot;초성-중성-종성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B4%88%EC%84%B1-%EC%A4%91%EC%84%B1-%EC%A2%85%EC%84%B1&quot; aria-label=&quot;초성 중성 종성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;초성, 중성, 종성&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 435px; overflow: hidden!important; border-radius: 8px!important; margin-left: 0!important;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4f6212e87758a65a2e8c250c73320040/330eb/ggdd.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.072463768115945%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAADE0lEQVR42g2SW0+aBwCGv2TJfsKyu63Zpm3ZRIGKih8CKiqoEAqKFYFaTlXHQQ4TQegc2A5PWG22oq3SVZ3T2lZr25gucWs2E5Olu/BiN9vFrvYvnnHx3r5v8ryPEI8FWVj5nl+PnvL02T6l7WdsPtkjl00wOtyH12UnNjqEz21m2GnF5bATDQbIJCOkJyLEImMkxr8kEQtRKOQRvo47uZOJsjnvZzpmZyoVZu7bFLERDyGvk3zKxdGWh+iIFl2LnEjQz9JinsRXMZLJONmpOJHQTVKTMdKpKMLB9l22liKUl4bJJmzkUnYWc6M8/zHM8aGT8YABY6uIWtVEW4tYGYxi6DYhq1XSqBQxm3px2K2YerqRyxUIhUymUpCmmL/B78fj/HUW53DXz3//eHi510arqoFHM2HKt8aZ8g5iau+g5tNqQgMmXL16JNUyujQ2GuQi4hUpwrvTU94c7PD3nz9wvJtmtdiHQi5Bo/6c2VtaevUy9E1K4s4ulJeree/9D+nQmMkHBrHqNIj1WmQ17Vg6DewVkwjn5+84P3tZYTZArbSOOqkCo1bDhY8/IRVs5PFyC/6hCrubOjr1VdzwKIkkx5iJBujQWzAZrVyVqXA261nLhhHe/rzPyX4BvaaB5mYRvahiLuQjHdCR8V9ibqKN18/LrC4O88e6g39/CfF22UUxbefCJZGLKjfGqlZyFjPJ63aEtXt3Kc1FaW9R0Nl8hXsRF6WoE3e3jr6rF5mfDXNndg2b4SN2Z9t4sa7l1X074cAAVR9I6f5MpEeuxd1lxHXNhZBIFNl5vIHNYsBh6mD9m3DFqzDXU2kmvntAdv0h86UN6pvVKHU6FJWnTdcGGBpLM9jWj7emCbOkiaZGC8ur+wjZ9CS9PV2IokjtF5fpc/tYeXLKyt4JP20fsLSwxdrWCTvlIxbKJzx68RuFB6+5XTrk/tEZoekirZJGjJ3DlDYOEBz9FafqZBV+KmprJNSrtYwkp4llZpjMFfCEkvjCWbyRDDZPnKHRGP2+INZK7JEkassgcqkKndrB7cVN/gc8+fA1RgzU7AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ggdd.png&quot;
+        title=&quot;&quot;
+        src=&quot;/static/4f6212e87758a65a2e8c250c73320040/330eb/ggdd.png&quot;
+        srcset=&quot;/static/4f6212e87758a65a2e8c250c73320040/948cf/ggdd.png 138w,
+/static/4f6212e87758a65a2e8c250c73320040/6b2ea/ggdd.png 275w,
+/static/4f6212e87758a65a2e8c250c73320040/330eb/ggdd.png 435w&quot;
+        sizes=&quot;(max-width: 435px) 100vw, 435px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;한글에는 다음과 같은 초성, 중성, 종성이 존재합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;초성: ㄱ, ㄲ, ㄴ, ㄷ, ㄸ, ㄹ, ㅁ, ㅂ, ㅃ, ㅅ, ㅆ, ㅇ, ㅈ, ㅉ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ&lt;/li&gt;
+&lt;li&gt;중성: ㅏ, ㅐ, ㅑ, ㅒ, ㅓ, ㅔ, ㅕ, ㅖ, ㅗ, ㅘ, ㅙ, ㅚ, ㅛ, ㅜ, ㅝ, ㅞ, ㅟ, ㅠ, ㅡ, ㅢ, ㅣ&lt;/li&gt;
+&lt;li&gt;종성: [ ], ㄱ, ㄲ, ㄳ, ㄴ, ㄵ, ㄶ, ㄷ, ㄹ, ㄺ, ㄻ, ㄼ, ㄽ, ㄾ, ㄿ, ㅀ, ㅁ, ㅂ, ㅄ, ㅅ, ㅆ, ㅇ, ㅈ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;초성은 19글자, 중성은 21글자, 종성은 없는 경우를 포함하여 28자 입니다.&lt;/p&gt;
+&lt;p&gt;그래서 총 19 x 21 x 28 = 11,172가 표현이 가능한건데요&lt;/p&gt;
+&lt;p&gt;하나의 초성으로 만들 수 있는 글자수는 21(중성) x 28(종성) = 588자가 되고, 마찬가지로 하나의 중성은 28자씩 구성될 수 있습니다.&lt;/p&gt;
+&lt;p&gt;즉, 초성은 588자, 중성은 28자마다 변경되므로 한글 코드 값은 아래와 같이 계산될 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;한글 유니코드
+&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0xAC00&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;초성 &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;588&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;중성 &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; 종성&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0xAC00&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;초성 &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; 중성&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; 종성&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;유니코드에서 한글의 첫글자는 &lt;code class=&quot;language-text&quot;&gt;0xAC00&lt;/code&gt; 부터 시작하기 때문에, 항상 이 값을 더해주는 것이고, 음 뭔가 n진수의 느낌이 납니다. 예를들어 10진수에서 723 이라는 숫자는 &lt;code class=&quot;language-text&quot;&gt;(7 × 100) + (2 × 10) + 3&lt;/code&gt; 으로 나타낼 수 있는 것 처럼요.&lt;/p&gt;
+&lt;p&gt;초,중,종성을 각 자리수로 생각해보면 유추하기 쉬울 것 같습니다. &lt;code class=&quot;language-text&quot;&gt;가&lt;/code&gt; 다음은 종성의 자리수가 올라간 &lt;code class=&quot;language-text&quot;&gt;각&lt;/code&gt; , 그 다음은 &lt;code class=&quot;language-text&quot;&gt;갂&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;갃&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;간&lt;/code&gt; … &lt;code class=&quot;language-text&quot;&gt;갛&lt;/code&gt; 까지 간 이후에는, 중성의 자릿수가 올라간 &lt;code class=&quot;language-text&quot;&gt;개&lt;/code&gt; 가 되는 것입니다.&lt;/p&gt;
+&lt;p&gt;이 원리와 식을 활용하면 글자에서 초성, 중성, 종성을 분리해낼 수 있습니다!&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; charCode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;장&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0xac00&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; 종성 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; charCode &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; 중성 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;charCode &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; 종성&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; 초성 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;charCode &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; 종성&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; 중성&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Cho&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;초성&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Jung&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;중성&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Jong&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;종성&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ㅈ, ㅏ, ㅇ&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;혹은 아래와 같을 수도 있겠네요&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; charCode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;장&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0xac00&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; 초성 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;charCode &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;588&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; 중성 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;charCode &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;588&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; 종성 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; charCode &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Cho&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;초성&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Jung&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;중성&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Jong&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;종성&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// ㅈ, ㅏ, ㅇ&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저는 개인적으로 두번째 식이 더 마음에 듭니다. 10진수 숫자 723에서 각 자리수의 숫자를 뽑아내는 로직과 비슷해서, 조금 더 익숙한 느낌이기 때문입니다. 그러나… 구글링의 결과 99%는 첫번째 식을 사용하더군요… 사실 로직은 두번째 식이 익숙하지만, Math.floor의 연산을 사용하지 않는 첫번째 식이 더 깔끔한 것 같긴 합니다!&lt;/p&gt;
+&lt;h3 id=&quot;코드로-작성해보자&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C%EB%A1%9C-%EC%9E%91%EC%84%B1%ED%95%B4%EB%B3%B4%EC%9E%90&quot; aria-label=&quot;코드로 작성해보자 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드로 작성해보자&lt;/h3&gt;
+&lt;p&gt;그럼 이제 처음에 원했던 기능을 JS 코드로 작성해봅시다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;CHO_SUNG&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㄱ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㄲ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㄴ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㄷ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㄸ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㄹ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅁ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅂ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅃ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅅ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅆ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅇ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅈ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅉ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅊ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅋ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅌ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅍ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;token string&quot;&gt;&apos;ㅎ&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;먼저 초성을 정의해줍니다. 제가 원했던 기능은 애초에 초성에 어떤 자음이 있는지만 판단하면 돼서, 초성만 정의해두었습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HANGUL_START_CHARCODE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;가&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;charCodeAt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HANGUL_END_CHARCODE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;힣&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;charCodeAt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isHangul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token literal-property property&quot;&gt;charCode&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HANGUL_START_CHARCODE&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; charCode &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; charCode &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HANGUL_END_CHARCODE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그 다음, 한글이 제대로 들어온건지 유효성을 검사하는 함수를 만들었습니다.&lt;/p&gt;
+&lt;p&gt;한글의 유니코드는 &lt;code class=&quot;language-text&quot;&gt;가&lt;/code&gt; 부터 시작해서 &lt;code class=&quot;language-text&quot;&gt;힣&lt;/code&gt; 에서 끝납니다. 그래서 첫글자와 끝글자의 코드 값을 저장해두고, 해당 범위의 값인지 판단해줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;charCodeAt(index)&lt;/code&gt; 함수를 사용하면, index에 해당하는 글자의 유니코드 값을 얻어올 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;CHO_PERIOD&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;까&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;charCodeAt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;가&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;charCodeAt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getChosung&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; firstLetter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; letterCode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; firstLetter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;charCodeAt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+ &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isHangul&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;letterCode&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; firstLetter&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; charCode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; letterCode &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HANGUL_START_CHARCODE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+ &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; index &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;charCode &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;CHO_PERIOD&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;CHO_SUNG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;마지막으로 이름을 전달하면 첫글자의 초성을 꺼내주는 함수를 작성했습니다. 먼저 이름의 첫글자를 유니코드로 가져온 후, 위에서 설명했던 식을 사용해서 구현했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;CHO_PERIOD&lt;/code&gt; 값은 한 초성에서 다음 초성으로 넘어가는 데 필요한 문자 코드의 차이를 나타내며 위에서 설명한 하나의 초성으로 구성할 수 있는 모든 글자의 수입니다. &lt;code class=&quot;language-text&quot;&gt;가&lt;/code&gt;는 첫 번째 초성 &lt;code class=&quot;language-text&quot;&gt;ㄱ&lt;/code&gt;으로 시작하는 첫 글자이고, &lt;code class=&quot;language-text&quot;&gt;까&lt;/code&gt;는 두 번째 초성 &lt;code class=&quot;language-text&quot;&gt;ㄲ&lt;/code&gt;으로 시작하는 첫 글자로 두 글자의 유니코드 값을 빼면 588이 나옵니다!&lt;/p&gt;
+&lt;h3 id=&quot;마무리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%88%EB%AC%B4%EB%A6%AC&quot; aria-label=&quot;마무리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;마무리&lt;/h3&gt;
+&lt;p&gt;간단하게 이름 첫글자의 초성을 분리해보는 코드를 작성을 해봤는데요!&lt;/p&gt;
+&lt;p&gt;여기서 설명한 한글 유니코드의 조합 원리를 활용하면 초성 검색, 특정 단어 뒤에 붙을 조사 결정 등 다양한 기능을 구현해볼 수 있을 것 같습니다!&lt;/p&gt;
+&lt;p&gt;저도 이참에 제 블로그에 초성 검색 기능을 추가해볼까~ 싶기도 하네요. 그런 기능이 필요할 만큼 방대한 자료가 있는 건 아니지만 그냥 겉멋용으로요~!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Biome - 차세대 JS Linter와 Formatter]]></title><description><![CDATA[이 글에서는 JavaScript에서 Code Formatter와 Linter 역할을 동시에 수행하는 Biome이라는 도구를 소개해보려고 합니다. 저는 Biome을 '비옴'이라고 발음을 해왔기 때문에, 제목도 <Biome…]]></description><link>https://klloo.github.io/biome/</link><guid isPermaLink="false">https://klloo.github.io/biome/</guid><pubDate>Thu, 13 Jun 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이 글에서는 JavaScript에서 Code Formatter와 Linter 역할을 동시에 수행하는 Biome이라는 도구를 소개해보려고 합니다.&lt;/p&gt;
 &lt;p&gt;저는 Biome을 &apos;비옴&apos;이라고 발음을 해왔기 때문에, 제목도 &amp;#x3C;Biome뒤 코드 맑음&gt; 이라고 지으려고 했습니다. 코드 포맷터의 역할을 은유적이고 함축적으로 잘 담았다고 생각하고 뿌듯해했는데...Biome은 &apos;바이옴&apos;이라고 발음하는 것이 맞는 것 같습니다. 흠 ... 근데 그냥 저는 &apos;비옴&apos; 이라고 읽을랍니다.&lt;/p&gt;
 &lt;h2 id=&quot;들어가기-전에&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%93%A4%EC%96%B4%EA%B0%80%EA%B8%B0-%EC%A0%84%EC%97%90&quot; aria-label=&quot;들어가기 전에 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;들어가기 전에…&lt;/h2&gt;
 &lt;p&gt;혹시 Prettier라는 Code Formatter를 들어본 적이 있으신가요? 아마 프론트엔드 개발자라면 모를 수가 없을 것으로 생각합니다.&lt;/p&gt;
